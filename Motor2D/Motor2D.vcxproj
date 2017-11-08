@@ -76,6 +76,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="enemy_gargoyle.cpp" />
+    <ClCompile Include="j1Enemy.cpp" />
     <ClCompile Include="j1FadeToBlack.cpp" />
     <ClCompile Include="j1Main.cpp" />
     <ClCompile Include="j1App.cpp" />
@@ -94,6 +96,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="enemy_gargoyle.h" />
+    <ClInclude Include="j1Enemy.h" />
     <ClInclude Include="j1FadeToBlack.h" />
     <ClInclude Include="j1Map.h" />
     <ClInclude Include="j1Particles.h" />
