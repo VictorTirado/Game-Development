@@ -77,6 +77,9 @@ j1Player::j1Player() : j1Module()
 	melee.PushBack({ 821,109,100,69 });
 	melee.speed = 0.15f;
 
+	
+
+
 	//FIRE
 	shot.PushBack({ 22,550,46,69 });
 	shot.PushBack({ 83,551,49,70 });
@@ -110,9 +113,11 @@ bool j1Player::Start()
 	speed = 1;
 	LOG("Loading player textures");
 	
+	attributes = App->tex->Load("player/Attributes.png");
 	graphics = App->tex->Load("player/Player.png");
 	collider = App->collision->AddCollider({ position.x, position.y, 46, 69 }, COLLIDER_PLAYER, this);
 
+	
 	return ret;
 }
 
@@ -124,6 +129,8 @@ bool j1Player::PreUpdate()
 
 bool j1Player::Update(float dt)
 {
+
+	
 	startPos.x = App->map->spawn.x;
 	startPos.y = App->map->spawn.y;
 	if (firstUpdate == true) {
@@ -157,32 +164,41 @@ bool j1Player::Update(float dt)
 			App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
 		}
 	}
-	if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT && jumping==false)
-	{
-	
-		current_animation = &attack;
-		Ice();
-
+	if (mana2 >= 80) {
+		if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN && jumping == false)
+		{
+			mana2 -= 80;
+			current_animation = &attack;
+			Ice();
+		}
 	}
-
-	if (App->input->GetKey(SDL_SCANCODE_T) == KEY_REPEAT && current_animation != &melee)
-	{
-		attackingMelee = true;
-		Thunder();
+	if (mana2 >= 20) {
+		if (App->input->GetKey(SDL_SCANCODE_T) == KEY_REPEAT && current_animation != &melee)
+		{
+			mana2 -= 20;
+			attackingMelee = true;
+			Thunder();
+		}
 	}
-	if (App->input->GetKey(SDL_SCANCODE_Y) == KEY_REPEAT && current_animation != &shot)
-	{
-		shooting = true;
-		//current_animation = &shot;
-		//Shot();
+	if (mana2 >= 40) {
+		if (App->input->GetKey(SDL_SCANCODE_Y) == KEY_REPEAT && current_animation != &shot)
+		{
+			mana2 -= 40;
+			shooting = true;
+			//current_animation = &shot;
+			//Shot();
+		}
 	}
 	if (App->input->GetKey(SDL_SCANCODE_U) == KEY_REPEAT)
 	{
 		current_animation = &death;
 	}
-	if (App->input->GetKey(SDL_SCANCODE_I) == KEY_REPEAT)
-	{
-		current_animation = &levitate;
+	if (mana2 >= 30) {
+		if (App->input->GetKey(SDL_SCANCODE_I) == KEY_REPEAT)
+		{
+			mana2 -= 30;
+			current_animation = &levitate;
+		}
 	}
 	
 
@@ -295,7 +311,8 @@ bool j1Player::Update(float dt)
 	}
 	collider->SetPos(position.x , position.y);
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()),1, flip);
-
+	
+	
 	return ret;
 }
 

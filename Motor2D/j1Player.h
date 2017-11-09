@@ -34,11 +34,15 @@ public:
 
 	iPoint startPos = { 0, 1000 };
 	iPoint position = { 0,0 };
+	int lifes = 3;
+	int mana2 = 350;
 	int speed;
 	int cont = 0;
 	int cont2 = 0;
 	Animation* current_animation = nullptr;
 	SDL_Texture* graphics = nullptr;
+	SDL_Texture* attributes = nullptr;
+	Animation* manas = nullptr;
 	Animation idle;
 	Animation run;
 	Animation attack;
@@ -59,6 +63,7 @@ public:
 	SDL_Rect levitate_last_frame;
 	SDL_Rect shoot_frame;
 	SDL_Rect shoot_last_frame;
+	SDL_Rect mana_rect;
 
 	Collider* collider;
 	//Collider* collider = nullptr;

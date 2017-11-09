@@ -16,9 +16,6 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_PLAYER][COLLIDER_ATTACK] = false;
 	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY] = true;
 	
-
-
-
 	matrix[COLLIDER_ATTACK][COLLIDER_PLAYER] = false;
 	matrix[COLLIDER_ATTACK][COLLIDER_ATTACK] = false;
 	matrix[COLLIDER_ATTACK][COLLIDER_ENEMY] = true;
@@ -190,6 +187,7 @@ bool Collider::CheckCollision(const SDL_Rect& r) const
 			collision = true;
 		}
 	}
+
 
 	return  collision;
 }
