@@ -14,17 +14,17 @@ ModuleCollision::ModuleCollision()
 
 	matrix[COLLIDER_PLAYER][COLLIDER_PLAYER] = false;
 	matrix[COLLIDER_PLAYER][COLLIDER_ATTACK] = false;
-	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY] = false;
+	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY] = true;
 	
 
 
 
 	matrix[COLLIDER_ATTACK][COLLIDER_PLAYER] = false;
 	matrix[COLLIDER_ATTACK][COLLIDER_ATTACK] = false;
-	matrix[COLLIDER_ATTACK][COLLIDER_ENEMY] = false;
+	matrix[COLLIDER_ATTACK][COLLIDER_ENEMY] = true;
 
-	matrix[COLLIDER_ENEMY][COLLIDER_PLAYER] = false;
-	matrix[COLLIDER_ENEMY][COLLIDER_ATTACK] = false;
+	matrix[COLLIDER_ENEMY][COLLIDER_PLAYER] = true;
+	matrix[COLLIDER_ENEMY][COLLIDER_ATTACK] = true;
 	matrix[COLLIDER_ENEMY][COLLIDER_ENEMY] = false;
 
 }

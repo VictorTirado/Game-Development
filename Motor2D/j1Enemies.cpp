@@ -81,12 +81,12 @@ bool j1Enemies::PostUpdate()
 	{
 		if (enemies[i] != nullptr)
 		{
-			if (-enemies[i]->position.y *App->win->screen_surface->h < (App->render->camera.y) - SPAWN_MARGIN * 16)
-			{
-				//LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
-				delete enemies[i];
-				enemies[i] = nullptr;
-			}
+			//if (-enemies[i]->position.y *App->win->screen_surface->h < (App->render->camera.y) - SPAWN_MARGIN * 16)
+			//{
+			//	//LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
+			//	delete enemies[i];
+			//	enemies[i] = nullptr;
+			//}
 		}
 	}
 
@@ -170,6 +170,5 @@ void j1Enemies::SpawnEnemy(const EnemyInfo& info)
 
 void j1Enemies::OnCollision(Collider* c1, Collider* c2)
 {
-
 
 }

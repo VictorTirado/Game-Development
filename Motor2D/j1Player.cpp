@@ -131,7 +131,7 @@ bool j1Player::Update(float dt)
 		App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
 		App->render->camera.y = position.y - (App->win->screen_surface->h);
 		collider = App->collision->AddCollider({ position.x, position.y, 46, 69 }, COLLIDER_PLAYER, this);
-		App->enemies->AddEnemy(Gargoile, position.x + 40, position.y);
+		App->enemies->AddEnemy(Gargoile, position.x + 60, position.y);
 		firstUpdate = false;
 	}
 	gid=App->map->Get_gid(position.x/*-75*/, position.y);
