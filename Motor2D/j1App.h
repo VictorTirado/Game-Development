@@ -19,6 +19,7 @@ class j1FadeToBlack;
 class ModuleCollision;
 class j1Particles;
 
+
 class j1App
 {
 public:

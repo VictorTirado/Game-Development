@@ -83,7 +83,9 @@ j1Player::j1Player() : j1Module()
 	shot.PushBack({ 232,554,56,70 });
 	shot.PushBack({ 315,555,49,69 });
 	shot.PushBack({ 385,556,46,69 });
-	//shot.loop = 0.0f;
+	shot.speed = 0.15f;
+	shoot_frame = { 152,553,59,71 };
+	shoot_last_frame = { 385,556,46,69 };
 
 	//DEATH
 	death.PushBack({ 38,282,46,69 });
@@ -109,6 +111,7 @@ bool j1Player::Start()
 	
 	graphics = App->tex->Load("player/Player.png");
 	collider = App->collision->AddCollider({ position.x, position.y, 46, 69 }, COLLIDER_PLAYER, this);
+
 	return ret;
 }
 
@@ -243,15 +246,16 @@ bool j1Player::Update(float dt)
 
 	if (shooting == true) {
 		current_animation = &shot;
-		if (shot.Finished() == true) {
+		if (shoot_frame.x == shot.GetCurrentFrame().x && shoot_frame.y == shot.GetCurrentFrame().y) {
 			Shot();
+		}
+		if (shoot_last_frame.x == shot.GetCurrentFrame().x && shoot_last_frame.y == shot.GetCurrentFrame().y) {
 			shooting = false;
 		}
 	}
-	else
+	else {
 		shot.Reset();
-
-
+	}
 	if (App->map->data.maplayers.end->data->data[gid + 150] != 1132 && jumping == false) {
 		current_animation = &jump;
 		position.y = position.y + speed * 4;

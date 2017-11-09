@@ -12044,7 +12044,7 @@
    <tile gid="214"/>
   </data>
  </layer>
- <layer name="Logic" width="150" height="20" opacity="0.63" visible="1">
+ <layer name="Logic" width="150" height="20" opacity="0.63" visible="0">
   <properties>
    <property name="Collision" type="bool" value="true"/>
   </properties>

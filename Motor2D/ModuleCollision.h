@@ -54,7 +54,7 @@ public:
 	Collider* AddCollider(SDL_Rect rect, COLLIDER_TYPE type, j1Module* callback = nullptr);
 	bool EraseCollider(Collider* collider);
 	void DebugDraw();
-	bool debug = true;
+	bool debug = false;
 private:
 
 	Collider* colliders[MAX_COLLIDERS];

@@ -56,6 +56,8 @@ public:
 	SDL_RendererFlip flip;
 	bool firstUpdate = true;
 	SDL_Rect levitate_last_frame;
+	SDL_Rect shoot_frame;
+	SDL_Rect shoot_last_frame;
 
 	Collider* collider;
 	//Collider* collider = nullptr;

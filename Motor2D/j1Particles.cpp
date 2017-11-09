@@ -24,6 +24,12 @@ j1Particles::j1Particles()
 	fire_ball.anim.PushBack({ 482,584,26,17 });
 	fire_ball.anim.PushBack({ 516,584,26,17 });
 	fire_ball.anim.PushBack({ 549,584,26,17 });
+	fire_ball.anim.PushBack({ 516,584,26,17 });
+	fire_ball.anim.PushBack({ 549,584,26,17 });
+	fire_ball.anim.PushBack({ 516,584,26,17 });
+	fire_ball.anim.PushBack({ 549,584,26,17 });
+	fire_ball.anim.PushBack({ 516,584,26,17 });
+	fire_ball.anim.PushBack({ 549,584,26,17 });
 
 	thunder.anim.PushBack({ 0,0,70,14 });
 	thunder.anim.PushBack({ 0,0,70,14 });
