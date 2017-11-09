@@ -28,7 +28,7 @@
    </properties>
   </tile>
  </tileset>
- <layer name="Background" width="150" height="20">
+ <layer name="Background" width="150" height="20" visible="1">
   <data>
    <tile gid="1381"/>
    <tile gid="1382"/>
@@ -3032,7 +3032,7 @@
    <tile gid="2100"/>
   </data>
  </layer>
- <layer name="Forest" width="150" height="20">
+ <layer name="Forest" width="150" height="20" visible="1">
   <data>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -6036,7 +6036,7 @@
    <tile gid="0"/>
   </data>
  </layer>
- <layer name="Map" width="150" height="20">
+ <layer name="Map" width="150" height="20" visible="1">
   <data>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -9040,7 +9040,7 @@
    <tile gid="0"/>
   </data>
  </layer>
- <layer name="Floor" width="150" height="20">
+ <layer name="Floor" width="150" height="20" visible="1">
   <data>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -12044,7 +12044,7 @@
    <tile gid="214"/>
   </data>
  </layer>
- <layer name="Logic" width="150" height="20" opacity="0.63">
+ <layer name="Logic" width="150" height="20" opacity="0.63" visible="1">
   <properties>
    <property name="Collision" type="bool" value="true"/>
   </properties>

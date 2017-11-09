@@ -46,7 +46,7 @@ void j1Map::Draw()
 						SDL_Rect* section = &tile;
 						iPoint xy = MapToWorld(i, j);
 						uint gid = Get_gid(xy.x, xy.y);
-						if (App->map->data.maplayers.end->data->data[gid] == 39) {
+						if (App->map->data.maplayers.end->data->data[gid] == 1086) {
 							spawn.x = xy.x;
 							spawn.y = xy.y;
 							LOG("Spawn.x = %d Spawn.y = %d", spawn.x, spawn.y);
@@ -56,8 +56,6 @@ void j1Map::Draw()
 						}
 						if (layer_list->data->visible!=0 && layer_list->data->name != "Background") {
 							App->render->Blit(tileset_list->data->texture, xy.x, xy.y, &tile);
-							App->player->startPos.x = spawn.x;
-							App->player->startPos.y = spawn.y;
 						}
 					}
 				}

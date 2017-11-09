@@ -48,7 +48,7 @@ j1Player::j1Player() : j1Module()
 	levitate.PushBack({ 689,241,46,78 });
 	levitate.PushBack({ 767,244,46,78 });
 	levitate.PushBack({833,248,46,78});
-	levitate.speed = 0.01f;
+	levitate.speed = 0.05f;
 
 	//ICE
 	attack.PushBack({ 29,377,49,69 });
@@ -124,11 +124,11 @@ bool j1Player::Update(float dt)
 	if (firstUpdate == true) {
 		position = startPos;
 		App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
-		App->render->camera.y = startPos.y - (App->win->screen_surface->h*2.5);
+		App->render->camera.y = position.y - (App->win->screen_surface->h);
 		collider = App->collision->AddCollider({ position.x, position.y, 46, 69 }, COLLIDER_PLAYER, this);
 		firstUpdate = false;
 	}
-	gid=App->map->Get_gid(position.x-75, position.y);
+	gid=App->map->Get_gid(position.x/*-75*/, position.y);
 	bool ret = true;
 	current_animation = &idle;
 	flip = SDL_FLIP_NONE;
@@ -136,7 +136,7 @@ bool j1Player::Update(float dt)
 	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && current_animation)
 	{
 		current_animation = &run;
-		if (App->map->data.maplayers.end->data->data[gid - 1] != 38) {
+		if (App->map->data.maplayers.end->data->data[gid - 1] != 1132) {
 			position.x -= 3 * speed;
 			App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
 		}
@@ -146,7 +146,7 @@ bool j1Player::Update(float dt)
 	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && current_animation != &attack)
 	{
 		current_animation = &run;
-		if (App->map->data.maplayers.end->data->data[gid+1]!=38) {
+		if (App->map->data.maplayers.end->data->data[gid+1]!=1132) {
 			position.x += 3 * speed;
 			App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
 		}
@@ -180,25 +180,23 @@ bool j1Player::Update(float dt)
 	}
 	
 
-	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT && App->map->data.maplayers.end->data->data[gid-49] == 56)
-	{
-		current_animation = &climb;
-		climbing = true;
-		if (App->map->data.maplayers.end->data->data[gid - 49] == 56) {
-			position.y = position.y - speed * 4;
-			App->render->camera.y = App->render->camera.y + speed * 4;
-		}
-	}
+
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_REPEAT && current_animation != &jump && current_animation != &attack)
 	{
 		jumping = true;
 	}
-	if (App->map->data.maplayers.end->data->data[gid - 49] == 56) {
+	if (App->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_DOWN)
+	{
+		levitating = true;
+	}
+	if (App->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_UP)
+	{
+		levitating = false;
+	}
+	if (App->map->data.maplayers.end->data->data[gid - 149] == 56) {
 		current_animation = &climb;
 	}
-	if (App->map->data.maplayers.end->data->data[gid - 49] != 56 && climbing==true) {
-		climbing = false;
-	}
+
 	if (jumping == true) {
 		current_animation = &jump;
 		if (cont < 50 && cont2!=1) {
@@ -209,15 +207,22 @@ bool j1Player::Update(float dt)
 			}
 			cont++;
 		}
-		if (cont > 0 && cont2 != 0) {
-			if (App->map->data.maplayers.end->data->data[gid+50+1] != 38) {
+		if (levitating == true) {
+			current_animation = &levitate;
+			//if (levitate.Finished() == true) {
+			//	levitating = false;
+			//}
+		}
+		if (cont > 0 && cont2 != 0 && levitating==false) {
+			if (App->map->data.maplayers.end->data->data[gid+150] != 1132) {
 				position.y = position.y + speed * 4;
 				App->render->camera.y = App->render->camera.y - speed * 4;
-				if (App->map->data.maplayers.end->data->data[gid + 50 + 1] == 55) {
-					position = startPos;
+				if (App->map->data.maplayers.end->data->data[gid + 150] == 1087) {
+					App->collision->EraseCollider(collider);
+					firstUpdate = true;
 				}
 			}
-			if (App->map->data.maplayers.end->data->data[gid + 50+1] == 38) {
+			if (App->map->data.maplayers.end->data->data[gid + 150] == 1132) {
 				cont = 0;
 				cont2 = 0;
 				jump.Reset();
@@ -247,17 +252,17 @@ bool j1Player::Update(float dt)
 		shot.Reset();
 
 
-	if (App->map->data.maplayers.end->data->data[gid + 50+1] != 38 && jumping == false && climbing==false) {
+	if (App->map->data.maplayers.end->data->data[gid + 150] != 1132 && jumping == false) {
 		current_animation = &jump;
 		position.y = position.y + speed * 4;
 		App->render->camera.y = App->render->camera.y - speed * 4;
-		if (App->map->data.maplayers.end->data->data[gid + 50 + 1] == 55) {
+		if (App->map->data.maplayers.end->data->data[gid + 150 ] == 1087) {
 			App->collision->EraseCollider(collider);
 			firstUpdate = true;
 		}
 	}
 
-	if (App->map->data.maplayers.end->data->data[gid] == 55) {
+	if (App->map->data.maplayers.end->data->data[gid] == 1087) {
 		App->collision->EraseCollider(collider);
 		firstUpdate = true;
 	}

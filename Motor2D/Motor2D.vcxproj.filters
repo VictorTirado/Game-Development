@@ -155,6 +155,7 @@
     <None Include="..\Game\maps\Level2.tmx">
       <Filter>Desenvolupament  ========</Filter>
     </None>
+    <None Include="..\Game\maps\Map1.tmx" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\Game\config.xml" />

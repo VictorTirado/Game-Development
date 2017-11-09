@@ -32,7 +32,7 @@ bool j1Scene::Awake()
 // Called before the first frame
 bool j1Scene::Start()
 {
-		App->map->Load("Level1.tmx");
+		App->map->Load("Map1.tmx");
 		map = 1;
 		//App->audio->PlayMusic("audio/music/Meditacion_Ninja_musica_.ogg");
 

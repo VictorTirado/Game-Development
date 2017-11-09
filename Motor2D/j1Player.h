@@ -50,7 +50,7 @@ public:
 	Animation climb;
 	
 	bool jumping = false;
-	bool climbing = false;
+	bool levitating = false;
 	bool attackingMelee = false;
 	bool shooting = false;
 	uint gid;
