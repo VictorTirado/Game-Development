@@ -22,7 +22,7 @@ Enemy_gargoyle::Enemy_gargoyle(int x, int y) : j1Enemy(x, y)
 	attack.PushBack({ 834,320,39,57 });
 	attack.speed = 0.1f;
 	
-	animation = &fly;
+	animation = &attack;
 	LOG("x %i y %i", position.x, position.y);
 	collider = App->collision->AddCollider({ position.x, position.y, 35, 38 }, COLLIDER_TYPE::COLLIDER_ENEMY, (j1Module*)App->enemies);
 }
