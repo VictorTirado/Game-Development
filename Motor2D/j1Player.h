@@ -47,7 +47,6 @@ public:
 	Animation shot;
 	Animation jump;
 	Animation levitate;
-	Animation climb;
 	
 	bool jumping = false;
 	bool levitating = false;
@@ -56,6 +55,7 @@ public:
 	uint gid;
 	SDL_RendererFlip flip;
 	bool firstUpdate = true;
+	SDL_Rect levitate_last_frame;
 
 	Collider* collider;
 	//Collider* collider = nullptr;

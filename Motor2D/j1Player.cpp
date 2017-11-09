@@ -48,7 +48,8 @@ j1Player::j1Player() : j1Module()
 	levitate.PushBack({ 689,241,46,78 });
 	levitate.PushBack({ 767,244,46,78 });
 	levitate.PushBack({833,248,46,78});
-	levitate.speed = 0.05f;
+	levitate.speed = 0.02f;
+	levitate_last_frame = { 833,248,46,78 };
 
 	//ICE
 	attack.PushBack({ 29,377,49,69 });
@@ -193,9 +194,7 @@ bool j1Player::Update(float dt)
 	{
 		levitating = false;
 	}
-	if (App->map->data.maplayers.end->data->data[gid - 149] == 56) {
-		current_animation = &climb;
-	}
+
 
 	if (jumping == true) {
 		current_animation = &jump;
@@ -209,9 +208,10 @@ bool j1Player::Update(float dt)
 		}
 		if (levitating == true) {
 			current_animation = &levitate;
-			//if (levitate.Finished() == true) {
-			//	levitating = false;
-			//}
+			if (levitate.GetCurrentFrame().x == levitate_last_frame.x && levitate.GetCurrentFrame().y == levitate_last_frame.y) {
+				levitate.Reset();
+				levitating = false;
+			}
 		}
 		if (cont > 0 && cont2 != 0 && levitating==false) {
 			if (App->map->data.maplayers.end->data->data[gid+150] != 1132) {
