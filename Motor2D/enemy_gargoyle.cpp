@@ -3,6 +3,7 @@
 #include "ModuleCollision.h"
 #include "j1Particles.h"
 #include "SDL\include\SDL_timer.h"
+#include "p2Log.h"
 
 
 Enemy_gargoyle::Enemy_gargoyle(int x, int y) : j1Enemy(x, y)
@@ -14,13 +15,16 @@ Enemy_gargoyle::Enemy_gargoyle(int x, int y) : j1Enemy(x, y)
 	fly.PushBack({ 233,321,33,30 });
 	fly.PushBack({ 336,317,38,30 });
 	fly.speed = 0.1f;
+	
 
 	attack.PushBack({583,317,39,46});
 	attack.PushBack({ 714,328,62,30 });
 	attack.PushBack({ 834,320,39,57 });
 	attack.speed = 0.1f;
 	
-
+	animation = &fly;
+	LOG("x %i y %i", position.x, position.y);
+	collider = App->collision->AddCollider({ position.x, position.y, 35, 38 }, COLLIDER_TYPE::COLLIDER_ENEMY, (j1Module*)App->enemies);
 }
 
 void Enemy_gargoyle::Move()

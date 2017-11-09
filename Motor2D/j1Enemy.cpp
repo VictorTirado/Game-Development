@@ -5,7 +5,8 @@
 #include "j1Enemy.h"
 
 j1Enemy::j1Enemy(int x, int y) : position(x, y)
-{}
+{
+}
 
 j1Enemy::~j1Enemy()
 {

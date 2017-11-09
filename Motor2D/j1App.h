@@ -18,6 +18,7 @@ class Animation;
 class j1FadeToBlack;
 class ModuleCollision;
 class j1Particles;
+class j1Enemies;
 
 
 class j1App
@@ -93,6 +94,7 @@ public:
 	j1FadeToBlack*      fade;
 	ModuleCollision*    collision;
 	j1Particles*        particles;
+	j1Enemies*            enemies;
 
 private:
 
