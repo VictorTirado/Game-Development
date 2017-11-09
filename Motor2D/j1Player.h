@@ -27,6 +27,7 @@ public:
 	void Shot();
 	void Thunder();
 	void Ice();
+	void j1Player::OnCollision(Collider* c1, Collider* c2);
 	
 
 public:
