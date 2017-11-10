@@ -92,14 +92,14 @@ bool j1Scene::Update(float dt)
 	int mousex;
 	int mousey;
 	App->input->GetMousePosition(mousex, mousey);
-	p2SString title("Map:%dx%d Tiles:%dx%d Tilesets:%d MousePosition:%dx%d Mana:%d Lifes:%d",
+	/*p2SString title("Map:%dx%d Tiles:%dx%d Tilesets:%d MousePosition:%dx%d Mana:%d Lifes:%d",
 					App->map->data.width, App->map->data.height,
 					App->map->data.tile_width, App->map->data.tile_height,
 					App->map->data.tilesets.count(),
 					mousex, mousey, App->player->mana2,
-					App->player->lifes);
+					App->player->lifes);*/
 	
-	App->win->SetTitle(title.GetString());
+	//App->win->SetTitle(title.GetString());
 	return true;
 }
 
