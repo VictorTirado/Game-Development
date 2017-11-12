@@ -11,6 +11,8 @@ private:
 	Animation attack;
 	Animation fly;
 	iPoint original_pos;
+	iPoint pathToFollow;
+	iPoint gargoyleSpeed;
 
 public:
 	Enemy_gargoyle(int x, int y);

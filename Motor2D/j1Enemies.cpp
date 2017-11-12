@@ -10,6 +10,7 @@
 #include "j1Player.h"
 #include "p2Log.h"
 #include "j1Window.h"
+#include "j1Map.h"
 
 
 #define SPAWN_MARGIN 50
@@ -63,6 +64,8 @@ bool j1Enemies::PreUpdate()
 // Called before render is available
 bool j1Enemies::Update(float dt)
 {
+
+	playerMapPos = App->map->WorldToMap(App->player->position.x, App->player->position.y);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr) enemies[i]->Draw(sprites);

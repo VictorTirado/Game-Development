@@ -42,6 +42,8 @@ public:
 
 	bool AddEnemy(ENEMY_TYPES type, int x, int y);
 
+	iPoint playerMapPos;
+
 private:
 
 	void SpawnEnemy(const EnemyInfo& info);

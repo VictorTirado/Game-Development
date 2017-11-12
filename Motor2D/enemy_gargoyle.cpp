@@ -4,7 +4,9 @@
 #include "j1Particles.h"
 #include "SDL\include\SDL_timer.h"
 #include "p2Log.h"
-
+#include "j1Pathfinding.h"
+#include "j1Map.h"
+#include "j1Enemies.h"
 
 Enemy_gargoyle::Enemy_gargoyle(int x, int y) : j1Enemy(x, y)
 {
@@ -30,6 +32,30 @@ Enemy_gargoyle::Enemy_gargoyle(int x, int y) : j1Enemy(x, y)
 void Enemy_gargoyle::Move()
 {
 	
+	iPoint mapPos = App->map->WorldToMap(position.x, position.y);
+
+	if (mapPos.x < App->enemies->playerMapPos.x + 5 && mapPos.x > App->enemies->playerMapPos.x - 5) {
+		if (App->pathfinding->CreatePath(mapPos, App->enemies->playerMapPos) != -1) {
+			const p2DynArray<iPoint>* path = App->pathfinding->GetLastPath();
+			if (path->Count() > 0) {
+				pathToFollow = iPoint(path->At(0)->x, path->At(0)->y);
+				if (pathToFollow.x < mapPos.x) {
+					gargoyleSpeed.x = -1.0f;
+				}
+				else if (pathToFollow.x > mapPos.x) {
+					gargoyleSpeed.x = 1.0f;
+				}
+				if (pathToFollow.y < mapPos.y) {
+					gargoyleSpeed.y = -1.0f;
+				}
+				else if (pathToFollow.y > mapPos.y) {
+					gargoyleSpeed.y = 1.0f ;
+				}
+			}
+		}
+	}
+
+	position += gargoyleSpeed;
 
 }
 
