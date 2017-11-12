@@ -16,6 +16,7 @@
 #include "ModuleCollision.h"
 #include "j1Particles.h"
 #include "j1Enemies.h"
+#include "j1Pathfinding.h"
 
 
 
@@ -38,6 +39,7 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	collision = new ModuleCollision();
 	particles = new j1Particles();
 	enemies = new j1Enemies();
+	pathfinding = new j1PathFinding();
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -52,6 +54,7 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(collision);
 	AddModule(particles);
 	AddModule(enemies);
+	AddModule(pathfinding);
 
 	// render last to swap buffer
 	AddModule(render);

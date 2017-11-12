@@ -165,9 +165,9 @@ bool j1Player::Update(float dt)
 		}
 	}
 	if (mana2 >= 80) {
-		if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN && jumping == false)
+		if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT && jumping == false)
 		{
-			mana2 -= 80;
+			//mana2 -= 80;
 			current_animation = &attack;
 			Ice();
 		}
@@ -175,7 +175,7 @@ bool j1Player::Update(float dt)
 	if (mana2 >= 20) {
 		if (App->input->GetKey(SDL_SCANCODE_T) == KEY_REPEAT && current_animation != &melee)
 		{
-			mana2 -= 20;
+			//mana2 -= 20;
 			attackingMelee = true;
 			Thunder();
 		}
@@ -183,7 +183,7 @@ bool j1Player::Update(float dt)
 	if (mana2 >= 40) {
 		if (App->input->GetKey(SDL_SCANCODE_Y) == KEY_REPEAT && current_animation != &shot)
 		{
-			mana2 -= 40;
+			//mana2 -= 40;
 			shooting = true;
 			//current_animation = &shot;
 			//Shot();
