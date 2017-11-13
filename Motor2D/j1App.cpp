@@ -210,14 +210,16 @@ void j1App::FinishUpdate()
 	uint32 frames_on_last_update = prev_last_sec_frame_count;
 
 	static char title[256];
-	sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu ",
-		avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count);
+	sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: %d Cap: %d",
+		avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count, App->render->vsync, cap);
 	App->win->SetTitle(title);
 
-	float frame_delay = 333.33f / fps;
-	delayptimer.Start();
-	if (last_frame_ms < frame_delay)
-		SDL_Delay(frame_delay - last_frame_ms);
+	if (cap = true) {
+		float frame_delay = 333.33f / fps;
+		delayptimer.Start();
+		if (last_frame_ms < frame_delay)
+			SDL_Delay(frame_delay - last_frame_ms);
+	}
 }
 
 // Call modules before each loop iteration

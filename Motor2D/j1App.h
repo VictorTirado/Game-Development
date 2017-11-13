@@ -120,6 +120,7 @@ private:
 	p2SString			title;
 	p2SString			organization;
 
+	bool cap = true;
 	mutable bool		want_to_save;
 	bool				want_to_load;
 	p2SString			load_game;

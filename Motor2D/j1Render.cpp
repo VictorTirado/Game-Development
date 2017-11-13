@@ -50,7 +50,8 @@ bool j1Render::Awake(pugi::xml_node& config)
 		LOG("Player position x %d player position y %d", App->player->position.x, App->player->position.y);
 		camera.y = App->player->position.y - (App->win->screen_surface->h);
 	}
-
+	vsync = config.child("vsync").attribute("value").as_bool(true);
+	
 	return ret;
 }
 
