@@ -76,6 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="enemy_boss.cpp" />
     <ClCompile Include="enemy_gargoyle.cpp" />
     <ClCompile Include="j1Enemies.cpp" />
     <ClCompile Include="j1Enemy.cpp" />
@@ -100,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="enemy_boss.h" />
     <ClInclude Include="enemy_gargoyle.h" />
     <ClInclude Include="j1Enemies.h" />
     <ClInclude Include="j1Enemy.h" />

@@ -138,7 +138,8 @@ bool j1Player::Update(float dt)
 		App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
 		App->render->camera.y = position.y - (App->win->screen_surface->h);
 		collider = App->collision->AddCollider({ position.x, position.y, 46, 69 }, COLLIDER_PLAYER, this);
-		App->enemies->AddEnemy(Gargoile, position.x + 60, position.y + 5);
+		//App->enemies->AddEnemy(Gargoile, position.x + 60, position.y + 5);
+		App->enemies->AddEnemy(Final_Boss, position.x + 60, position.y -30);
 		firstUpdate = false;
 	}
 	gid=App->map->Get_gid(position.x/*-75*/, position.y);
@@ -220,7 +221,7 @@ bool j1Player::Update(float dt)
 	{
 	
 	}
-
+	
 
 	if (jumping == true) {
 		current_animation = &jump;
@@ -340,7 +341,7 @@ bool j1Player::CleanUp()
 
 void j1Player::Shot()
 {
-	App->particles->AddParticle(App->particles->fire_ball, position.x +10, position.y + 20, COLLIDER_ATTACK, NULL, { 5,0 });
+	App->particles->AddParticle(App->particles->fire_ball, position.x +25, position.y + 25, COLLIDER_ATTACK, NULL, { 5,0 });
 }
 
 void j1Player::Thunder()
