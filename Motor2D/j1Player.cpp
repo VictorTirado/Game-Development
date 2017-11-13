@@ -150,7 +150,7 @@ bool j1Player::Update(float dt)
 	{
 		current_animation = &run;
 		if (App->map->data.maplayers.end->data->data[gid - 1] != 1132) {
-			position.x -= 3 * speed;
+			position.x -= 5 * speed;
 			App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
 		}
 		flip = SDL_FLIP_HORIZONTAL;
@@ -160,7 +160,7 @@ bool j1Player::Update(float dt)
 	{
 		current_animation = &run;
 		if (App->map->data.maplayers.end->data->data[gid+1]!=1132) {
-			position.x += 3 * speed;
+			position.x += 5 * speed;
 			App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
 		}
 	}

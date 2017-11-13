@@ -105,6 +105,8 @@ bool j1App::Awake()
 		app_config = config.child("app");
 		title.create(app_config.child("title").child_value());
 		organization.create(app_config.child("organization").child_value());
+
+		fps = app_config.attribute("framerate_cap").as_int(30);
 	}
 
 	if(ret == true)
@@ -182,7 +184,7 @@ void j1App::PrepareUpdate()
 	frame_count++;
 	last_sec_frame_count++;
 
-	// TODO 4: Calculate the dt: differential time since last frame
+	dt = frame_time.ReadSec();
 	frame_time.Start();
 }
 
@@ -211,6 +213,11 @@ void j1App::FinishUpdate()
 	sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu ",
 		avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count);
 	App->win->SetTitle(title);
+
+	float frame_delay = 333.33f / fps;
+	delayptimer.Start();
+	if (last_frame_ms < frame_delay)
+		SDL_Delay(frame_delay - last_frame_ms);
 }
 
 // Call modules before each loop iteration

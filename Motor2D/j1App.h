@@ -103,6 +103,7 @@ public:
 private:
 
 	j1PerfTimer			ptimer;
+	j1PerfTimer			delayptimer;
 	uint64				frame_count = 0;
 	j1Timer				startup_time;
 	j1Timer				frame_time;
@@ -123,6 +124,8 @@ private:
 	bool				want_to_load;
 	p2SString			load_game;
 	mutable p2SString	save_game;
+
+	uint32				fps;
 };
 
 extern j1App* App; // No student is asking me about that ... odd :-S
