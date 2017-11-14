@@ -14,7 +14,7 @@ enum ENEMY_TYPES
 {
 	NO_TYPE,
 	Gargoile,
-	Soldier,
+	Knight,
 	Final_Boss,
 };
 

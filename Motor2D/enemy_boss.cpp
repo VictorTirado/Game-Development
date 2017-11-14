@@ -52,7 +52,7 @@ Enemy_Boss::Enemy_Boss(int x, int y) : j1Enemy(x, y)
 
 	animation = &idle;
 	LOG("x %i y %i", position.x, position.y);
-	collider = App->collision->AddCollider({ position.x, position.y, 35, 38 }, COLLIDER_TYPE::COLLIDER_ENEMY, (j1Module*)App->enemies);
+	collider = App->collision->AddCollider({ position.x, position.y, 96, 117 }, COLLIDER_TYPE::COLLIDER_ENEMY, (j1Module*)App->enemies);
 }
 
 void Enemy_Boss::Move()

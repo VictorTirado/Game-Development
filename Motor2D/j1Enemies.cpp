@@ -7,6 +7,7 @@
 #include "j1Enemy.h"
 #include "enemy_gargoyle.h"
 #include "enemy_boss.h"
+#include "enemy_knight.h"
 #include "ModuleCollision.h"
 #include "j1Player.h"
 #include "p2Log.h"
@@ -32,8 +33,8 @@ bool j1Enemies::Start()
 	if (sprites == nullptr) {
 		LOG("No cargado");
 	}
-	//sprites = App->tex->Load("Enemies/Enemies.png");
-	final_boss = App->tex->Load("Enemies/Final_boss2.png");
+	sprites = App->tex->Load("Enemies/Enemies.png");
+	//final_boss = App->tex->Load("Enemies/Final_boss2.png");
 	if (sprites != nullptr) {
 		LOG("Cargado");
 	}
@@ -171,8 +172,8 @@ void j1Enemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::Gargoile:
 			enemies[i] = new Enemy_gargoyle(info.x, info.y);
 			break;
-		case ENEMY_TYPES::Soldier:
-			//enemies[i] = new Enemy(info.x, info.y);
+		case ENEMY_TYPES::Knight:
+			enemies[i] = new Enemy_knight(info.x, info.y);
 			break;
 		case ENEMY_TYPES::Final_Boss:
 			enemies[i] = new Enemy_Boss(info.x, info.y);
