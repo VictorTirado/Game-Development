@@ -301,7 +301,7 @@ bool j1Player::Update(float dt)
 		{
 			App->map->CleanUp();
 			App->fade->FadeToBlack(1);
-			App->map->Load("Level2.tmx");
+			App->map->Load("Map2.tmx");
 			firstUpdate = true;
 			App->collision->EraseCollider(collider);
 			App->scene->map = 0;
@@ -310,7 +310,7 @@ bool j1Player::Update(float dt)
 		{
 			App->map->CleanUp();
 			App->fade->FadeToBlack(1);
-			App->map->Load("Level1.tmx");
+			App->map->Load("Map1.tmx"); //Map1
 			firstUpdate = true;
 			App->collision->EraseCollider(collider);
 			App->scene->map = 1;

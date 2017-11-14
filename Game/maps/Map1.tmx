@@ -19,7 +19,7 @@
   </tile>
   <tile id="1130">
    <properties>
-    <property name="Next Level" type="bool" value="false"/>
+    <property name="Next Level" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="1131">
