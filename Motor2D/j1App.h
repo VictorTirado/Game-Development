@@ -120,13 +120,15 @@ private:
 	p2SString			title;
 	p2SString			organization;
 
-	bool cap = true;
+
 	mutable bool		want_to_save;
 	bool				want_to_load;
 	p2SString			load_game;
 	mutable p2SString	save_game;
 
 	uint32				fps;
+public:
+		bool cap = true;
 };
 
 extern j1App* App; // No student is asking me about that ... odd :-S

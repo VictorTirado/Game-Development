@@ -138,8 +138,8 @@ bool j1Player::Update(float dt)
 		App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
 		App->render->camera.y = position.y - (App->win->screen_surface->h);
 		collider = App->collision->AddCollider({ position.x, position.y, 46, 69 }, COLLIDER_PLAYER, this);
-		//App->enemies->AddEnemy(Gargoile, position.x + 60, position.y + 5);
-		App->enemies->AddEnemy(Knight, position.x + 60, position.y -30);
+		App->enemies->AddEnemy(Gargoile, position.x + 60, position.y + 5);
+		//App->enemies->AddEnemy(Knight, position.x + 60, position.y -30);
 		//App->enemies->AddEnemy(Final_Boss, position.x + 60, position.y - 30);
 		firstUpdate = false;
 	}
@@ -220,7 +220,7 @@ bool j1Player::Update(float dt)
 
 	if (App->input->GetKey(SDL_SCANCODE_F11) == KEY_DOWN)
 	{
-	
+		App->cap = !App->cap;
 	}
 	
 
@@ -306,6 +306,7 @@ bool j1Player::Update(float dt)
 			App->collision->EraseCollider(collider);
 			App->scene->map = 0;
 		}
+		
 		else
 		{
 			App->map->CleanUp();

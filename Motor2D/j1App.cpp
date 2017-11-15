@@ -214,7 +214,7 @@ void j1App::FinishUpdate()
 		avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count, App->render->vsync, cap);
 	App->win->SetTitle(title);
 
-	if (cap = true) {
+	if (cap == true) {
 		float frame_delay = 333.33f / fps;
 		delayptimer.Start();
 		if (last_frame_ms < frame_delay)
