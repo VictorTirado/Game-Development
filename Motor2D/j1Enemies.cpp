@@ -33,7 +33,7 @@ bool j1Enemies::Start()
 	if (sprites == nullptr) {
 		LOG("No cargado");
 	}
-	sprites = App->tex->Load("Enemies/Enemies.png");
+	sprites = App->tex->Load("Enemies/Enemies2.png");
 	//final_boss = App->tex->Load("Enemies/Final_boss2.png");
 	if (sprites != nullptr) {
 		LOG("Cargado");
@@ -80,7 +80,16 @@ bool j1Enemies::Update(float dt)
 
 	//for (uint i = 0; i < MAX_ENEMIES; ++i)
 	//	if (enemies[i] != nullptr) enemies[i]->Move(dt);
-
+	if (App->player->dead == true)
+	{
+		App->player->dead = false;
+		for (uint i = 0; i < MAX_ENEMIES; ++i)
+		{
+			delete enemies[i];
+			enemies[i] = nullptr;
+		}
+		
+	}
 
 	return true;
 }

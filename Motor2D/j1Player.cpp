@@ -140,9 +140,9 @@ bool j1Player::Update(float dt)
 		collider = App->collision->AddCollider({ position.x, position.y, 46, 69 }, COLLIDER_PLAYER, this);
 		App->enemies->AddEnemy(Gargoile, position.x + 60, position.y + 5);
 		//App->enemies->AddEnemy(Knight, position.x + 60, position.y -30);
-		if (App->scene->map=2) {
-			App->enemies->AddEnemy(Final_Boss, position.x + 6784, position.y - 30);
-		}
+		/*if (App->scene->map=2) {
+			App->enemies->AddEnemy(Final_Boss, position.x + 60, position.y - 30);
+		}*/
 		firstUpdate = false;
 	}
 	gid=App->map->Get_gid(position.x/*-75*/, position.y);
@@ -294,16 +294,18 @@ bool j1Player::Update(float dt)
 	}
 
 	if (App->map->data.maplayers.end->data->data[gid] == 1087) {
+		dead = true;
 		App->collision->EraseCollider(collider);
 		firstUpdate = true;
 	}
 
-	if (App->map->data.maplayers.end->data->data[gid + 1] == 54) {
+	if (App->map->data.maplayers.end->data->data[gid + 1] == 1131) {
 		if (App->scene->map == 1)
 		{
 			App->map->CleanUp();
+			//App->enemies->CleanUp();
 			App->fade->FadeToBlack(1);
-			App->map->Load("Map2.tmx");
+			App->map->Load("Map3.tmx");
 			firstUpdate = true;
 			App->collision->EraseCollider(collider);
 			App->scene->map = 0;
@@ -313,7 +315,7 @@ bool j1Player::Update(float dt)
 		{
 			App->map->CleanUp();
 			App->fade->FadeToBlack(1);
-			App->map->Load("Map1.tmx"); //Map1
+			App->map->Load("Map3.tmx"); //Map1
 			firstUpdate = true;
 			App->collision->EraseCollider(collider);
 			App->scene->map = 1;
@@ -383,7 +385,7 @@ bool j1Player::Load(pugi::xml_node& save)
 	if (save.child("pos") != NULL) {
 		position.x = save.child("pos").attribute("x").as_float();
 		position.y = save.child("pos").attribute("y").as_float();
-		position.y = save.child("map").attribute("z").as_float();
+		App->scene->map = save.child("map").attribute("z").as_int();
 	}
 	ret = true;
 	return ret;	
@@ -391,6 +393,7 @@ bool j1Player::Load(pugi::xml_node& save)
 
 void j1Player::OnCollision(Collider* c1, Collider* c2) {
 	if (c2->type == COLLIDER_ENEMY) {
+		dead = true;
 		App->collision->EraseCollider(collider);
 		firstUpdate = true;
 	}

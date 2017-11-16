@@ -34,6 +34,7 @@ public:
 
 	iPoint startPos = { 0, 1000 };
 	iPoint position = { 0,0 };
+	bool dead= false;
 	int lifes = 3;
 	int mana2 = 350;
 	int speed;

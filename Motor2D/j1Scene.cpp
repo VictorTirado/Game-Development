@@ -32,7 +32,7 @@ bool j1Scene::Awake()
 // Called before the first frame
 bool j1Scene::Start()
 {
-		App->map->Load("Map3.tmx"); //Map1
+		App->map->Load("Map1.tmx"); //Map1
 		map = 1;
 		//App->audio->PlayMusic("audio/music/Meditacion_Ninja_musica_.ogg");
 
@@ -73,17 +73,20 @@ bool j1Scene::Update(float dt)
 			App->map->Load("Map1.tmx"); //Map1
 			App->player->firstUpdate = true;
 			map = 1;
+			App->player->collider->to_delete = true;
 		}
 		else
 		{
-	
+			map = 0;
 			App->player->firstUpdate = true;
+			App->player->collider->to_delete = true;
 			
 		}
 		
 	}
 	if (App->input->GetKey(SDL_SCANCODE_F2) == KEY_DOWN && App->fade->IsFading() == false) {
 		App->player->firstUpdate = true;
+		App->player->collider->to_delete = true;
 	}
 	
 	App->map->Draw();

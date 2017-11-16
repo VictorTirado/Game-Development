@@ -10,8 +10,8 @@
 
 Enemy_Boss::Enemy_Boss(int x, int y) : j1Enemy(x, y)
 {
-
-	idle.PushBack({ 893,4,96,117 });
+	idle.PushBack({ 7,469,384,339 });
+	/*idle.PushBack({ 893,4,96,117 });
 	idle.PushBack({ 775,4,96,117 });
 	idle.PushBack({ 667,4,96,117 });
 	idle.PushBack({ 555,4,96,117 });
@@ -22,7 +22,7 @@ Enemy_Boss::Enemy_Boss(int x, int y) : j1Enemy(x, y)
 	idle.PushBack({ 10,4,96,117 });
 	idle.PushBack({ 87,131,96,117 });
 	idle.PushBack({ 190,131,96,117 });
-	idle.PushBack({ 305,131,96,117 });
+	idle.PushBack({ 305,131,96,117 });*/
 	/*idle.PushBack({ 446,2,45,56 });
 	idle.PushBack({ 387,2,45,56 });
 	idle.PushBack({ 333,2,45,56 });

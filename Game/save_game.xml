@@ -1,31 +1,22 @@
 <?xml version="1.0"?>
 
 <game_state>
-	
-<input />
-	
-<window />
-	
-<textures />
-	
-<audio />
-	
-<map />
-	
-<scene />
-	
-	<player>
-		
-		<pos x="736" y="576" />
-	
-		<map z="1" />
-	</player>
-	<:anonymous />
-	<:anonymous />
-	<:anonymous />
-	<:anonymous />
-	<pathfinding />
-	<renderer>
-		<camera x="-224" y="-192" />
-	</renderer>
+  <input />
+  <window />
+  <textures />
+  <audio />
+  <map />
+  <scene />
+  <player>
+    <pos x="736" y="576" />
+    <map z="1" />
+  </player>
+  <:anonymous />
+  <:anonymous />
+  <:anonymous />
+  <:anonymous />
+  <pathfinding />
+  <renderer>
+    <camera x="-224" y="-192" />
+  </renderer>
 </game_state>
