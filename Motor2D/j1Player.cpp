@@ -67,6 +67,9 @@ j1Player::j1Player() : j1Module()
 	attack.PushBack({ 692,454,50,69 });
 	attack.PushBack({ 858,455,50,69 });
 	attack.PushBack({ 1017,457,50,69 });
+
+	attack_frame = { 256,375,50,69 };
+	attack_last_frame = { 1017,457,50,69 };
 	attack.speed = 0.1f;
 
 	//THUNDER
@@ -150,7 +153,17 @@ bool j1Player::Update(float dt)
 	current_animation = &idle;
 	flip = SDL_FLIP_NONE;
 	
-	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && current_animation)
+	if (mana2 >= 80) {
+		if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN && jumping == false && current_animation == &idle && Iceattack==false)
+		{
+			Iceattack = true;
+			//mana2 -= 80;
+			/*current_animation = &attack;
+			Ice();*/
+			
+		}
+	}
+	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && current_animation!= &attack)
 	{
 		current_animation = &run;
 		if (App->map->data.maplayers.end->data->data[gid - 1] != 1132) {
@@ -168,14 +181,7 @@ bool j1Player::Update(float dt)
 			App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
 		}
 	}
-	if (mana2 >= 80) {
-		if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT && jumping == false)
-		{
-			//mana2 -= 80;
-			current_animation = &attack;
-			Ice();
-		}
-	}
+	
 	if (mana2 >= 20) {
 		if (App->input->GetKey(SDL_SCANCODE_T) == KEY_REPEAT && current_animation != &melee)
 		{
@@ -260,6 +266,20 @@ bool j1Player::Update(float dt)
 			}
 		}
 	}
+	if (Iceattack == true)
+	{
+		current_animation = &attack;
+		if (current_animation->GetCurrentFrame().x == attack_frame.x &&current_animation->GetCurrentFrame().y == attack_frame.y) {
+			Ice();
+		}
+		if (current_animation->GetCurrentFrame().x == attack_last_frame.x &&current_animation->GetCurrentFrame().y == attack_last_frame.y)
+		{
+			Iceattack = false;
+		}
+	}
+	else {
+		attack.Reset();
+	}
 
 	if (attackingMelee == true) {
 		current_animation = &melee;
@@ -315,10 +335,10 @@ bool j1Player::Update(float dt)
 		{
 			App->map->CleanUp();
 			App->fade->FadeToBlack(1);
-			App->map->Load("Map3.tmx"); //Map1
+			App->map->Load("Map3.tmx"); 
 			firstUpdate = true;
 			App->collision->EraseCollider(collider);
-			App->scene->map = 1;
+			App->scene->map = 0;
 		}
 	}
 	collider->SetPos(position.x , position.y);
@@ -363,10 +383,10 @@ void j1Player::Ice()
 bool j1Player::Save(pugi::xml_node& save) const
 {
 	bool ret = false;
-	if (save.child("pos") == NULL) {
+	if (save.child("pos") == NULL || save.child("map") == NULL) {
 		save.append_child("pos").append_attribute("x") = position.x;
 		save.child("pos").append_attribute("y") = position.y;
-		save.child("map").append_attribute("z") = App->scene->map;
+		save.append_child("map").append_attribute("z") = App->scene->map;
 	}
 	else {
 		save.child("pos").attribute("x") = position.x;
@@ -382,10 +402,18 @@ bool j1Player::Load(pugi::xml_node& save)
 {
 	bool ret = false;
 
-	if (save.child("pos") != NULL) {
+	if (save.child("pos") != NULL || save.child("map") != NULL) {
 		position.x = save.child("pos").attribute("x").as_float();
 		position.y = save.child("pos").attribute("y").as_float();
 		App->scene->map = save.child("map").attribute("z").as_int();
+		if (App->scene->map == 1)
+		{
+			App->map->Load("Map1.tmx");
+		}
+		if (App->scene->map == 0)
+		{
+			App->map->Load("Map3.tmx");
+		}
 	}
 	ret = true;
 	return ret;	

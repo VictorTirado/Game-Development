@@ -54,6 +54,7 @@ public:
 	Animation jump;
 	Animation levitate;
 	
+	bool Iceattack = false;
 	bool jumping = false;
 	bool levitating = false;
 	bool attackingMelee = false;
@@ -65,6 +66,9 @@ public:
 	SDL_Rect shoot_frame;
 	SDL_Rect shoot_last_frame;
 	SDL_Rect mana_rect;
+	SDL_Rect attack_last_frame;
+	SDL_Rect attack_frame;
+
 
 	Collider* collider;
 	//Collider* collider = nullptr;

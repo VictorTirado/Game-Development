@@ -33,7 +33,7 @@ bool j1Enemies::Start()
 	if (sprites == nullptr) {
 		LOG("No cargado");
 	}
-	sprites = App->tex->Load("Enemies/Enemies2.png");
+	sprites = App->tex->Load("Enemies/noname.png");
 	//final_boss = App->tex->Load("Enemies/Final_boss2.png");
 	if (sprites != nullptr) {
 		LOG("Cargado");
