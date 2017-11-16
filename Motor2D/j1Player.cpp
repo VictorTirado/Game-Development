@@ -140,7 +140,9 @@ bool j1Player::Update(float dt)
 		collider = App->collision->AddCollider({ position.x, position.y, 46, 69 }, COLLIDER_PLAYER, this);
 		App->enemies->AddEnemy(Gargoile, position.x + 60, position.y + 5);
 		//App->enemies->AddEnemy(Knight, position.x + 60, position.y -30);
-		//App->enemies->AddEnemy(Final_Boss, position.x + 60, position.y - 30);
+		if (App->scene->map=2) {
+			App->enemies->AddEnemy(Final_Boss, position.x + 6784, position.y - 30);
+		}
 		firstUpdate = false;
 	}
 	gid=App->map->Get_gid(position.x/*-75*/, position.y);
@@ -362,10 +364,12 @@ bool j1Player::Save(pugi::xml_node& save) const
 	if (save.child("pos") == NULL) {
 		save.append_child("pos").append_attribute("x") = position.x;
 		save.child("pos").append_attribute("y") = position.y;
+		save.child("map").append_attribute("z") = App->scene->map;
 	}
 	else {
 		save.child("pos").attribute("x") = position.x;
 		save.child("pos").attribute("y") = position.y;
+		save.child("map").attribute("z") = App->scene->map;
 	}
 
 	ret = true;
@@ -379,6 +383,7 @@ bool j1Player::Load(pugi::xml_node& save)
 	if (save.child("pos") != NULL) {
 		position.x = save.child("pos").attribute("x").as_float();
 		position.y = save.child("pos").attribute("y").as_float();
+		position.y = save.child("map").attribute("z").as_float();
 	}
 	ret = true;
 	return ret;	

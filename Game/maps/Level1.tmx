@@ -782,7 +782,7 @@
    <tile gid="169"/>
   </data>
  </layer>
- <layer name="Water" width="50" height="15" visible="1">
+ <layer name="Water" width="50" height="15">
   <data>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -1536,7 +1536,7 @@
    <tile gid="0"/>
   </data>
  </layer>
- <layer name="Map" width="50" height="15" visible="1">
+ <layer name="Map" width="50" height="15">
   <data>
    <tile gid="0"/>
    <tile gid="0"/>

@@ -188,6 +188,7 @@
     <None Include="..\Game\maps\Map1.tmx" />
     <None Include="..\Game\maps\Map2.tmx" />
     <None Include="..\Game\maps\Map3.tmx" />
+    <None Include="..\Game\maps\Level1.tmx" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\Game\config.xml" />
