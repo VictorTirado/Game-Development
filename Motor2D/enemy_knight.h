@@ -16,7 +16,7 @@ private:
 
 public:
 	Enemy_knight(int x, int y);
-	void Move();
+	void Move(float dt);
 	void OnCollision(Collider* collider);
 	uint getHitPoints();
 };

@@ -74,12 +74,12 @@ bool j1Enemies::Update(float dt)
 		if (enemies[i] != nullptr) enemies[i]->Draw(sprites);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr) enemies[i]->Move();
+		if (enemies[i] != nullptr) enemies[i]->Move(dt);
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr) enemies[i]->Draw(final_boss);
 
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr) enemies[i]->Move();
+	//for (uint i = 0; i < MAX_ENEMIES; ++i)
+	//	if (enemies[i] != nullptr) enemies[i]->Move(dt);
 
 
 	return true;

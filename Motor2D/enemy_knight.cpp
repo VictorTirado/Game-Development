@@ -25,7 +25,7 @@ Enemy_knight::Enemy_knight(int x, int y) : j1Enemy(x, y)
 	collider = App->collision->AddCollider({ position.x, position.y, 67, 62 }, COLLIDER_TYPE::COLLIDER_ENEMY, (j1Module*)App->enemies);
 }
 
-void Enemy_knight::Move()
+void Enemy_knight::Move(float dt)
 {
 
 	iPoint mapPos = App->map->WorldToMap(position.x, position.y);

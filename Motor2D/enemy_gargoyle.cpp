@@ -29,7 +29,7 @@ Enemy_gargoyle::Enemy_gargoyle(int x, int y) : j1Enemy(x, y)
 	collider = App->collision->AddCollider({ position.x, position.y, 35, 38 }, COLLIDER_TYPE::COLLIDER_ENEMY, (j1Module*)App->enemies);
 }
 
-void Enemy_gargoyle::Move()
+void Enemy_gargoyle::Move(float dt)
 {
 	
 	iPoint mapPos = App->map->WorldToMap(position.x, position.y);
@@ -49,7 +49,7 @@ void Enemy_gargoyle::Move()
 					gargoyleSpeed.y = -1.0f;
 				}
 				else if (pathToFollow.y > mapPos.y) {
-					gargoyleSpeed.y = 1.0f ;
+					gargoyleSpeed.y = 1.0f;
 				}
 			}
 		}
