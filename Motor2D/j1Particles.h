@@ -49,10 +49,12 @@ private:
 	uint last_particle = 0;
 
 public:
-	Particle fire_ball;
+	Particle fire_ballR;
+	Particle fire_ballL;
 	Particle iceL;
 	Particle iceR;
-	Particle thunder;
+	Particle thunderR;
+	Particle thunderL;
 
 };
 

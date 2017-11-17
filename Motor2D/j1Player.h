@@ -24,8 +24,10 @@ public:
 	bool Save(pugi::xml_node&) const;
 
 	bool Load(pugi::xml_node&);
-	void Shot();
-	void Thunder();
+	void ShotR();
+	void ShotL();
+	void ThunderR();
+	void ThunderL();
 	void Ice();
 	void j1Player::OnCollision(Collider* c1, Collider* c2);
 	
@@ -45,12 +47,15 @@ public:
 	SDL_Texture* attributes = nullptr;
 	Animation* manas = nullptr;
 	Animation idle;
-	Animation run;
+	Animation runR;
+	Animation runL;
 	Animation attack;
 	Animation death;
-	Animation melee;
+	Animation meleeR;
+	Animation meleeL;
 	
-	Animation shot;
+	Animation shotR;
+	Animation shotL;
 	Animation jump;
 	Animation levitate;
 	
@@ -63,9 +68,15 @@ public:
 	SDL_RendererFlip flip;
 	bool firstUpdate = true;
 	SDL_Rect levitate_last_frame;
-	SDL_Rect shoot_frame;
-	SDL_Rect shoot_last_frame;
-	SDL_Rect mana_rect;
+	SDL_Rect shoot_frameR;
+	SDL_Rect shoot_last_frameR;
+	SDL_Rect shoot_frameL;
+	SDL_Rect shoot_last_frameL;
+	SDL_Rect melee_frameR;
+	SDL_Rect melee_last_frameR;
+	SDL_Rect melee_frameL;
+	SDL_Rect melee_last_frameL;
+
 	SDL_Rect attack_last_frame;
 	SDL_Rect attack_frame;
 
