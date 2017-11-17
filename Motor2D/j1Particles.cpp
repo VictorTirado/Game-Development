@@ -43,10 +43,15 @@ j1Particles::j1Particles()
 	fire_ballL.anim.PushBack({ 1775,584,26,17 });
 
 
-	thunderR.anim.PushBack({ 0,0,70,14 });
-	thunderR.anim.PushBack({ 0,0,70,14 });
-	thunderR.anim.PushBack({0,0,70,14});
+	thunderR.anim.PushBack({631,142,51,10});
+	thunderR.anim.PushBack({ 778,135,51,10});
+	thunderR.anim.PushBack({921,140,51,10});
 	thunderR.anim.speed = 0.5f;
+
+	thunderL.anim.PushBack({ 1668,142,51,10});
+	thunderL.anim.PushBack({1513,147,51,10 });
+	thunderL.anim.PushBack({ 1370,152,51,10 });
+	thunderL.anim.speed = 0.5f;
 
 	/*iceL.anim.PushBack({ 0,0,41,45 });
 	iceL.anim.PushBack({ 0,0,41,45 });

@@ -87,19 +87,19 @@ j1Player::j1Player() : j1Module()
 	meleeR.PushBack({ 442,98,46,69 });
 	meleeR.PushBack({ 501,98,55,69 });
 	meleeR.PushBack({ 558,98,73,69 });
-	meleeR.PushBack({ 675,104,76,69 });
-	meleeR.PushBack({ 821,109,73,69 });
+	meleeR.PushBack({ 702,92,76,69 });
+	meleeR.PushBack({ 848,97,73,69 });
 	melee_frameR = { 558,98,73,69 };
-	melee_last_frameR = { 821,109,73,69 };
+	melee_last_frameR = { 848,97,73,69 };
 	meleeR.speed = 0.15f;
 
 	meleeL.PushBack({ 1862,98,46,69 });
 	meleeL.PushBack({ 1794,98,55,69 });
 	meleeL.PushBack({ 1719,98,73,69 });
-	meleeL.PushBack({ 1599,104,76,69 });
-	meleeL.PushBack({ 1456,109,73,69 });
+	meleeL.PushBack({ 1564,104,76,69 });
+	meleeL.PushBack({ 1421,109,73,69 });
 	melee_frameL = { 1719,98,73,69 };
-	melee_last_frameL = { 1456,109,73,69 };
+	melee_last_frameL = { 1421,109,73,69 };
 	meleeL.speed = 0.15f;
 
 	
@@ -196,31 +196,12 @@ bool j1Player::Update(float dt)
 			
 		}
 	}
-	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && Iceattack == false)
-	{
-		current_animation = &runL;
-		if (App->map->data.maplayers.end->data->data[gid - 1] != 1132) {
-			position.x -= 5 * speed;
-			App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
-		}
-		flip = SDL_FLIP_HORIZONTAL;
-	}
-	
-	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && Iceattack == false)
-	{
-		current_animation = &runR;
-		if (App->map->data.maplayers.end->data->data[gid+1]!=1132) {
-			position.x += 5 * speed;
-			App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
-		}
-	}
-	
 	if (mana2 >= 20) {
 		if (App->input->GetKey(SDL_SCANCODE_T) == KEY_REPEAT && current_animation != &meleeR)
 		{
 			//mana2 -= 20;
 			attackingMelee = true;
-			ThunderR();
+			//ThunderR();
 		}
 	}
 	if (mana2 >= 40) {
@@ -233,6 +214,27 @@ bool j1Player::Update(float dt)
 			//Shot();
 		}
 	}
+	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && Iceattack == false && attackingMelee==false &&shooting==false)
+	{
+		current_animation = &runL;
+		if (App->map->data.maplayers.end->data->data[gid - 1] != 1132) {
+			position.x -= 5 * speed;
+			App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
+		}
+		flip = SDL_FLIP_HORIZONTAL;
+	}
+	
+	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && Iceattack == false && attackingMelee == false && shooting == false)
+	{
+		current_animation = &runR;
+		if (App->map->data.maplayers.end->data->data[gid+1]!=1132) {
+			position.x += 5 * speed;
+			App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
+		}
+	}
+	
+	
+	
 
 	if (App->input->GetKey(SDL_SCANCODE_U) == KEY_REPEAT)
 	{
@@ -437,11 +439,11 @@ void j1Player::ShotL()
 
 void j1Player::ThunderR()
 {
-	App->particles->AddParticle(App->particles->thunderR, position.x + 60, position.y + 40, COLLIDER_ATTACK, NULL, { 0,0 });
+	App->particles->AddParticle(App->particles->thunderR, position.x + 73, position.y + 40, COLLIDER_ATTACK, NULL, { 0,0 });
 }
 void j1Player::ThunderL()
 {
-	App->particles->AddParticle(App->particles->thunderL, position.x + 60, position.y + 40, COLLIDER_ATTACK, NULL, { 0,0 });
+	App->particles->AddParticle(App->particles->thunderL, position.x - 51, position.y + 40, COLLIDER_ATTACK, NULL, { 0,0 });
 }
 void j1Player::Ice()
 {
