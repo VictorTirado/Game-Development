@@ -10,31 +10,12 @@
 
 Enemy_Boss::Enemy_Boss(int x, int y) : j1Enemy(x, y)
 {
-	idle.PushBack({ 7,469,384,339 });
-	/*idle.PushBack({ 893,4,96,117 });
-	idle.PushBack({ 775,4,96,117 });
-	idle.PushBack({ 667,4,96,117 });
-	idle.PushBack({ 555,4,96,117 });
-	idle.PushBack({ 447,4,96,117 });
-	idle.PushBack({ 340,4,96,117 });
-	idle.PushBack({ 232,4,96,117 });
-	idle.PushBack({ 124,4,96,117 });
-	idle.PushBack({ 10,4,96,117 });
-	idle.PushBack({ 87,131,96,117 });
-	idle.PushBack({ 190,131,96,117 });
-	idle.PushBack({ 305,131,96,117 });*/
-	/*idle.PushBack({ 446,2,45,56 });
-	idle.PushBack({ 387,2,45,56 });
-	idle.PushBack({ 333,2,45,56 });
-	idle.PushBack({ 278,2,45,56 });
-	idle.PushBack({ 223,2,45,56 });
-	idle.PushBack({ 169,2,45,56 });
-	idle.PushBack({ 115,2,45,56 });
-	idle.PushBack({ 61,2,47,56 });
-	idle.PushBack({ 43,63,45,56 });
-	idle.PushBack({ 95,63,48,56 });
-	idle.PushBack({ 152,63,45,56 });*/
-	idle.speed = 0.1f;
+	idle.PushBack({ 3404,512,399,347 });
+	idle.PushBack({ 3005,512,399,347 });
+	idle.PushBack({ 2600,512,399,347 });
+	idle.PushBack({ 2185,514,399,347 });
+	
+	idle.speed = 0.01f;
 
 	//idle.PushBack({ 13,398,99,101 });
 
@@ -44,13 +25,14 @@ Enemy_Boss::Enemy_Boss(int x, int y) : j1Enemy(x, y)
 	fly.PushBack({ 336,317,38,30 });
 	fly.speed = 0.1f;*/
 
-
-	attack.PushBack({ 583,317,39,46 });
-	attack.PushBack({ 714,328,62,30 });
-	attack.PushBack({ 834,320,39,57 });
+	attack.PushBack({ 3416,1984,453,352 });
+	attack.PushBack({ 3025,1981,379,354 });
+	attack.PushBack({ 2538,1984,453,352 });
+	attack.PushBack({ 2080,1984,543,352 });
+	attack.PushBack({ 1616,1983,543,352 });
 	attack.speed = 0.1f;
 
-	animation = &idle;
+	animation = &attack;
 	LOG("x %i y %i", position.x, position.y);
 	collider = App->collision->AddCollider({ position.x, position.y, 96, 117 }, COLLIDER_TYPE::COLLIDER_ENEMY, (j1Module*)App->enemies);
 }

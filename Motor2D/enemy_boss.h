@@ -15,6 +15,7 @@ private:
 	iPoint gargoyleSpeed;
 
 public:
+	int lifes = 30;
 	Enemy_Boss(int x, int y);
 	void Move(float dt);
 	void OnCollision(Collider* collider);
