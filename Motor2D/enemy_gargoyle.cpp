@@ -24,7 +24,7 @@ Enemy_gargoyle::Enemy_gargoyle(int x, int y) : j1Enemy(x, y)
 	attack.PushBack({ 834,320,39,57 });
 	attack.speed = 0.1f;
 	
-	animation = &attack;
+	animation = &fly;
 	LOG("x %i y %i", position.x, position.y);
 	collider = App->collision->AddCollider({ position.x, position.y, 35, 38 }, COLLIDER_TYPE::COLLIDER_ENEMY, (j1Module*)App->enemies);
 }
@@ -41,15 +41,19 @@ void Enemy_gargoyle::Move(float dt)
 				pathToFollow = iPoint(path->At(0)->x, path->At(0)->y);
 				if (pathToFollow.x < mapPos.x) {
 					gargoyleSpeed.x = -1.0f;
+					animation = &attack;
 				}
 				else if (pathToFollow.x > mapPos.x) {
 					gargoyleSpeed.x = 1.0f;
+					animation = &attack;
 				}
 				if (pathToFollow.y < mapPos.y) {
 					gargoyleSpeed.y = -1.0f;
+					animation = &attack;
 				}
 				else if (pathToFollow.y > mapPos.y) {
 					gargoyleSpeed.y = 1.0f;
+					animation = &attack;
 				}
 			}
 		}
