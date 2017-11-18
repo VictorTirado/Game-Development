@@ -19,11 +19,16 @@ Enemy_gargoyle::Enemy_gargoyle(int x, int y) : j1Enemy(x, y)
 	fly.speed = 0.1f;
 	
 
-	attack.PushBack({583,317,39,46});
-	attack.PushBack({ 714,328,62,30 });
-	attack.PushBack({ 834,320,39,57 });
-	attack.speed = 0.1f;
+	attackR.PushBack({583,317,39,46});
+	attackR.PushBack({ 714,328,62,30 });
+	attackR.PushBack({ 834,320,39,57 });
+	attackR.speed = 0.1f;
 	
+	attackL.PushBack({ 1266,313,39,46 });
+	attackL.PushBack({ 1112,324,62,30 });
+	attackL.PushBack({ 1015,315,39,57 });
+	attackL.speed = 0.1f;
+
 	animation = &fly;
 	LOG("x %i y %i", position.x, position.y);
 	collider = App->collision->AddCollider({ position.x, position.y, 35, 38 }, COLLIDER_TYPE::COLLIDER_ENEMY, (j1Module*)App->enemies);
@@ -41,19 +46,17 @@ void Enemy_gargoyle::Move(float dt)
 				pathToFollow = iPoint(path->At(0)->x, path->At(0)->y);
 				if (pathToFollow.x < mapPos.x) {
 					gargoyleSpeed.x = -1.0f;
-					animation = &attack;
+					animation = &attackL;
 				}
 				else if (pathToFollow.x > mapPos.x) {
 					gargoyleSpeed.x = 1.0f;
-					animation = &attack;
+					animation = &attackR;
 				}
 				if (pathToFollow.y < mapPos.y) {
 					gargoyleSpeed.y = -1.0f;
-					animation = &attack;
 				}
 				else if (pathToFollow.y > mapPos.y) {
 					gargoyleSpeed.y = 1.0f;
-					animation = &attack;
 				}
 			}
 		}

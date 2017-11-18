@@ -8,7 +8,8 @@ class Enemy_gargoyle : public j1Enemy
 {
 private:
 	Animation idle;
-	Animation attack;
+	Animation attackR;
+	Animation attackL;
 	Animation fly;
 	iPoint original_pos;
 	iPoint pathToFollow;

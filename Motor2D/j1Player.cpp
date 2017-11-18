@@ -182,7 +182,7 @@ bool j1Player::Update(float dt)
 		spawnEnemies = true;
 		firstUpdate = false;
 	}
-	gid=App->map->Get_gid(position.x/*-75*/, position.y);
+	gid=App->map->Get_gid(position.x, position.y);
 	bool ret = true;
 	current_animation = &idle;
 	flip = SDL_FLIP_NONE;

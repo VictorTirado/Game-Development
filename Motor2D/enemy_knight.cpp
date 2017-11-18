@@ -38,7 +38,7 @@ Enemy_knight::Enemy_knight(int x, int y) : j1Enemy(x, y)
 	runL.speed = 0.3f;
 	
 
-	animation = &runL;
+	animation = &idle;
 	LOG("x %i y %i", position.x, position.y);
 	collider = App->collision->AddCollider({ position.x, position.y, 67, 62 }, COLLIDER_TYPE::COLLIDER_ENEMY, (j1Module*)App->enemies);
 }
@@ -49,24 +49,25 @@ void Enemy_knight::Move(float dt)
 	iPoint mapPos = App->map->WorldToMap(position.x, position.y);
 
 	if (mapPos.x < App->enemies->playerMapPos.x + 5 && mapPos.x > App->enemies->playerMapPos.x - 5) {
-	if (App->pathfinding->CreatePath(mapPos, App->enemies->playerMapPos) != -1) {
-	const p2DynArray<iPoint>* path = App->pathfinding->GetLastPath();
-	if (path->Count() > 0) {
-	pathToFollow = iPoint(path->At(0)->x, path->At(0)->y);
-	if (pathToFollow.x < mapPos.x) {
-		knightSpeed.x = -1.0f;
-	}
-	else if (pathToFollow.x > mapPos.x) {
-		knightSpeed.x = 1.0f;
-	}
-	if (pathToFollow.y < mapPos.y) {
-		knightSpeed.y = -1.0f;
-	}
-	else if (pathToFollow.y > mapPos.y) {
-		knightSpeed.y = 1.0f;
-	}
-	}
-	}
+		if (App->pathfinding->CreatePath(mapPos, App->enemies->playerMapPos) != -1) {
+			const p2DynArray<iPoint>* path = App->pathfinding->GetLastPath();
+			if (path->Count() > 0) {
+					pathToFollow = iPoint(path->At(0)->x, path->At(0)->y);
+				if (pathToFollow.x < mapPos.x) {
+					knightSpeed.x = -1.0f;
+					animation = &runL;
+				}
+				else if (pathToFollow.x > mapPos.x) {
+					knightSpeed.x = 1.0f;
+					animation = &runR;
+				}
+				uint gid = App->map->Get_gid(position.x, position.y);
+				if (App->map->data.maplayers.end->data->data[gid + 150] != 1132) {
+					knightSpeed.y = 1.0f;
+					animation = &idle;
+				}
+			}
+		}
 	}
 
 	position += knightSpeed;
