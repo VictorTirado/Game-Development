@@ -137,6 +137,8 @@ bool j1Map::CleanUp()
 	// Clean up the pugui tree
 	map_file.reset();
 
+	gargoyleSpawn.~p2List();
+
 	return true;
 }
 

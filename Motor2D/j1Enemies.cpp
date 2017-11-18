@@ -49,6 +49,7 @@ bool j1Enemies::PreUpdate()
 			AddEnemy(Gargoile, App->map->gargoyleSpawn.At(iterator)->data.x, App->map->gargoyleSpawn.At(iterator)->data.y);
 			iterator++;
 		}
+		App->map->gargoyleSpawn.~p2List();
 		App->player->spawnEnemies = false;
 	}
 	// check camera position to decide what to spawn
