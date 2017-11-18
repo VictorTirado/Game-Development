@@ -9,7 +9,8 @@ class Enemy_knight : public j1Enemy
 private:
 	Animation idle;
 	Animation attack;
-	Animation run;
+	Animation runR;
+	Animation runL;
 	iPoint original_pos;
 	iPoint pathToFollow;
 	iPoint knightSpeed;
