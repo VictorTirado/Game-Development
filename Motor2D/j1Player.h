@@ -67,6 +67,7 @@ public:
 	uint gid;
 	SDL_RendererFlip flip;
 	bool firstUpdate = true;
+	bool spawnEnemies = false;
 	SDL_Rect levitate_last_frame;
 	SDL_Rect shoot_frameR;
 	SDL_Rect shoot_last_frameR;

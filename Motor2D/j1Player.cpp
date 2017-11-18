@@ -179,6 +179,7 @@ bool j1Player::Update(float dt)
 		/*if (App->scene->map=2) {
 			App->enemies->AddEnemy(Final_Boss, position.x + 60, position.y - 30);
 		}*/
+		spawnEnemies = true;
 		firstUpdate = false;
 	}
 	gid=App->map->Get_gid(position.x/*-75*/, position.y);
