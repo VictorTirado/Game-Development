@@ -202,6 +202,9 @@ bool j1Player::Update(float dt)
 			//mana2 -= 20;
 			attackingMelee = true;
 			//ThunderR();
+			if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {
+				flip = SDL_FLIP_HORIZONTAL;
+			}
 		}
 	}
 	if (mana2 >= 40) {
@@ -212,6 +215,9 @@ bool j1Player::Update(float dt)
 			shooting = true;
 			//current_animation = &shot;
 			//Shot();
+			if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {
+				flip = SDL_FLIP_HORIZONTAL;
+			}
 		}
 	}
 	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && Iceattack == false && attackingMelee==false &&shooting==false)
