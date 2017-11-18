@@ -45,11 +45,14 @@ bool j1Enemies::PreUpdate()
 {
 	if (App->player->spawnEnemies == true) {
 		int iterator = 0;
-		while (App->map->gargoyleSpawn.At(iterator) != NULL) {
+		while (App->map->gargoyleSpawn.At(iterator) != NULL && App->map->knightSpawn.At(iterator) != NULL) {
 			AddEnemy(Gargoile, App->map->gargoyleSpawn.At(iterator)->data.x, App->map->gargoyleSpawn.At(iterator)->data.y);
+			AddEnemy(Knight, App->map->knightSpawn.At(iterator)->data.x, App->map->knightSpawn.At(iterator)->data.y);
 			iterator++;
 		}
+
 		App->map->gargoyleSpawn.~p2List();
+		App->map->knightSpawn.~p2List();
 		App->player->spawnEnemies = false;
 	}
 	// check camera position to decide what to spawn

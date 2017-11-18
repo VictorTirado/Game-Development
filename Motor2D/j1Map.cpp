@@ -56,6 +56,11 @@ void j1Map::Draw()
 							LOG("GargoyleSpawn.x = %d GargoyleSpawn.y = %d", i, j);
 							//LOG("gargoyleSpawn.x = %d gargoyleSpawn.y = %d", gargoyleSpawn.x, gargoyleSpawn.y);
 						}
+						if (App->map->data.maplayers.end->data->data[gid] == 1040) {//knightspawn
+							knightSpawn.add(xy);
+							LOG("knightSpawn.x = %d knightSpawn.y = %d", i, j);
+							//LOG("gargoyleSpawn.x = %d gargoyleSpawn.y = %d", gargoyleSpawn.x, gargoyleSpawn.y);
+						}
 						if (layer_list->data->name == "Background") {
 							App->render->Blit(tileset_list->data->texture, xy.x, xy.y, &tile, 0.5f);
 						}
