@@ -56,7 +56,8 @@ public:
 	
 	Animation shotR;
 	Animation shotL;
-	Animation jump;
+	Animation jumpR;
+	Animation jumpL;
 	Animation levitate;
 	
 	bool Iceattack = false;

@@ -54,16 +54,16 @@ void Enemy_knight::Move(float dt)
 			if (path->Count() > 0) {
 					pathToFollow = iPoint(path->At(0)->x, path->At(0)->y);
 				if (pathToFollow.x < mapPos.x) {
-					knightSpeed.x = -1.0f;
+					knightSpeed.x = -100*dt;
 					animation = &runL;
 				}
 				else if (pathToFollow.x > mapPos.x) {
-					knightSpeed.x = 1.0f;
+					knightSpeed.x = 100 * dt;
 					animation = &runR;
 				}
 				uint gid = App->map->Get_gid(position.x, position.y);
 				if (App->map->data.maplayers.end->data->data[gid + 150] != 1132) {
-					knightSpeed.y = 1.0f;
+					knightSpeed.y = 100 * dt;
 					animation = &idle;
 				}
 			}

@@ -45,18 +45,18 @@ void Enemy_gargoyle::Move(float dt)
 			if (path->Count() > 0) {
 				pathToFollow = iPoint(path->At(0)->x, path->At(0)->y);
 				if (pathToFollow.x < mapPos.x) {
-					gargoyleSpeed.x = -1.0f;
+					gargoyleSpeed.x = -2.0f;
 					animation = &attackL;
 				}
 				else if (pathToFollow.x > mapPos.x) {
-					gargoyleSpeed.x = 1.0f;
+					gargoyleSpeed.x = 2.0f;
 					animation = &attackR;
 				}
 				if (pathToFollow.y < mapPos.y) {
-					gargoyleSpeed.y = -1.0f;
+					gargoyleSpeed.y = -2.0f;
 				}
 				else if (pathToFollow.y > mapPos.y) {
-					gargoyleSpeed.y = 1.0f;
+					gargoyleSpeed.y = 2.0f;
 				}
 			}
 		}
