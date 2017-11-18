@@ -143,6 +143,7 @@ bool j1Map::CleanUp()
 	map_file.reset();
 
 	gargoyleSpawn.~p2List();
+	knightSpawn.~p2List();
 
 	return true;
 }

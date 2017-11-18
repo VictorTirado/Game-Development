@@ -10,13 +10,13 @@
 
 Enemy_knight::Enemy_knight(int x, int y) : j1Enemy(x, y)
 {
-	idle.PushBack({7,165,67,62});
-	idle.PushBack({ 84,165,67,62 });
-	idle.PushBack({ 159,165,67,62 });
-	idle.PushBack({ 227,165,67,62 });
-	idle.PushBack({ 296,165,67,62 });
-	idle.PushBack({ 366,165,67,62 });
-	idle.PushBack({ 456,165,67,62 });
+	idle.PushBack({ 1814,3,62,58 });
+	idle.PushBack({ 1736,3,62,58 });
+	idle.PushBack({ 1655,3,62,58 });
+	idle.PushBack({ 1577,3,62,58 });
+	idle.PushBack({ 1503,3,62,58 });
+	idle.PushBack({ 1435,3,62,58 });
+	idle.PushBack({ 1358,3,62,58 });
 	idle.speed = 0.3f;
 
 	runR.PushBack({7,165,67,62});

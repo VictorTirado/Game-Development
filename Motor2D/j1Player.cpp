@@ -266,10 +266,10 @@ bool j1Player::Update(float dt)
 		levitating = true;
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_F11) == KEY_DOWN)
-	{
-		App->cap = !App->cap;
-	}
+	//if (App->input->GetKey(SDL_SCANCODE_F11) == KEY_DOWN)
+	//{
+	//	App->cap = !App->cap;
+	//}
 	
 
 	if (jumping == true) {

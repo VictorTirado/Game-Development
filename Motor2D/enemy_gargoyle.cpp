@@ -63,7 +63,7 @@ void Enemy_gargoyle::Move(float dt)
 	}
 
 	position += gargoyleSpeed;
-
+	
 }
 
 void Enemy_gargoyle::OnCollision(Collider* collider) {

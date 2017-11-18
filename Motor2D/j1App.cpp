@@ -210,8 +210,22 @@ void j1App::FinishUpdate()
 	uint32 frames_on_last_update = prev_last_sec_frame_count;
 
 	static char title[256];
-	sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: %d Cap: %d",
-		avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count, App->render->vsync, cap);
+	if (cap == true && App->render->vsync==true) {
+		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: on Cap: on",
+			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count);
+	}
+	else if(cap == false && App->render->vsync == true){
+		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: on Cap: off",
+			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count);
+	}
+	else if (cap == true && App->render->vsync == false) {
+		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: off Cap: on",
+			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count);
+	}
+	else if (cap == false && App->render->vsync == false) {
+		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: off Cap: off",
+			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count);
+	}
 	App->win->SetTitle(title);
 
 	if (cap == true) {
