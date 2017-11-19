@@ -44,6 +44,7 @@ public:
 	bool AddEnemy(ENEMY_TYPES type, int x, int y);
 
 	iPoint playerMapPos;
+	int bossHP = 20;
 
 private:
 
@@ -61,7 +62,6 @@ private:
 
 	bool need_target;
 
-	int bossHP = 20;
 
 };
 

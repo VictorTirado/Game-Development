@@ -386,6 +386,7 @@ bool j1Player::Update(float dt)
 	if (App->map->data.maplayers.end->data->data[gid + 1] == 1131) {
 		if (App->scene->map == 1)
 		{
+			App->enemies->bossHP = 20;
 			App->map->CleanUp();
 			/*App->enemies->CleanUp();*/
 			App->fade->FadeToBlack(1);
@@ -397,6 +398,7 @@ bool j1Player::Update(float dt)
 		
 		else
 		{
+			App->enemies->bossHP = 20;
 			App->map->CleanUp();
 			App->fade->FadeToBlack(1);
 			App->map->Load("Map3.tmx"); 
