@@ -494,10 +494,12 @@ bool j1Player::Load(pugi::xml_node& save)
 }
 
 void j1Player::OnCollision(Collider* c1, Collider* c2) {
-	if (c2->type == COLLIDER_ENEMY) {
-		dead = true;
-		App->collision->EraseCollider(collider);
-		firstUpdate = true;
+	if (GodMode == false){
+		if (c2->type == COLLIDER_ENEMY) {
+			dead = true;
+			App->collision->EraseCollider(collider);
+			firstUpdate = true;
+		}
 	}
 }
 

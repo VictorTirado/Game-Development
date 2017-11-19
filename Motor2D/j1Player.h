@@ -82,7 +82,7 @@ public:
 	SDL_Rect attack_last_frame;
 	SDL_Rect attack_frame;
 
-
+	bool GodMode = false;
 	Collider* collider;
 	//Collider* collider = nullptr;
 //	fPoint position;

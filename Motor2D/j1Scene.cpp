@@ -97,8 +97,7 @@ bool j1Scene::Update(float dt)
 		App->player->collider->to_delete = true;
 	}
 	if (App->input->GetKey(SDL_SCANCODE_F10) == KEY_DOWN) {
-
-		App->player->collider->to_delete = true;
+		App->player->GodMode = !App->player->GodMode;
 	}
 	
 	App->map->Draw();
