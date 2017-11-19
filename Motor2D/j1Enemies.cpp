@@ -51,10 +51,10 @@ bool j1Enemies::PreUpdate()
 			iterator++;
 		}
 
-		App->map->gargoyleSpawn.~p2List();
-		App->map->knightSpawn.~p2List();
 		App->player->spawnEnemies = false;
 	}
+	App->map->gargoyleSpawn.~p2List();
+	App->map->knightSpawn.~p2List();
 	// check camera position to decide what to spawn
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
