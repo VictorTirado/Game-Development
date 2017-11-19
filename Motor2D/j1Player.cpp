@@ -347,7 +347,7 @@ bool j1Player::Update(float dt)
 		{
 			current_animation = &shotL;
 			if (shoot_frameL.x == shotL.GetCurrentFrame().x && shoot_frameL.y == shotL.GetCurrentFrame().y) {
-				ShotL();
+				ShotL(dt);
 			}
 			if (shoot_last_frameL.x == shotL.GetCurrentFrame().x && shoot_last_frameL.y == shotL.GetCurrentFrame().y) {
 				shooting = false;
@@ -356,7 +356,7 @@ bool j1Player::Update(float dt)
 		else {
 			current_animation = &shotR;
 			if (shoot_frameR.x == shotR.GetCurrentFrame().x && shoot_frameR.y == shotR.GetCurrentFrame().y) {
-				ShotR();
+				ShotR(dt);
 			}
 			if (shoot_last_frameR.x == shotR.GetCurrentFrame().x && shoot_last_frameR.y == shotR.GetCurrentFrame().y) {
 				shooting = false;
@@ -430,14 +430,14 @@ bool j1Player::CleanUp()
 	return true;
 }
 
-void j1Player::ShotR()
+void j1Player::ShotR(float dt)
 {
-	App->particles->AddParticle(App->particles->fire_ballR, position.x +25, position.y + 25, COLLIDER_ATTACK, NULL, { 5,0 });
+	App->particles->AddParticle(App->particles->fire_ballR, position.x +25, position.y + 25, COLLIDER_ATTACK, NULL, { 175*dt,0 });
 }
 
-void j1Player::ShotL()
+void j1Player::ShotL(float dt)
 {
-	App->particles->AddParticle(App->particles->fire_ballL, position.x - 25, position.y + 25, COLLIDER_ATTACK, NULL, { -5,0 });
+	App->particles->AddParticle(App->particles->fire_ballL, position.x - 25, position.y + 25, COLLIDER_ATTACK, NULL, { -175 * dt,0 });
 }
 
 void j1Player::ThunderR()

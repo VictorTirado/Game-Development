@@ -17,13 +17,13 @@ Enemy_Boss::Enemy_Boss(int x, int y) : j1Enemy(x, y)
 	
 	idle.speed = 0.01f;
 
-	//idle.PushBack({ 13,398,99,101 });
-
-	/*fly.PushBack({ 17,326,39,33 });
-	fly.PushBack({ 128,325,39,30 });
-	fly.PushBack({ 233,321,33,30 });
-	fly.PushBack({ 336,317,38,30 });
-	fly.speed = 0.1f;*/
+	start_fly.PushBack({ 3408,2390,398,427 });
+	start_fly.PushBack({ 3005,2390,398,427 });
+	start_fly.speed = 0.1f;
+	fly.PushBack({ 2568,2390,398,427 });
+	fly.PushBack({ 2108,2390,512,427 });
+	fly.PushBack({ 1685,2390,398,427 });
+	fly.PushBack({ 1268,2390,398,427 });
 
 	attack.PushBack({ 3416,1984,453,352 });
 	attack.PushBack({ 3025,1981,379,354 });

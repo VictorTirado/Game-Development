@@ -24,8 +24,8 @@ public:
 	bool Save(pugi::xml_node&) const;
 
 	bool Load(pugi::xml_node&);
-	void ShotR();
-	void ShotL();
+	void ShotR(float dt);
+	void ShotL(float dt);
 	void ThunderR();
 	void ThunderL();
 	void Ice();

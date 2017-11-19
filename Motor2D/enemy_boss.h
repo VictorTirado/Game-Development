@@ -10,6 +10,7 @@ private:
 	Animation idle;
 	Animation attack;
 	Animation fly;
+	Animation start_fly;
 	iPoint original_pos;
 	iPoint pathToFollow;
 	iPoint gargoyleSpeed;
