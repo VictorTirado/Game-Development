@@ -7,6 +7,7 @@
 #include "j1Pathfinding.h"
 #include "j1Map.h"
 #include "j1Enemies.h"
+#include "j1Timer.h"
 
 Enemy_Boss::Enemy_Boss(int x, int y) : j1Enemy(x, y)
 {
@@ -15,7 +16,7 @@ Enemy_Boss::Enemy_Boss(int x, int y) : j1Enemy(x, y)
 	idle.PushBack({ 2600,512,399,347 });
 	idle.PushBack({ 2185,514,399,347 });
 	
-	idle.speed = 0.01f;
+	idle.speed = 0.1f;
 
 	start_fly.PushBack({ 3408,2390,398,427 });
 	start_fly.PushBack({ 3005,2390,398,427 });
@@ -31,39 +32,28 @@ Enemy_Boss::Enemy_Boss(int x, int y) : j1Enemy(x, y)
 	attack.PushBack({ 2080,1984,543,352 });
 	attack.PushBack({ 1616,1983,543,352 });
 	attack.speed = 0.1f;
+	attack.loop = 0.0f;
+	attack_last_frame = { 1616,1983,543,352 };
 
-	animation = &attack;
+	animation = &idle;
 	LOG("x %i y %i", position.x, position.y);
 	collider = App->collision->AddCollider({ position.x, position.y, 399, 347 }, COLLIDER_TYPE::COLLIDER_DRAKE, (j1Module*)App->enemies);
 }
 
 void Enemy_Boss::Move(float dt)
 {
-
-	/*iPoint mapPos = App->map->WorldToMap(position.x, position.y);
-
-	if (mapPos.x < App->enemies->playerMapPos.x + 5 && mapPos.x > App->enemies->playerMapPos.x - 5) {
-		if (App->pathfinding->CreatePath(mapPos, App->enemies->playerMapPos) != -1) {
-			const p2DynArray<iPoint>* path = App->pathfinding->GetLastPath();
-			if (path->Count() > 0) {
-				pathToFollow = iPoint(path->At(0)->x, path->At(0)->y);
-				if (pathToFollow.x < mapPos.x) {
-					gargoyleSpeed.x = -1.0f;
-				}
-				else if (pathToFollow.x > mapPos.x) {
-					gargoyleSpeed.x = 1.0f;
-				}
-				if (pathToFollow.y < mapPos.y) {
-					gargoyleSpeed.y = -1.0f;
-				}
-				else if (pathToFollow.y > mapPos.y) {
-					gargoyleSpeed.y = 1.0f;
-				}
-			}
+	timer2 = timer.ReadSec();
+	if (timer2 >= time+6.0f) {
+		animation = &attack;
+		if (animation->GetCurrentFrame().x == attack_last_frame.x && animation->GetCurrentFrame().y == attack_last_frame.y) {
+			time = timer2;
 		}
 	}
+	else {
+		attack.Reset();
+		animation = &idle;
+	}
 
-	position += gargoyleSpeed;*/
 
 }
 

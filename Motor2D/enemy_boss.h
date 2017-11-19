@@ -12,8 +12,10 @@ private:
 	Animation fly;
 	Animation start_fly;
 	iPoint original_pos;
-	iPoint pathToFollow;
-	iPoint gargoyleSpeed;
+	j1Timer timer;
+	float time;
+	float timer2;
+	SDL_Rect attack_last_frame;
 
 public:
 	int lifes = 30;
