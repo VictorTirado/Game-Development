@@ -36,7 +36,7 @@ bool j1Scene::Start()
 {
 		App->map->Load("Map1.tmx"); //Map1
 		map = 1;
-		//App->audio->PlayMusic("audio/music/Song.ogg");
+		App->audio->PlayMusic("audio/music/Song.ogg");
 
 	return true;
 }

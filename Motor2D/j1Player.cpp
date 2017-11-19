@@ -158,7 +158,7 @@ bool j1Player::Start()
 	LOG("Loading player textures");
 	
 	attributes = App->tex->Load("player/Attributes.png");
-	graphics = App->tex->Load("player/Player3.png");
+	graphics = App->tex->Load("player/Player.png");
 	collider = App->collision->AddCollider({ position.x, position.y, 46, 69 }, COLLIDER_PLAYER, this);
 
 	
@@ -242,12 +242,6 @@ bool j1Player::Update(float dt)
 	}
 	
 	
-	
-
-	if (App->input->GetKey(SDL_SCANCODE_U) == KEY_REPEAT)
-	{
-		current_animation = &death;
-	}
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_REPEAT && current_animation != &jumpL && current_animation != &jumpR && current_animation != &attack)
 	{
 		jumping = true;
