@@ -28,3 +28,5 @@ F11-> Enable/Disable FPS cap to 30
 You can move the camera with the arrows keys (this aren't controls for playing, just for debugging purpose)
 
 PD: We've decided to change the game since the last update, cause we thought it was the best way a better job.
+
+Music from https://soundcloud.com/pascalbelisle
