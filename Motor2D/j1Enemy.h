@@ -22,7 +22,6 @@ protected:
 public:
 	Collider* collider = nullptr;
 	iPoint position;
-	//Path path;
 	int type;
 	int score;
 	int id;

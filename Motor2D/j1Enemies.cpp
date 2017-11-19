@@ -36,7 +36,6 @@ bool j1Enemies::Start()
 		LOG("No cargado");
 	}
 	sprites = App->tex->Load("Enemies/enemies.png");
-	//final_boss = App->tex->Load("Enemies/Final_boss2.png");
 	if (sprites != nullptr) {
 		LOG("Cargado");
 	}
@@ -70,7 +69,6 @@ bool j1Enemies::PreUpdate()
 			{
 				SpawnEnemy(queue[i]);
 				queue[i].type = ENEMY_TYPES::NO_TYPE;
-				//LOG("Spawning enemy at %d", queue[i].x * SCREEN_SIZE);
 
 			}
 
@@ -93,11 +91,6 @@ bool j1Enemies::Update(float dt)
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr) enemies[i]->Move(dt);
-	//for (uint i = 0; i < MAX_ENEMIES; ++i)
-	//	if (enemies[i] != nullptr) enemies[i]->Draw(final_boss);
-
-	//for (uint i = 0; i < MAX_ENEMIES; ++i)
-	//	if (enemies[i] != nullptr) enemies[i]->Move(dt);
 	if (App->player->dead == true)
 	{
 		App->player->dead = false;
@@ -134,7 +127,6 @@ bool j1Enemies::PostUpdate()
 		{
 			if (enemies[i]->position.y *App->win->screen_surface->h < (App->render->camera.y) - SPAWN_MARGIN * 16)
 			{
-				//log("despawning enemy at %d", enemies[i]->position.x * screen_size);
 				delete enemies[i];
 				enemies[i] = nullptr;
 			}

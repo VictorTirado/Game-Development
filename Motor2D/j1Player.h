@@ -84,8 +84,7 @@ public:
 
 	bool GodMode = false;
 	Collider* collider;
-	//Collider* collider = nullptr;
-//	fPoint position;
+
 	
 };
 

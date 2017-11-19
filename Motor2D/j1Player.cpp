@@ -25,7 +25,6 @@ j1Player::j1Player() : j1Module()
 	idle.PushBack({ 70,17,46,69 });
 
 	//RUN
-	//run.PushBack({ 146,17,46,69 });
 	runR.PushBack({ 221,17,47,69 });
 	runR.PushBack({ 47,107,39,68 });
 	runR.PushBack({ 127,106,43,69 });
@@ -372,7 +371,6 @@ bool j1Player::Update(float dt)
 			App->scene->dragonSpawn = true;
 			App->enemies->bossHP = 60;
 			App->map->CleanUp();
-			/*App->enemies->CleanUp();*/
 			App->fade->FadeToBlack(1);
 			App->map->Load("Map3.tmx");
 			firstUpdate = true;
