@@ -158,7 +158,7 @@ bool j1Player::Start()
 	LOG("Loading player textures");
 	
 	attributes = App->tex->Load("player/Attributes.png");
-	graphics = App->tex->Load("player/Player.png");
+	graphics = App->tex->Load("player/Player3.png");
 	collider = App->collision->AddCollider({ position.x, position.y, 46, 69 }, COLLIDER_PLAYER, this);
 
 	
@@ -183,11 +183,7 @@ bool j1Player::Update(float dt)
 		App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
 		App->render->camera.y = position.y - (App->win->screen_surface->h);
 		collider = App->collision->AddCollider({ position.x, position.y, 46, 69 }, COLLIDER_PLAYER, this);
-		App->enemies->AddEnemy(Final_Boss, position.x + 60, position.y + 5);
-		//App->enemies->AddEnemy(Knight, position.x + 60, position.y -30);
-		/*if (App->scene->map=2) {
-			App->enemies->AddEnemy(Final_Boss, position.x + 60, position.y - 30);
-		}*/
+		App->enemies->bossHP = 20;
 		spawnEnemies = true;
 		firstUpdate = false;
 	}
@@ -386,6 +382,9 @@ bool j1Player::Update(float dt)
 	if (App->map->data.maplayers.end->data->data[gid + 1] == 1131) {
 		if (App->scene->map == 1)
 		{
+			spawnEnemies = true;
+			dead = true;
+			App->scene->dragonSpawn = true;
 			App->enemies->bossHP = 20;
 			App->map->CleanUp();
 			/*App->enemies->CleanUp();*/
@@ -398,10 +397,12 @@ bool j1Player::Update(float dt)
 		
 		else
 		{
+			spawnEnemies = true;
+			dead = true;
 			App->enemies->bossHP = 20;
 			App->map->CleanUp();
 			App->fade->FadeToBlack(1);
-			App->map->Load("Map3.tmx"); 
+			App->map->Load("Map1.tmx"); 
 			firstUpdate = true;
 			App->collision->EraseCollider(collider);
 			App->scene->map = 0;
@@ -484,10 +485,13 @@ bool j1Player::Load(pugi::xml_node& save)
 		App->scene->map = save.child("map").attribute("z").as_int();
 		if (App->scene->map == 1)
 		{
+			
 			App->map->Load("Map1.tmx");
 		}
 		if (App->scene->map == 0)
 		{
+			App->scene->dragonSpawn = true;
+			
 			App->map->Load("Map3.tmx");
 		}
 	}

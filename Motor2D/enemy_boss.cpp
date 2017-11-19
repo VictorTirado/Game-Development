@@ -8,6 +8,7 @@
 #include "j1Map.h"
 #include "j1Enemies.h"
 #include "j1Timer.h"
+#
 
 Enemy_Boss::Enemy_Boss(int x, int y) : j1Enemy(x, y)
 {
@@ -34,6 +35,7 @@ Enemy_Boss::Enemy_Boss(int x, int y) : j1Enemy(x, y)
 	attack.speed = 0.1f;
 	attack.loop = 0.0f;
 	attack_last_frame = { 1616,1983,543,352 };
+	attack_frame = {2080,1984,543,352 };
 
 	animation = &idle;
 	LOG("x %i y %i", position.x, position.y);
@@ -42,11 +44,18 @@ Enemy_Boss::Enemy_Boss(int x, int y) : j1Enemy(x, y)
 
 void Enemy_Boss::Move(float dt)
 {
+	
 	timer2 = timer.ReadSec();
 	if (timer2 >= time+6.0f) {
 		animation = &attack;
-		if (animation->GetCurrentFrame().x == attack_last_frame.x && animation->GetCurrentFrame().y == attack_last_frame.y) {
+		if (animation->GetCurrentFrame().x == attack_frame.x && animation->GetCurrentFrame().y == attack_frame.y && cont==0)
+		{
+			App->particles->AddParticle(App->particles->Dragonshot, position.x-10, position.y+195, COLLIDER_ENEMY, NULL, { -200*dt,0 });
+			cont = 1;
+		}
+		if (animation->GetCurrentFrame().x == attack_last_frame.x && animation->GetCurrentFrame().y == attack_last_frame.y ) {
 			time = timer2;
+			cont = 0;
 		}
 	}
 	else {

@@ -5,6 +5,7 @@
 #include "j1Particles.h"
 #include "j1Textures.h"
 #include "j1Enemy.h"
+#include "j1Scene.h"
 #include "enemy_gargoyle.h"
 #include "enemy_boss.h"
 #include "enemy_knight.h"
@@ -47,16 +48,19 @@ bool j1Enemies::PreUpdate()
 	BROFILER_CATEGORY("j1EnemiesPreUpdate", Profiler::Color::Cyan);
 	if (App->player->spawnEnemies == true) {
 		int iterator = 0;
-		while (App->map->gargoyleSpawn.At(iterator) != NULL && App->map->knightSpawn.At(iterator) != NULL) {
+	
+		while (App->map->gargoyleSpawn.At(iterator) != NULL && App->map->knightSpawn.At(iterator) != NULL && App->map->drakeSpawn.At(iterator) != NULL) {
 			AddEnemy(Gargoile, App->map->gargoyleSpawn.At(iterator)->data.x, App->map->gargoyleSpawn.At(iterator)->data.y);
 			AddEnemy(Knight, App->map->knightSpawn.At(iterator)->data.x, App->map->knightSpawn.At(iterator)->data.y);
+			AddEnemy(Final_Boss, App->map->drakeSpawn.At(iterator)->data.x-30, App->map->drakeSpawn.At(iterator)->data.y-256);
 			iterator++;
 		}
-
+	
 		App->player->spawnEnemies = false;
 	}
 	App->map->gargoyleSpawn.~p2List();
 	App->map->knightSpawn.~p2List();
+	App->map->drakeSpawn.~p2List();
 	// check camera position to decide what to spawn
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{

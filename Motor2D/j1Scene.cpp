@@ -52,9 +52,12 @@ bool j1Scene::PreUpdate()
 bool j1Scene::Update(float dt)
 {
 	BROFILER_CATEGORY("j1SceneUpdate", Profiler::Color::SaddleBrown);
-	if(App->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN)
+	if (App->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN) {
 		App->LoadGame();
+		App->player->spawnEnemies = true;
+		App->player->dead = true;
 
+	}
 	if(App->input->GetKey(SDL_SCANCODE_F5) == KEY_DOWN)
 		App->SaveGame();
 
@@ -76,18 +79,24 @@ bool j1Scene::Update(float dt)
 	if (App->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN && App->fade->IsFading() == false) {
 		if (map == 0)
 		{
+			dragonSpawn = false;
 			App->map->CleanUp();
 			App->fade->FadeToBlack(1);
 			App->map->Load("Map1.tmx"); //Map1
 			App->player->firstUpdate = true;
 			map = 1;
 			App->player->collider->to_delete = true;
+			App->player->spawnEnemies = true;
+			App->player->dead = true;
 		}
 		else
 		{
+
 			map = 0;
 			App->player->firstUpdate = true;
 			App->player->collider->to_delete = true;
+			App->player->spawnEnemies = true;
+			App->player->dead = true;
 			
 		}
 		
@@ -95,6 +104,8 @@ bool j1Scene::Update(float dt)
 	if (App->input->GetKey(SDL_SCANCODE_F2) == KEY_DOWN && App->fade->IsFading() == false) {
 		App->player->firstUpdate = true;
 		App->player->collider->to_delete = true;
+		App->player->spawnEnemies = true;
+		App->player->dead = true;
 	}
 	if (App->input->GetKey(SDL_SCANCODE_F10) == KEY_DOWN) {
 		App->player->GodMode = !App->player->GodMode;

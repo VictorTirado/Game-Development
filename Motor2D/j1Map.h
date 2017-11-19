@@ -113,6 +113,7 @@ public:
 	uint Get_gid(int x, int y);
 	p2List<iPoint> gargoyleSpawn;
 	p2List<iPoint> knightSpawn;
+	p2List<iPoint> drakeSpawn;
 
 	
 

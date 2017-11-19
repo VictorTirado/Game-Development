@@ -13,9 +13,11 @@ private:
 	Animation start_fly;
 	iPoint original_pos;
 	j1Timer timer;
+	int cont = 0;
 	float time;
 	float timer2;
 	SDL_Rect attack_last_frame;
+	SDL_Rect attack_frame;
 
 public:
 	int lifes = 30;

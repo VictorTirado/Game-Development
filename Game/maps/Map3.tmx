@@ -12044,7 +12044,7 @@
    <tile gid="0"/>
   </data>
  </layer>
- <layer name="Logic" width="150" height="20" visible="0">
+ <layer name="Logic" width="150" height="20">
   <data>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -13958,7 +13958,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="1039"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>

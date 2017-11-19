@@ -86,6 +86,18 @@ j1Particles::j1Particles()
 	iceR.anim.PushBack({ 908,482,41,45 });
 	iceR.anim.PushBack({ 1074,482,41,45 });
 	iceR.anim.speed= 0.1f;
+
+	Dragonshot.anim.PushBack({ 1517,649,99,95 });
+	Dragonshot.anim.PushBack({ 1402,650,99,95 });
+	Dragonshot.anim.PushBack({1291,653,99,95});
+	Dragonshot.anim.PushBack({ 1179,653,99,95 });
+	Dragonshot.anim.PushBack({ 1291,653,99,95 });
+	Dragonshot.anim.PushBack({ 1179,653,99,95 });
+	Dragonshot.anim.PushBack({ 1291,653,99,95 });
+	Dragonshot.anim.PushBack({ 1179,653,99,95 });
+	Dragonshot.anim.speed = 0.1f;
+
+
 	
 	
 }

@@ -12054,7 +12054,7 @@
    <tile gid="1133"/>
   </data>
  </layer>
- <layer name="Logic" width="150" height="20" visible="0" opacity="0.63">
+ <layer name="Logic" width="150" height="20" opacity="0.63">
   <properties>
    <property name="Collision" type="bool" value="true"/>
   </properties>
@@ -15058,7 +15058,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="1039"/>
   </data>
  </layer>
 </map>
