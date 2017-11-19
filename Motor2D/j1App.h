@@ -23,6 +23,7 @@ class j1Particles;
 class j1Enemies;
 class j1PathFinding;
 class j1PathKnight;
+class j1Abilities;
 
 
 class j1App
@@ -101,6 +102,7 @@ public:
 	j1Enemies*            enemies;
 	j1PathFinding*		pathfinding;
 	j1PathKnight*       pathknight;
+	j1Abilities*        abilities;
 
 private:
 

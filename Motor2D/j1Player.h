@@ -38,7 +38,7 @@ public:
 	iPoint position = { 0,0 };
 	bool dead= false;
 	int lifes = 3;
-	int mana2 = 350;
+	int mana2 = 100;
 	int speed;
 	int cont = 0;
 	int cont2 = 0;

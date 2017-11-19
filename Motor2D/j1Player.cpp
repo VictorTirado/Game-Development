@@ -14,6 +14,7 @@
 #include "ModuleCollision.h"
 #include "j1Enemies.h"
 #include "Brofiler\Brofiler.h"
+#include "j1Abilities.h"
 
 
 j1Player::j1Player() : j1Module()
@@ -192,36 +193,28 @@ bool j1Player::Update(float dt)
 	current_animation = &idle;
 	flip = SDL_FLIP_NONE;
 	
-	if (mana2 >= 80) {
-		if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN && jumping == false && current_animation == &idle && Iceattack==false)
-		{
-			Iceattack = true;
-			//mana2 -= 80;
-			
-			
+	
+	if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN && jumping == false && current_animation == &idle && Iceattack==false)
+	{
+		Iceattack = true;
+	}
+	
+	if (App->input->GetKey(SDL_SCANCODE_T) == KEY_REPEAT && current_animation != &meleeR)
+	{
+		attackingMelee = true;
+		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {
+			flip = SDL_FLIP_HORIZONTAL;
 		}
 	}
-	if (mana2 >= 20) {
-		if (App->input->GetKey(SDL_SCANCODE_T) == KEY_REPEAT && current_animation != &meleeR)
-		{
-			//mana2 -= 20;
-			attackingMelee = true;
-			if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {
-				flip = SDL_FLIP_HORIZONTAL;
-			}
-		}
-	}
-	if (mana2 >= 40) {
-		if (App->input->GetKey(SDL_SCANCODE_Y) == KEY_REPEAT && current_animation != &shotR)
-		{
 
-			//mana2 -= 40;
-			shooting = true;
-			if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {
-				flip = SDL_FLIP_HORIZONTAL;
-			}
+	if (App->input->GetKey(SDL_SCANCODE_Y) == KEY_REPEAT && current_animation != &shotR)
+	{
+		shooting = true;
+		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {
+			flip = SDL_FLIP_HORIZONTAL;
 		}
 	}
+	
 	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && Iceattack == false && attackingMelee==false &&shooting==false)
 	{
 		current_animation = &runL;
@@ -249,12 +242,8 @@ bool j1Player::Update(float dt)
 	if (App->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_DOWN && jumping == true)
 	{
 		levitating = true;
+		mana2 -= 5;
 	}
-
-	//if (App->input->GetKey(SDL_SCANCODE_F11) == KEY_DOWN)
-	//{
-	//	App->cap = !App->cap;
-	//}
 	
 
 	if (jumping == true) {
@@ -421,7 +410,6 @@ bool j1Player::CleanUp()
 	LOG("Unloading player");
 	SDL_DestroyTexture(graphics);
 
-	//App->textures->Unload(graphics);
 	App->collision->EraseCollider(collider);
 
 	return true;
@@ -429,26 +417,26 @@ bool j1Player::CleanUp()
 
 void j1Player::ShotR(float dt)
 {
-	App->particles->AddParticle(App->particles->fire_ballR, position.x +25, position.y + 25, COLLIDER_ATTACK, NULL, { 175*dt,0 });
+	App->abilities->AddAbility(App->abilities->fire_ballR, App->particles->fire_ballR, position.x + 25, position.y + 25, COLLIDER_ATTACK, NULL, { 175 * dt,0 });
 }
 
 void j1Player::ShotL(float dt)
 {
-	App->particles->AddParticle(App->particles->fire_ballL, position.x - 25, position.y + 25, COLLIDER_ATTACK, NULL, { -175 * dt,0 });
+	App->abilities->AddAbility(App->abilities->fire_ballL, App->particles->fire_ballL, position.x - 25, position.y + 25, COLLIDER_ATTACK, NULL, { -175 * dt,0 });
 }
 
 void j1Player::ThunderR()
 {
-	App->particles->AddParticle(App->particles->thunderR, position.x + 73, position.y + 40, COLLIDER_ATTACK, NULL, { 0,0 });
+	App->abilities->AddAbility(App->abilities->thunderR, App->particles->thunderR, position.x + 73, position.y + 40, COLLIDER_ATTACK, NULL, { 0,0 });
 }
 void j1Player::ThunderL()
 {
-	App->particles->AddParticle(App->particles->thunderL, position.x - 51, position.y + 40, COLLIDER_ATTACK, NULL, { 0,0 });
+	App->abilities->AddAbility(App->abilities->thunderL, App->particles->thunderL, position.x - 51, position.y + 40, COLLIDER_ATTACK, NULL, { 0,0 });
 }
 void j1Player::Ice()
 {
-	App->particles->AddParticle(App->particles->iceR, position.x + 45, position.y + 25, COLLIDER_ATTACK, NULL, { 0,0 });
-	App->particles->AddParticle(App->particles->iceL, position.x - 41, position.y + 25, COLLIDER_ATTACK, NULL, { 0,0 });
+	App->abilities->AddAbility(App->abilities->iceR, App->particles->iceR, position.x + 45, position.y + 25, COLLIDER_ATTACK, NULL, { 0,0 });
+	App->abilities->AddAbility(App->abilities->iceL, App->particles->iceL, position.x - 41, position.y + 25, COLLIDER_ATTACK, NULL, { 0,0 });
 }
 
 bool j1Player::Save(pugi::xml_node& save) const

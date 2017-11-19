@@ -18,6 +18,7 @@
 #include "j1Enemies.h"
 #include "j1Pathfinding.h"
 #include "Brofiler\Brofiler.h"
+#include "j1Abilities.h"
 
 
 
@@ -41,6 +42,7 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	particles = new j1Particles();
 	enemies = new j1Enemies();
 	pathfinding = new j1PathFinding();
+	abilities = new j1Abilities();
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -56,6 +58,7 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(particles);
 	AddModule(enemies);
 	AddModule(pathfinding);
+	AddModule(abilities);
 
 	// render last to swap buffer
 	AddModule(render);
@@ -215,20 +218,20 @@ void j1App::FinishUpdate()
 
 	static char title[256];
 	if (cap == true && App->render->vsync==true) {
-		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: on Cap: on",
-			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count);
+		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: on Cap: on Mana: %d%d",
+			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count, App->player->mana2);
 	}
 	else if(cap == false && App->render->vsync == true){
-		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: on Cap: off",
-			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count);
+		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: on Cap: off Mana: %d%d",
+			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count, App->player->mana2);
 	}
 	else if (cap == true && App->render->vsync == false) {
-		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: off Cap: on",
-			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count);
+		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: off Cap: on Mana: %d%d",
+			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count, App->player->mana2);
 	}
 	else if (cap == false && App->render->vsync == false) {
-		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: off Cap: off",
-			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count);
+		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: off Cap: off Mana: %d%d",
+			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count, App->player->mana2);
 	}
 	App->win->SetTitle(title);
 
