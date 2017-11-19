@@ -42,7 +42,7 @@ public:
 	bool Update(float dt);
 	bool CleanUp();
 
-	void AddAbility(const Ability& ability, const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay, fPoint speed);
+	void AddAbility(const Ability& ability, const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay, fPoint speed, int manacoast);
 
 private:
 	Ability* active[MAX_ACTIVE_ABILITIES];

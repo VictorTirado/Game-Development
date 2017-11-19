@@ -38,16 +38,16 @@ bool j1Abilities::Awake(pugi::xml_node& config)
 	return ret;
 }
 
-void j1Abilities::AddAbility(const Ability& ability, const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay, fPoint speed)
+void j1Abilities::AddAbility(const Ability& ability, const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay, fPoint speed, int manacoast)
 {
 	BROFILER_CATEGORY("j1ParticlesAddParticle", Profiler::Color::AliceBlue);
 	for (uint i = 0; i < MAX_ACTIVE_ABILITIES; ++i)
 	{
 		if (active[i] == nullptr)
 		{
-			if (App->player->mana2 > 20) {
+			if (App->player->mana2 >= manacoast) {
 				App->particles->AddParticle(particle, x, y, collider_type, delay, speed);
-				App->player->mana2 -= 10;
+				App->player->mana2 -= manacoast;
 				break;
 			}
 		}
