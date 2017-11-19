@@ -114,6 +114,8 @@ public:
 	p2List<iPoint> gargoyleSpawn;
 	p2List<iPoint> knightSpawn;
 
+	
+
 private:
 
 	pugi::xml_document	map_file;

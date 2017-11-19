@@ -10,6 +10,7 @@
 #include "j1Scene.h"
 #include "j1FadeToBlack.h"
 #include "j1Player.h"
+#include "j1Enemies.h"
 
 j1Scene::j1Scene() : j1Module()
 {
@@ -90,6 +91,10 @@ bool j1Scene::Update(float dt)
 	}
 	if (App->input->GetKey(SDL_SCANCODE_F2) == KEY_DOWN && App->fade->IsFading() == false) {
 		App->player->firstUpdate = true;
+		App->player->collider->to_delete = true;
+	}
+	if (App->input->GetKey(SDL_SCANCODE_F10) == KEY_DOWN) {
+
 		App->player->collider->to_delete = true;
 	}
 	
