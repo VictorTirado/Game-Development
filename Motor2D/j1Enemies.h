@@ -60,8 +60,6 @@ private:
 	float proj_speed = 5.0f;
 	float speed_x_mult, speed_y_mult, common_mult, a_mult;
 
-	bool need_target;
-
 
 };
 
