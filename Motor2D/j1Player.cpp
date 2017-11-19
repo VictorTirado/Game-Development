@@ -241,8 +241,10 @@ bool j1Player::Update(float dt)
 	}
 	if (App->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_DOWN && jumping == true)
 	{
-		levitating = true;
-		mana2 -= 5;
+		if (mana2 >= 5) {
+			levitating = true;
+			mana2 -= 5;
+		}
 	}
 	
 
