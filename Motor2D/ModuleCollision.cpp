@@ -5,6 +5,7 @@
 #include "ModuleCollision.h"
 #include "j1Player.h"
 #include "p2Log.h"
+#include "Brofiler\Brofiler.h"
 
 ModuleCollision::ModuleCollision()
 {
@@ -40,6 +41,7 @@ bool ModuleCollision::Start() {
 
 bool ModuleCollision::PreUpdate()
 {
+	BROFILER_CATEGORY("ModuleCollisionPreUpdate", Profiler::Color::Red);
 	// Remove all colliders scheduled for deletion
 	for (uint i = 0; i < MAX_COLLIDERS; ++i)
 	{
@@ -57,6 +59,7 @@ bool ModuleCollision::PreUpdate()
 // Called before render is available
 bool ModuleCollision::Update(float dt)
 {
+	BROFILER_CATEGORY("ModuleCollisionUpdate", Profiler::Color::Red);
 	Collider* c1;
 	Collider* c2;
 
@@ -178,6 +181,7 @@ bool ModuleCollision::EraseCollider(Collider* collider)
 
 bool Collider::CheckCollision(const SDL_Rect& r) const
 {
+	BROFILER_CATEGORY("ModuleCollisionCheckCollision", Profiler::Color::Red);
 	bool collision = false;
 
 

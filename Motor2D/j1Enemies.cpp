@@ -13,6 +13,7 @@
 #include "p2Log.h"
 #include "j1Window.h"
 #include "j1Map.h"
+#include "Brofiler\Brofiler.h"
 
 
 #define SPAWN_MARGIN 50
@@ -43,6 +44,7 @@ bool j1Enemies::Start()
 
 bool j1Enemies::PreUpdate()
 {
+	BROFILER_CATEGORY("j1EnemiesPreUpdate", Profiler::Color::Cyan);
 	if (App->player->spawnEnemies == true) {
 		int iterator = 0;
 		while (App->map->gargoyleSpawn.At(iterator) != NULL && App->map->knightSpawn.At(iterator) != NULL) {
@@ -79,7 +81,7 @@ bool j1Enemies::PreUpdate()
 // Called before render is available
 bool j1Enemies::Update(float dt)
 {
-
+	BROFILER_CATEGORY("j1EnemiesUpdate", Profiler::Color::Cyan);
 	playerMapPos = App->map->WorldToMap(App->player->position.x, App->player->position.y);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
@@ -87,8 +89,8 @@ bool j1Enemies::Update(float dt)
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr) enemies[i]->Move(dt);
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr) enemies[i]->Draw(final_boss);
+	//for (uint i = 0; i < MAX_ENEMIES; ++i)
+	//	if (enemies[i] != nullptr) enemies[i]->Draw(final_boss);
 
 	//for (uint i = 0; i < MAX_ENEMIES; ++i)
 	//	if (enemies[i] != nullptr) enemies[i]->Move(dt);
@@ -100,7 +102,17 @@ bool j1Enemies::Update(float dt)
 			delete enemies[i];
 			enemies[i] = nullptr;
 		}
-		
+	}
+
+	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	{
+		if (enemies[i] != nullptr) {
+			uint gid = App->map->Get_gid(enemies[i]->position.x, enemies[i]->position.y);
+			if (enemies[i]->type == Knight && App->map->data.maplayers.end->data->data[gid + 150] == 1087) {
+				delete enemies[i];
+				enemies[i] = nullptr;
+			}
+		}
 	}
 
 
@@ -110,17 +122,18 @@ bool j1Enemies::Update(float dt)
 
 bool j1Enemies::PostUpdate()
 {
+	BROFILER_CATEGORY("j1EnemiesPostUpdate", Profiler::Color::Cyan);
 	// check camera position to decide what to spawn
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
 		if (enemies[i] != nullptr)
 		{
-			//if (-enemies[i]->position.y *App->win->screen_surface->h < (App->render->camera.y) - SPAWN_MARGIN * 16)
-			//{
-			//	//LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
-			//	delete enemies[i];
-			//	enemies[i] = nullptr;
-			//}
+			if (enemies[i]->position.y *App->win->screen_surface->h < (App->render->camera.y) - SPAWN_MARGIN * 16)
+			{
+				//log("despawning enemy at %d", enemies[i]->position.x * screen_size);
+				delete enemies[i];
+				enemies[i] = nullptr;
+			}
 		}
 	}
 

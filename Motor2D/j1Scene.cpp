@@ -11,6 +11,7 @@
 #include "j1FadeToBlack.h"
 #include "j1Player.h"
 #include "j1Enemies.h"
+#include "Brofiler\Brofiler.h"
 
 j1Scene::j1Scene() : j1Module()
 {
@@ -43,12 +44,14 @@ bool j1Scene::Start()
 // Called each loop iteration
 bool j1Scene::PreUpdate()
 {
+	BROFILER_CATEGORY("j1ScenePreUpdate", Profiler::Color::SaddleBrown);
 	return true;
 }
 
 // Called each loop iteration
 bool j1Scene::Update(float dt)
 {
+	BROFILER_CATEGORY("j1SceneUpdate", Profiler::Color::SaddleBrown);
 	if(App->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN)
 		App->LoadGame();
 
@@ -118,6 +121,7 @@ bool j1Scene::Update(float dt)
 // Called each loop iteration
 bool j1Scene::PostUpdate()
 {
+	BROFILER_CATEGORY("j1ScenePostUpdate", Profiler::Color::SaddleBrown);
 	bool ret = true;
 
 	if(App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)

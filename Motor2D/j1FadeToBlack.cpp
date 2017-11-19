@@ -7,6 +7,7 @@
 #include "j1Render.h"
 #include "SDL/include/SDL_render.h"
 #include "SDL/include/SDL_timer.h"
+#include "Brofiler\Brofiler.h"
 
 
 j1FadeToBlack::j1FadeToBlack()
@@ -35,6 +36,7 @@ bool j1FadeToBlack::Start()
 
 bool j1FadeToBlack::Update(float dt)
 {
+	BROFILER_CATEGORY("j1FadeToBlackUpdate", Profiler::Color::Black);
 	if (current_step == fade_step::none)
 		return true;
 

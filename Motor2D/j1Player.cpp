@@ -13,6 +13,7 @@
 #include "j1FadeToBlack.h"
 #include "ModuleCollision.h"
 #include "j1Enemies.h"
+#include "Brofiler\Brofiler.h"
 
 
 j1Player::j1Player() : j1Module()
@@ -166,6 +167,7 @@ bool j1Player::Start()
 
 bool j1Player::PreUpdate()
 {
+	BROFILER_CATEGORY("j1PlayerPreUpdate", Profiler::Color::DodgerBlue);
 	bool ret = true;
 	return ret;
 }
@@ -173,7 +175,7 @@ bool j1Player::PreUpdate()
 bool j1Player::Update(float dt)
 {
 
-	
+	BROFILER_CATEGORY("j1PlayerUpdate", Profiler::Color::DodgerBlue);
 	startPos.x = App->map->spawn.x;
 	startPos.y = App->map->spawn.y;
 	if (firstUpdate == true) {
@@ -412,6 +414,7 @@ bool j1Player::Update(float dt)
 
 bool j1Player::PostUpdate()
 {
+	BROFILER_CATEGORY("j1PlayerPostUpdate", Profiler::Color::DodgerBlue);
 	bool ret = true;
 	return ret;
 }

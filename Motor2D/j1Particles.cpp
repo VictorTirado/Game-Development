@@ -8,6 +8,7 @@
 #include "j1Map.h"
 #include "j1Textures.h"
 #include "j1Particles.h"
+#include "Brofiler\Brofiler.h"
 
 
 
@@ -106,6 +107,7 @@ bool j1Particles::Awake(pugi::xml_node& config)
 
 void j1Particles::AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay, fPoint speed)
 {
+	BROFILER_CATEGORY("j1ParticlesAddParticle", Profiler::Color::BlueViolet);
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
 		if (active[i] == nullptr)
@@ -126,6 +128,7 @@ void j1Particles::AddParticle(const Particle& particle, int x, int y, COLLIDER_T
 
  bool j1Particles::Update(float dt)
 {
+	 BROFILER_CATEGORY("j1ParticlesUpdate", Profiler::Color::BlueViolet);
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
 		Particle* p = active[i];
@@ -182,6 +185,7 @@ Particle::~Particle()
 
 bool Particle::Update()
 {
+	BROFILER_CATEGORY("ParticlesUpdate", Profiler::Color::CadetBlue);
 	bool ret = true;
 
 	if (life > 0)

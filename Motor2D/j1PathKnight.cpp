@@ -2,6 +2,7 @@
 #include "p2Log.h"
 #include "j1App.h"
 #include "j1PathKnight.h"
+#include "Brofiler\Brofiler.h"
 
 j1PathKnight::j1PathKnight() : j1Module(), map(NULL), last_path(DEFAULT_PATH_LENGTH), width(0), height(0)
 {
@@ -167,6 +168,7 @@ int PathNodeKnight::CalculateF(const iPoint& destination)
 // ----------------------------------------------------------------------------------
 int j1PathKnight::CreatePath(const iPoint& origin, const iPoint& destination)
 {
+	BROFILER_CATEGORY("j1PathKnightCreatePath", Profiler::Color::GreenYellow);
 	// TODO 1: if origin or destination are not walkable, return -1
 
 	if (IsWalkable(origin) == false || IsWalkable(destination) == false) {
