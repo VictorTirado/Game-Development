@@ -52,12 +52,14 @@ j1Player::j1Player() : j1Module()
 	jumpR.PushBack({ 170,189,44,78 });
 	
 	jumpR.speed=0.10f;
+	jumpR.loop = 0.0f;
 
 	jumpL.PushBack({ 2262,186,46,78 });
 	jumpL.PushBack({ 2200,187,44,78 });
 	jumpL.PushBack({ 2136,189,44,78 });
 
 	jumpL.speed = 0.10f;
+	jumpL.loop = 0.0f;
 
 	//Levitate
 	levitate.PushBack({ 622,241,46,78 });
@@ -292,7 +294,7 @@ bool j1Player::Update(float dt)
 			if (App->map->data.maplayers.end->data->data[gid + 150] == 1132) {
 				cont = 0;
 				cont2 = 0;
-				jumpL.Reset();
+				jumpR.Reset();
 				jumping = false;
 			}
 		}
