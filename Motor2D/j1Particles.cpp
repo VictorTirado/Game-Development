@@ -97,9 +97,6 @@ j1Particles::j1Particles()
 	Dragonshot.anim.PushBack({ 1179,653,99,95 });
 	Dragonshot.anim.speed = 0.1f;
 
-
-	
-	
 }
 
 j1Particles::~j1Particles(){}

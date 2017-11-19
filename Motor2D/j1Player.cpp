@@ -183,7 +183,7 @@ bool j1Player::Update(float dt)
 		App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
 		App->render->camera.y = position.y - (App->win->screen_surface->h);
 		collider = App->collision->AddCollider({ position.x, position.y, 46, 69 }, COLLIDER_PLAYER, this);
-		App->enemies->bossHP = 20;
+		App->enemies->bossHP = 60;
 		spawnEnemies = true;
 		firstUpdate = false;
 	}
@@ -385,7 +385,7 @@ bool j1Player::Update(float dt)
 			spawnEnemies = true;
 			dead = true;
 			App->scene->dragonSpawn = true;
-			App->enemies->bossHP = 20;
+			App->enemies->bossHP = 60;
 			App->map->CleanUp();
 			/*App->enemies->CleanUp();*/
 			App->fade->FadeToBlack(1);
@@ -399,13 +399,13 @@ bool j1Player::Update(float dt)
 		{
 			spawnEnemies = true;
 			dead = true;
-			App->enemies->bossHP = 20;
+			App->enemies->bossHP = 60;
 			App->map->CleanUp();
 			App->fade->FadeToBlack(1);
 			App->map->Load("Map1.tmx"); 
 			firstUpdate = true;
 			App->collision->EraseCollider(collider);
-			App->scene->map = 0;
+			App->scene->map = 1;
 		}
 	}
 	collider->SetPos(position.x , position.y);
