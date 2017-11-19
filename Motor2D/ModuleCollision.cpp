@@ -124,6 +124,9 @@ void ModuleCollision::DebugDraw()
 		case COLLIDER_ENEMY:
 			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
 			break;
+		case COLLIDER_DRAKE:
+			App->render->DrawQuad(colliders[i]->rect, 155, 255, 255, alpha);
+			break;
 
 		}
 	}

@@ -223,9 +223,18 @@ void j1Enemies::OnCollision(Collider* c1, Collider* c2)
 	for (uint i = 0; i < MAX_ENEMIES; ++i) {
 		if (enemies[i] != nullptr) {
 			if (enemies[i]->GetCollider() == c1) {
-				if (c2->type == COLLIDER_ATTACK) {
+				if (c2->type == COLLIDER_ATTACK && c1->type != COLLIDER_DRAKE) {
 					delete enemies[i];
 					enemies[i] = nullptr;
+				}
+				else if (c2->type == COLLIDER_ATTACK && c1->type == COLLIDER_DRAKE) {
+					bossHP--;
+					c2->to_delete = true;
+					if (bossHP <= 0) {
+						delete enemies[i];
+						enemies[i] = nullptr;
+					}
+					LOG("BOSS");
 				}
 			}
 		}

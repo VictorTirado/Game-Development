@@ -61,6 +61,8 @@ private:
 
 	bool need_target;
 
+	int bossHP = 20;
+
 };
 
 #endif // __j1Enemies_H__
