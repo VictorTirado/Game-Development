@@ -7,7 +7,7 @@
 #include "p2List.h"
 
 #define DEFAULT_PATH_LENGTH 50
-#define INVALID_WALK_CODE 1132
+#define INVALID_WALK_CODE 1041
 
 // --------------------------------------------------
 // Recommended reading:
