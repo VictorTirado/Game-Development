@@ -79,6 +79,21 @@
     <ClCompile Include="enemy_knight.cpp">
       <Filter>Desenvolupament  ========\Modules\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="j1Gui.cpp">
+      <Filter>Desenvolupament  ========\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GUILABEL.cpp">
+      <Filter>Desenvolupament  ========\Modules\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI.cpp">
+      <Filter>Desenvolupament  ========\Modules\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUITEXT.cpp">
+      <Filter>Desenvolupament  ========\Modules\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUIBUTTON.cpp">
+      <Filter>Desenvolupament  ========\Modules\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="j1Window.h">
@@ -180,6 +195,21 @@
     <ClInclude Include="enemy_knight.h">
       <Filter>Desenvolupament  ========\Modules\Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="j1Gui.h">
+      <Filter>Desenvolupament  ========\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GUILABEL.h">
+      <Filter>Desenvolupament  ========\Modules\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI.h">
+      <Filter>Desenvolupament  ========\Modules\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUITEXT.h">
+      <Filter>Desenvolupament  ========\Modules\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUIBUTTON.h">
+      <Filter>Desenvolupament  ========\Modules\GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Programacio 2 ===========">
@@ -202,6 +232,9 @@
     </Filter>
     <Filter Include="Desenvolupament  ========\Modules\Enemies">
       <UniqueIdentifier>{ebc49670-12a2-4f34-84ea-3ffe14d3ac5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Desenvolupament  ========\Modules\GUI">
+      <UniqueIdentifier>{ccce329d-b2f9-4434-87d2-6176576255d1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

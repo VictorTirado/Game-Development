@@ -25,6 +25,7 @@ class j1PathFinding;
 class j1PathKnight;
 class j1Abilities;
 class j1Fonts;
+class j1Gui;
 
 
 class j1App
@@ -105,6 +106,7 @@ public:
 	j1PathKnight*       pathknight;
 	j1Abilities*        abilities;
 	j1Fonts*			font;
+	j1Gui*				gui;
 
 private:
 

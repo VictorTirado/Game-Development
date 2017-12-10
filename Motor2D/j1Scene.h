@@ -34,6 +34,7 @@ public:
 	bool CleanUp();
 
 	int map = 0;
+	int buttonClicked = 0;
 private:
 	//int map=0;
 };
