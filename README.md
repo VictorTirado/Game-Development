@@ -1,5 +1,7 @@
+# Wizard's Power
+
 This is a game for development subject. 
-The game was made by Víctor Tirado and Manel Mourelo.
+The game was made by VÃ­ctor Tirado and Manel Mourelo.
 
 
 Github repository: https://github.com/VictorTirado/Game-Development
