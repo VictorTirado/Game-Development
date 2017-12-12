@@ -1,4 +1,4 @@
-
+# Wizard's power
 This is a game for development subject. 
 The game was made by Víctor Tirado and Manel Mourelo.
 
