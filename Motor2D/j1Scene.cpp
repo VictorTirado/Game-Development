@@ -12,6 +12,8 @@
 #include "j1Player.h"
 #include "j1Enemies.h"
 #include "Brofiler\Brofiler.h"
+#include "j1Gui.h"
+#include "j1Fonts.h"
 
 j1Scene::j1Scene() : j1Module()
 {

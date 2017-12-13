@@ -11,6 +11,9 @@
 #include "j1Gui.h"
 #include "j1Intro.h"
 #include "j1Fonts.h"
+#include "j1Scene.h"
+#include "j1Player.h"
+#include "j1FadeToBlack.h"
 
 j1Intro::j1Intro() : j1Module()
 {
@@ -147,7 +150,10 @@ void j1Intro::GUIInteract(GUI* g)
 	LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
 	if (g == button_start)
 	{
-
+		App->fade->FadeToBlack(2.0f);
+		App->scene->active = true;
+		App->player->active = true;
+		this->active = false;
 	}
 	if (g == button_continue)
 	{
