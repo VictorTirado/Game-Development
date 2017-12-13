@@ -37,7 +37,7 @@ bool j1Intro::Awake()
 bool j1Intro::Start()
 {
 
-	label1 = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
+	/*label1 = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
 	label2 = App->gui->AddLabel(40, 30, { 52, 387, 150, 150 }, NULL, this);
 	label3 = App->gui->AddLabel(310, 23, { 362, 336, 367, 89 }, NULL, this);
 	label4 = App->gui->AddLabel(700, 400, { 408, 484, 201, 236 }, NULL, this);
@@ -50,7 +50,7 @@ bool j1Intro::Start()
 	button_continue = App->gui->AddButton(400, 220, { 0,0,182,56 }, "Continue", { 255,255,255 }, App->font->default, NULL, this);
 	button_settings = App->gui->AddButton(400, 290, { 0,0,182,56 }, "Settings", { 255,255,255 }, App->font->default, NULL, this);
 	button_credits = App->gui->AddButton(400, 360, { 0,0,182,56 }, "Credits", { 255,255,255 }, App->font->default, NULL, this);
-	button_exit = App->gui->AddButton(400, 430, { 0,0,182,56 }, "Exit", { 255,255,255 }, App->font->default, NULL, this);
+	button_exit = App->gui->AddButton(400, 430, { 0,0,182,56 }, "Exit", { 255,255,255 }, App->font->default, NULL, this);*/
 
 
 	

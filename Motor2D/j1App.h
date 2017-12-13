@@ -27,6 +27,10 @@ class j1Abilities;
 class j1Fonts;
 class j1Gui;
 class j1Intro;
+class j1Settings;
+class j1Credits;
+class j1Win;
+class j1Lose;
 
 
 class j1App
@@ -109,6 +113,10 @@ public:
 	j1Fonts*			font = NULL;
 	j1Gui*				gui = NULL;
 	j1Intro*			intro = NULL;
+	j1Settings*			settings = NULL;
+	j1Credits*			credits = NULL;
+	j1Win*				victory = NULL;
+	j1Lose*				defeat = NULL;
 
 private:
 

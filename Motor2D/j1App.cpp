@@ -22,6 +22,10 @@
 #include "j1Fonts.h"
 #include "j1Gui.h"
 #include "j1Intro.h"
+#include "j1Settings.h"
+#include "j1Credits.h"
+#include "j1Win.h"
+#include "j1Lose.h"
 
 
 
@@ -49,6 +53,10 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	font = new j1Fonts();
 	gui = new j1Gui();
 	intro = new j1Intro();
+	settings = new j1Settings();
+	credits = new j1Credits();
+	victory = new j1Win();
+	defeat = new j1Lose();
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -67,7 +75,13 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(font);
 	AddModule(gui);
 	AddModule(intro);
+	//AddModule(settings);
+	//AddModule(credits);
+	//AddModule(victory);
+	//AddModule(defeat);
 	AddModule(fade);
+
+	
 	// render last to swap buffer
 	AddModule(render);
 
@@ -145,6 +159,10 @@ bool j1App::Start()
 	item = modules.start;
 	scene->active = false;
 	player->active = false;
+	settings->active = false;
+	credits->active = false;
+	victory->active = false;
+	defeat->active = false;
 
 	while(item != NULL && ret == true)
 	{
