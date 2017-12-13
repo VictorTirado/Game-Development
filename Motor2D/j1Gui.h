@@ -67,6 +67,8 @@ public:
 	GUI* AddButton(int x, int y, SDL_Rect anim, p2SString text, SDL_Color color, _TTF_Font* font, GUI* father, j1Module* callback);
 	GUI* AddcheckBox();
 
+	void destroyElement(GUI* element);
+
 	const SDL_Texture* GetAtlas() const;
 
 private:

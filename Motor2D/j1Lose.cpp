@@ -102,6 +102,11 @@ void j1Lose::GUIInteract(GUI* g)
 	if (g == return_intro2)
 	{
 		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-		
+		App->gui->destroyElement(background);
+		App->gui->destroyElement(text_lose);
+		App->gui->destroyElement(text_highscore2);
+		App->gui->destroyElement(text_points);
+		App->gui->destroyElement(return_intro2);
+		App->gui->destroyElement(return_exit2);
 	}
 }

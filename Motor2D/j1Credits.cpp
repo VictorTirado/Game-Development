@@ -14,6 +14,7 @@
 #include "j1Scene.h"
 #include "j1Player.h"
 #include "j1FadeToBlack.h"
+#include "j1Intro.h"
 
 j1Credits::j1Credits() : j1Module()
 {
@@ -53,7 +54,7 @@ bool j1Credits::Update(float dt)
 	if (first_update == true) {
 		background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
 
-		App->gui->AddLabel(40, 30, { 834, 868, 937, 576 }, NULL, this);
+		license = App->gui->AddLabel(40, 30, { 834, 868, 937, 576 }, NULL, this);
 		return_intro = App->gui->AddButton(700, 650, { 0,4,182,56 }, "Return", { 255,255,255 }, App->font->default, NULL, this);
 		first_update = false;
 	}
@@ -97,6 +98,12 @@ void j1Credits::GUIInteract(GUI* g)
 	if (g == return_intro)
 	{
 		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-		//close = true;
+		App->fade->FadeToBlack(2.0f);
+		App->intro->active = true;
+		this->active = false;
+		first_update = true;
+		App->gui->destroyElement(background);
+		App->gui->destroyElement(license);
+		App->gui->destroyElement(return_intro);
 	}
 }

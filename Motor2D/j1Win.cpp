@@ -101,6 +101,11 @@ void j1Win::GUIInteract(GUI* g)
 	if (g == return_intro)
 	{
 		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-		
+		App->gui->destroyElement(background);
+		App->gui->destroyElement(text_win);
+		App->gui->destroyElement(text_highscore);
+		App->gui->destroyElement(text_points);
+		App->gui->destroyElement(return_intro);
+		App->gui->destroyElement(return_exit);
 	}
 }

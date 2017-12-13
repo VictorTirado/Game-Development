@@ -310,3 +310,26 @@ GUI* j1Gui::AddButton(int x, int y, SDL_Rect anim, p2SString text, SDL_Color col
 //void j1Gui::buttonClicked(int button) {
 //	App->scene->buttonClicked = button + 1;
 //}
+
+void j1Gui::destroyElement(GUI* element) {
+	
+	for (uint i = 0; i < MAX_UI_ELEMENTS; ++i)
+	{
+		if (queue[i].father == element)
+		{
+			delete GUI_Elements[i];
+			GUI_Elements[i] = nullptr;
+			queue[i].type = NON_TYPE;
+		}
+	}
+
+	for (uint i = 0; i < MAX_UI_ELEMENTS; ++i)
+	{
+		if (GUI_Elements[i] == element)
+		{
+			delete GUI_Elements[i];
+			GUI_Elements[i] = nullptr;
+			queue[i].type = NON_TYPE;
+		}
+	}
+}

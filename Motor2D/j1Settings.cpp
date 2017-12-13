@@ -14,6 +14,7 @@
 #include "j1Scene.h"
 #include "j1Player.h"
 #include "j1FadeToBlack.h"
+#include "j1Intro.h"
 
 j1Settings::j1Settings() : j1Module()
 {
@@ -95,6 +96,14 @@ void j1Settings::GUIInteract(GUI* g)
 	if (g == return_intro)
 	{
 		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-		//close = true;
+		App->fade->FadeToBlack(2.0f);
+		App->intro->active = true;
+		this->active = false;
+		first_update = true;
+		App->gui->destroyElement(background);
+		App->gui->destroyElement(text_settings);
+		App->gui->destroyElement(text_music);
+		App->gui->destroyElement(text_fx);
+		App->gui->destroyElement(return_intro);
 	}
 }
