@@ -21,6 +21,7 @@
 #include "j1Abilities.h"
 #include "j1Fonts.h"
 #include "j1Gui.h"
+#include "j1Intro.h"
 
 
 
@@ -47,6 +48,7 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	abilities = new j1Abilities();
 	font = new j1Fonts();
 	gui = new j1Gui();
+	intro = new j1Intro();
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -65,6 +67,7 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(abilities);
 	AddModule(font);
 	AddModule(gui);
+	AddModule(intro);
 	// render last to swap buffer
 	AddModule(render);
 
@@ -140,6 +143,8 @@ bool j1App::Start()
 	bool ret = true;
 	p2List_item<j1Module*>* item;
 	item = modules.start;
+	scene->active = false;
+	player->active = false;
 
 	while(item != NULL && ret == true)
 	{

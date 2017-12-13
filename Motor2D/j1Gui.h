@@ -24,12 +24,14 @@ class GUI;
 
 struct GUIinfo {
 	GUI_Types type = GUI_Types::NON_TYPE;
-	int x, y, h, w;
+	int x, y, h, w, xInFather, yInFather;
 	SDL_Rect anim;
 	SDL_Texture* texture;
 	int state;
 	int num;
 	GUI* father;
+	GUI* same;
+	j1Module* callback;
 };
 // ---------------------------------------------------
 class j1Gui : public j1Module
@@ -60,11 +62,10 @@ public:
 
 	// TODO 2: Create the factory methods
 	// Gui creation functions
-	GUI* AddLabel(int x, int y, SDL_Rect anim, GUI* father);
-	GUI* AddText(int x, int y, p2SString text, SDL_Color color, _TTF_Font* font, GUI* father);
-	GUI* AddButton(int x, int y, SDL_Rect anim, p2SString text, SDL_Color color, _TTF_Font* font, GUI* father);
+	GUI* AddLabel(int x, int y, SDL_Rect anim, GUI* father, j1Module* callback);
+	GUI* AddText(int x, int y, p2SString text, SDL_Color color, _TTF_Font* font, GUI* father, j1Module* callback);
+	GUI* AddButton(int x, int y, SDL_Rect anim, p2SString text, SDL_Color color, _TTF_Font* font, GUI* father, j1Module* callback);
 	GUI* AddcheckBox();
-	void buttonClicked(int button);
 
 	const SDL_Texture* GetAtlas() const;
 
@@ -82,7 +83,7 @@ private:
 	int numTexts = 0;
 	int buttonsIterator = 0;
 
-	void CreateGUI(const GUIinfo& info);
+	GUI* CreateGUI(const GUIinfo& info);
 };
 
 #endif // __j1GUI_H__

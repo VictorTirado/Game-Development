@@ -10,6 +10,7 @@
 #include "PugiXml\src\pugixml.hpp"
 
 class j1App;
+class GUI;
 
 struct Collider;
 
@@ -70,7 +71,7 @@ public:
 	{
 		return true;
 	}
-
+	virtual void GUIInteract(GUI* g) {}
 	virtual void OnCollision(Collider*, Collider*) {}
 
 public:

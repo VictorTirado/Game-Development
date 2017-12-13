@@ -26,6 +26,7 @@ class j1PathKnight;
 class j1Abilities;
 class j1Fonts;
 class j1Gui;
+class j1Intro;
 
 
 class j1App
@@ -90,23 +91,24 @@ private:
 public:
 
 	// Modules
-	j1Window*			win;
-	j1Input*			input;
-	j1Render*			render;
-	j1Textures*			tex;
-	j1Audio*			audio;
-	j1Scene*			scene;
-	j1Map*				map;
-	j1Player*			player;
-	j1FadeToBlack*      fade;
-	ModuleCollision*    collision;
-	j1Particles*        particles;
-	j1Enemies*            enemies;
-	j1PathFinding*		pathfinding;
-	j1PathKnight*       pathknight;
-	j1Abilities*        abilities;
-	j1Fonts*			font;
-	j1Gui*				gui;
+	j1Window*			win = NULL;
+	j1Input*			input = NULL;
+	j1Render*			render = NULL;
+	j1Textures*			tex = NULL;
+	j1Audio*			audio = NULL;
+	j1Scene*			scene = NULL;
+	j1Map*				map = NULL;
+	j1Player*			player = NULL;
+	j1FadeToBlack*      fade = NULL;
+	ModuleCollision*    collision = NULL;
+	j1Particles*        particles = NULL;
+	j1Enemies*            enemies = NULL;
+	j1PathFinding*		pathfinding = NULL;
+	j1PathKnight*       pathknight = NULL;
+	j1Abilities*        abilities = NULL;
+	j1Fonts*			font = NULL;
+	j1Gui*				gui = NULL;
+	j1Intro*			intro = NULL;
 
 private:
 
