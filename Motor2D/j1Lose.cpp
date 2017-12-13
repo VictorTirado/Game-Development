@@ -37,13 +37,7 @@ bool j1Lose::Awake()
 bool j1Lose::Start()
 {
 
-	background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
-	text_lose = App->gui->AddText(400, 70, "YOU LOSE", { 255,255,255 }, App->font->default, NULL, this);
-	text_highscore2  = App->gui->AddText(300, 150, "HIGHSCORE:", { 255,255,255 }, App->font->default, NULL, this);
-	text_points = App->gui->AddText(550, 150, "", { 255,255,255 }, App->font->default, NULL, this);
-	//App->gui->AddLabel(40, 30, { 834, 868, 937, 576 }, NULL, this);
-	return_intro2 = App->gui->AddButton(700, 650, { 0,4,182,56 }, "Play again", { 255,255,255 }, App->font->default, NULL, this);
-	return_exit2 = App->gui->AddButton(500, 650, { 0,4,182,56 }, "Exit", { 255,255,255 }, App->font->default, NULL, this);
+	
 	return true;
 }
 
@@ -56,6 +50,18 @@ bool j1Lose::PreUpdate()
 // Called each loop iteration
 bool j1Lose::Update(float dt)
 {
+	if (first_update == true)
+	{
+		background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
+		text_lose = App->gui->AddText(400, 70, "YOU LOSE", { 255,255,255 }, App->font->default, NULL, this);
+		text_highscore2 = App->gui->AddText(300, 150, "HIGHSCORE:", { 255,255,255 }, App->font->default, NULL, this);
+		text_points = App->gui->AddText(550, 150, "", { 255,255,255 }, App->font->default, NULL, this);
+
+		return_intro2 = App->gui->AddButton(700, 650, { 0,4,182,56 }, "Play again", { 255,255,255 }, App->font->default, NULL, this);
+		return_exit2 = App->gui->AddButton(500, 650, { 0,4,182,56 }, "Exit", { 255,255,255 }, App->font->default, NULL, this);
+		first_update = false;
+	}
+	
 	bool ret = true;
 	if (close == true)
 	{
@@ -90,12 +96,12 @@ void j1Lose::GUIInteract(GUI* g)
 	LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
 	if (g == return_exit2)
 	{
-
+		close = true;
 	}
 
 	if (g == return_intro2)
 	{
 		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-		close = true;
+		
 	}
 }

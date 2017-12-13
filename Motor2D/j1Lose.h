@@ -50,7 +50,7 @@ public:
 	GUI* return_exit2 = NULL;
 	GUI* background = NULL;
 
-
+	bool first_update = true;
 	bool close = false;
 };
 

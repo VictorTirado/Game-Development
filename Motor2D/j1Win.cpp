@@ -37,13 +37,7 @@ bool j1Win::Awake()
 bool j1Win::Start()
 {
 
-	background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
-	text_win = App->gui->AddText(400, 70, "YOU WIN!", { 255,255,255 }, App->font->default, NULL, this);
-	text_highscore = App->gui->AddText(300, 150, "HIGHSCORE:", { 255,255,255 }, App->font->default, NULL, this);
-	text_points = App->gui->AddText(550, 150, "", { 255,255,255 }, App->font->default, NULL, this);
-	//App->gui->AddLabel(40, 30, { 834, 868, 937, 576 }, NULL, this);
-	return_intro = App->gui->AddButton(700, 650, { 0,4,182,56 }, "Play again", { 255,255,255 }, App->font->default, NULL, this);
-	return_intro = App->gui->AddButton(500, 650, { 0,4,182,56 }, "Exit", { 255,255,255 }, App->font->default, NULL, this);
+	
 	return true;
 }
 
@@ -56,6 +50,17 @@ bool j1Win::PreUpdate()
 // Called each loop iteration
 bool j1Win::Update(float dt)
 {
+	if (first_update == true)
+	{
+		background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
+		text_win = App->gui->AddText(400, 70, "YOU WIN!", { 255,255,255 }, App->font->default, NULL, this);
+		text_highscore = App->gui->AddText(300, 150, "HIGHSCORE:", { 255,255,255 }, App->font->default, NULL, this);
+		text_points = App->gui->AddText(550, 150, "", { 255,255,255 }, App->font->default, NULL, this);
+		return_intro = App->gui->AddButton(700, 650, { 0,4,182,56 }, "Play again", { 255,255,255 }, App->font->default, NULL, this);
+		return_exit = App->gui->AddButton(500, 650, { 0,4,182,56 }, "Exit", { 255,255,255 }, App->font->default, NULL, this);
+		first_update = false;
+	}
+	
 	bool ret = true;
 	if (close == true)
 	{
@@ -89,10 +94,13 @@ void j1Win::GUIInteract(GUI* g)
 {
 	LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
 
-
+	if (g == return_exit)
+	{
+		close = true;
+	}
 	if (g == return_intro)
 	{
 		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-		close = true;
+		
 	}
 }

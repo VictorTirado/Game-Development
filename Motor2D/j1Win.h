@@ -47,9 +47,10 @@ public:
 	GUI* text_highscore = NULL;
 	GUI* text_points = NULL;
 	GUI* return_intro = NULL;
+	GUI* return_exit = NULL;
 	GUI* background = NULL;
 
-
+	bool first_update = true;
 	bool close = false;
 };
 

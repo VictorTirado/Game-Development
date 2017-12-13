@@ -49,7 +49,7 @@ public:
 	GUI* return_intro;
 	GUI* background;
 
-
+	bool first_update = true;
 	bool close = false;
 };
 

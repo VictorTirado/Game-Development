@@ -58,6 +58,7 @@ public:
 	GUI* label3;
 	GUI* label4;
 
+	bool first_update = true;
 	bool close = false;
 };
 

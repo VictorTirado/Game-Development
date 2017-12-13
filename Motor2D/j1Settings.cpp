@@ -36,11 +36,7 @@ bool j1Settings::Awake()
 // Called before the first frame
 bool j1Settings::Start()
 {
-	background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
-	text_settings = App->gui->AddText(400, 70, "SETTINGS", { 255,255,255 }, App->font->default, NULL, this);
-	text_music = App->gui->AddText(250, 270, "Fx volume:", { 255,255,255 }, App->font->default, NULL, this);
-	text_fx = App->gui->AddText(250, 370, "Music volume:", { 255,255,255 }, App->font->default, NULL, this);
-	return_intro = App->gui->AddButton(700, 650, { 0,4,182,56 }, "Return", { 255,255,255 }, App->font->default, NULL, this);
+	
 	return true;
 }
 
@@ -53,6 +49,15 @@ bool j1Settings::PreUpdate()
 // Called each loop iteration
 bool j1Settings::Update(float dt)
 {
+	if (first_update == true)
+	{
+		background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
+		text_settings = App->gui->AddText(400, 70, "SETTINGS", { 255,255,255 }, App->font->default, NULL, this);
+		text_music = App->gui->AddText(250, 270, "Fx volume:", { 255,255,255 }, App->font->default, NULL, this);
+		text_fx = App->gui->AddText(250, 370, "Music volume:", { 255,255,255 }, App->font->default, NULL, this);
+		return_intro = App->gui->AddButton(700, 650, { 0,4,182,56 }, "Return", { 255,255,255 }, App->font->default, NULL, this);
+		first_update = false;
+	}
 	bool ret = true;
 	if (close == true)
 	{
@@ -90,6 +95,6 @@ void j1Settings::GUIInteract(GUI* g)
 	if (g == return_intro)
 	{
 		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-		close = true;
+		//close = true;
 	}
 }

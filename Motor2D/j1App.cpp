@@ -74,11 +74,12 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(abilities);
 	AddModule(font);
 	AddModule(gui);
+	
+	AddModule(settings);
+	AddModule(credits);
+	AddModule(victory);
+	AddModule(defeat);
 	AddModule(intro);
-	//AddModule(settings);
-	//AddModule(credits);
-	//AddModule(victory);
-	//AddModule(defeat);
 	AddModule(fade);
 
 	

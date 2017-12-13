@@ -37,10 +37,7 @@ bool j1Credits::Awake()
 bool j1Credits::Start()
 {
 	
-	background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
 	
-	App->gui->AddLabel(40, 30, { 834, 868, 937, 576 }, NULL, this);
-	return_intro = App->gui->AddButton(700, 650, { 0,4,182,56 }, "Return", { 255,255,255 }, App->font->default, NULL, this);
 	return true;
 }
 
@@ -53,6 +50,16 @@ bool j1Credits::PreUpdate()
 // Called each loop iteration
 bool j1Credits::Update(float dt)
 {
+	if (first_update == true) {
+		background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
+
+		App->gui->AddLabel(40, 30, { 834, 868, 937, 576 }, NULL, this);
+		return_intro = App->gui->AddButton(700, 650, { 0,4,182,56 }, "Return", { 255,255,255 }, App->font->default, NULL, this);
+		first_update = false;
+	}
+
+
+
 	bool ret = true;
 	if (close == true)
 	{
@@ -90,6 +97,6 @@ void j1Credits::GUIInteract(GUI* g)
 	if (g == return_intro)
 	{
 		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-		close = true;
+		//close = true;
 	}
 }

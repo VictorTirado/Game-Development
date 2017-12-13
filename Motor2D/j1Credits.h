@@ -43,13 +43,13 @@ private:
 	SDL_Texture* debug_tex;
 
 public:
-	GUI* text_music;
-	GUI* text_settings;
-	GUI* text_fx;
-	GUI* return_intro;
-	GUI* background;
+	GUI* text_music = NULL;
+	GUI* text_settings = NULL;
+	GUI* text_fx = NULL;
+	GUI* return_intro = NULL;
+	GUI* background = NULL;
 
-
+	bool first_update = true;
 	bool close = false;
 };
 
