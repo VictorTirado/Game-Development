@@ -116,7 +116,8 @@ bool j1Gui::Update(float dt)
 				LOG("MouseIsOnButton %i", queue[i].num);
 				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT)) {
 					queue[i].state = 2;
-					queue[i].callback->GUIInteract(GUI_Elements[i]);
+					queue[i].prevState = 2;
+					//queue[i].callback->GUIInteract(GUI_Elements[i]);
 				}
 				else {
 					queue[i].state = 1;
@@ -128,6 +129,15 @@ bool j1Gui::Update(float dt)
 		}
 	}
 
+	for (uint i = 0; i < MAX_UI_ELEMENTS; ++i) {
+		if (GUI_Elements[i] != nullptr) {
+			if (queue[i].state == 1 && queue[i].prevState == 2) {
+				queue[i].callback->GUIInteract(GUI_Elements[i]);
+				queue[i].state = 0;
+				queue[i].prevState = 0;
+			}
+		}
+	}
 
 
 	return true;
@@ -216,6 +226,8 @@ GUI* j1Gui::AddLabel(int x, int y, SDL_Rect anim, GUI* father, j1Module* callbac
 			queue[i].texture = atlas;
 			queue[i].father = father;
 			queue[i].callback = callback;
+			queue[i].state = 0;
+			queue[i].prevState = 0;
 			numLabels++;
 			ret = CreateGUI(queue[i]);
 			break;
@@ -252,6 +264,9 @@ GUI* j1Gui::AddText(int x, int y, p2SString text, SDL_Color color, _TTF_Font* fo
 			queue[i].texture = App->font->Print(text.GetString(), color, font);
 			queue[i].father = father;
 			queue[i].callback = callback;
+			queue[i].callback = callback;			numTexts++;
+			queue[i].state = 0;
+			queue[i].prevState = 0;
 			numTexts++;
 			ret = CreateGUI(queue[i]);
 			break;
@@ -289,6 +304,8 @@ GUI* j1Gui::AddButton(int x, int y, SDL_Rect anim, p2SString text, SDL_Color col
 			queue[i].state = 0;
 			queue[i].father = father;
 			queue[i].callback = callback;
+			queue[i].state = 0;
+			queue[i].prevState = 0;
 			ret = CreateGUI(queue[i]);
 			for (uint j = 0; j < numButtons; j++) {
 				buttons[j] = i;

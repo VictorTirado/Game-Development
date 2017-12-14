@@ -28,6 +28,7 @@ struct GUIinfo {
 	SDL_Rect anim;
 	SDL_Texture* texture;
 	int state;
+	int prevState;
 	int num;
 	GUI* father;
 	GUI* same;
