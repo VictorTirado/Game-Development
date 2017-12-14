@@ -72,6 +72,8 @@ public:
 
 	void moveElement(GUI* element, int x, int y);
 
+	void changeTexture(GUI* element, SDL_Rect anim);
+
 	const SDL_Texture* GetAtlas() const;
 
 private:

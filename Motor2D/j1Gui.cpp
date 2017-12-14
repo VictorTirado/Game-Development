@@ -361,3 +361,14 @@ void j1Gui::moveElement(GUI* element, int x, int y) {
 		}
 	}
 }
+
+void j1Gui::changeTexture(GUI* element, SDL_Rect anim) {
+	for (uint i = 0; i < MAX_UI_ELEMENTS; ++i) {
+		if (GUI_Elements[i] == element) {
+			if (queue[i].type == LABEL) {
+				AddLabel(queue[i].x,queue[i].y, anim, queue[i].father,queue[i].callback);
+				destroyElement(GUI_Elements[i]);
+			}
+		}
+	}
+}
