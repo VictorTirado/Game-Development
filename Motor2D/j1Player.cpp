@@ -15,6 +15,8 @@
 #include "j1Enemies.h"
 #include "Brofiler\Brofiler.h"
 #include "j1Abilities.h"
+#include "j1Lose.h"
+#include "j1Win.h"
 
 
 j1Player::j1Player() : j1Module()
@@ -178,6 +180,11 @@ bool j1Player::Update(float dt)
 	BROFILER_CATEGORY("j1PlayerUpdate", Profiler::Color::DodgerBlue);
 	startPos.x = App->map->spawn.x;
 	startPos.y = App->map->spawn.y;
+	if (lifes == 0) {
+		this->active = false;
+		App->scene->active = false;
+		App->defeat->active = true;
+	}
 	if (firstUpdate == true) {
 		position = startPos;
 		App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
@@ -270,6 +277,9 @@ bool j1Player::Update(float dt)
 				App->render->camera.y = App->render->camera.y - dt*200;
 				if (App->map->data.maplayers.end->data->data[gid + 150] == 1087) {
 					App->collision->EraseCollider(collider);
+					if (GodMode == false) {
+						lifes--;
+					}
 					firstUpdate = true;
 				}
 			}
@@ -353,6 +363,9 @@ bool j1Player::Update(float dt)
 		App->render->camera.y = App->render->camera.y - dt * 100;
 		if (App->map->data.maplayers.end->data->data[gid + 150 ] == 1087) {
 			App->collision->EraseCollider(collider);
+			if (GodMode == false) {
+				lifes--;
+			}
 			firstUpdate = true;
 		}
 	}
@@ -360,6 +373,9 @@ bool j1Player::Update(float dt)
 	if (App->map->data.maplayers.end->data->data[gid] == 1087) {
 		dead = true;
 		App->collision->EraseCollider(collider);
+		if (GodMode == false) {
+			lifes--;
+		}
 		firstUpdate = true;
 	}
 
@@ -389,6 +405,9 @@ bool j1Player::Update(float dt)
 			firstUpdate = true;
 			App->collision->EraseCollider(collider);
 			App->scene->map = 1;
+			App->scene->active = false;
+			App->victory->active = true;
+			this->active = false;
 		}
 	}
 	collider->SetPos(position.x , position.y);
@@ -486,6 +505,7 @@ void j1Player::OnCollision(Collider* c1, Collider* c2) {
 		if (c2->type == COLLIDER_ENEMY) {
 			dead = true;
 			App->collision->EraseCollider(collider);
+			lifes--;
 			firstUpdate = true;
 		}
 	}

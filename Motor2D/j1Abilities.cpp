@@ -41,6 +41,9 @@ bool j1Abilities::Awake(pugi::xml_node& config)
 void j1Abilities::AddAbility(const Ability& ability, const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay, fPoint speed, int manacoast)
 {
 	BROFILER_CATEGORY("j1ParticlesAddParticle", Profiler::Color::AliceBlue);
+	if (App->player->GodMode == true) {
+		manacoast = 0;
+	}
 	for (uint i = 0; i < MAX_ACTIVE_ABILITIES; ++i)
 	{
 		if (active[i] == nullptr)

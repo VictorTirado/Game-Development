@@ -247,20 +247,20 @@ void j1App::FinishUpdate()
 
 	static char title[256];
 	if (cap == true && App->render->vsync==true) {
-		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: on Cap: on Mana: %d%d",
-			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count, App->player->mana2);
+		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: on Cap: on Mana: %d%d Lifes: %d",
+			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count, App->player->mana2, App->player->lifes);
 	}
 	else if(cap == false && App->render->vsync == true){
-		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: on Cap: off Mana: %d%d",
-			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count, App->player->mana2);
+		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: on Cap: off Mana: %d%d Lifes:%d",
+			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count, App->player->mana2, App->player->lifes);
 	}
 	else if (cap == true && App->render->vsync == false) {
-		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: off Cap: on Mana: %d%d",
-			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count, App->player->mana2);
+		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: off Cap: on Mana: %d%d Lifes:%d",
+			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count, App->player->mana2, App->player->lifes);
 	}
 	else if (cap == false && App->render->vsync == false) {
-		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: off Cap: off Mana: %d%d",
-			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count, App->player->mana2);
+		sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i  Time since startup: %.3f Frame Count: %lu Vsync: off Cap: off Mana: %d%d Lifes:%d",
+			avg_fps, last_frame_ms, frames_on_last_update, seconds_since_startup, frame_count, App->player->mana2, App->player->lifes);
 	}
 	App->win->SetTitle(title);
 

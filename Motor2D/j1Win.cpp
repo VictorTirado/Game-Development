@@ -50,6 +50,8 @@ bool j1Win::PreUpdate()
 // Called each loop iteration
 bool j1Win::Update(float dt)
 {
+	App->render->camera.x = 0;
+	App->render->camera.y = 0;
 	if (first_update == true)
 	{
 		background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
@@ -101,6 +103,11 @@ void j1Win::GUIInteract(GUI* g)
 	if (g == return_intro)
 	{
 		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+		this->active = false;
+		App->scene->active = true;
+		App->player->active = true;
+		App->player->lifes = 3;
+		first_update = true;
 		App->gui->destroyElement(background);
 		App->gui->destroyElement(text_win);
 		App->gui->destroyElement(text_highscore);
