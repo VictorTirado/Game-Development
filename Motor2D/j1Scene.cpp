@@ -54,6 +54,7 @@ bool j1Scene::Update(float dt)
 {
 	
 	
+
 	if (first_update == true) {
 		if (App->player->lifes == 3) {
 			health = App->gui->AddLabel(10, 10, { 596, 984, 67, 67 }, NULL, this);	
@@ -66,7 +67,11 @@ bool j1Scene::Update(float dt)
 		{
 			App->scene->health = App->gui->AddLabel(10, 10, { 595, 1131, 67, 67 }, NULL, App->scene);
 		}
-	
+		
+		fire = App->gui->AddLabel(100, 10, { 413, 99, 50, 50 }, NULL, App->scene);
+		thunder = App->gui->AddLabel(150, 10, { 480, 99, 50, 50 }, NULL, App->scene);
+		ice = App->gui->AddLabel(200, 10, { 546, 97, 50, 50 }, NULL, App->scene);
+
 		first_update = false;
 	}
 	

@@ -38,6 +38,10 @@ public:
 
 	void j1Scene::GUIInteract(GUI* g);
 
+
+	GUI* fire = NULL;
+	GUI* thunder = NULL;
+	GUI* ice = NULL;
 	GUI* health = NULL;
 	int map = 0;
 	int buttonClicked = 0;

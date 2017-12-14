@@ -442,6 +442,18 @@ bool j1Player::Update(float dt)
 			this->active = false;
 		}
 	}
+	if (mana2 < cost_fire)
+	{
+		
+	}
+	if (mana2 < cost_thunder)
+	{
+		
+	}
+	if (mana2 < cost_ice)
+	{
+		
+	}
 	collider->SetPos(position.x , position.y);
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()),1);
 	
@@ -468,26 +480,26 @@ bool j1Player::CleanUp()
 
 void j1Player::ShotR(float dt)
 {
-	App->abilities->AddAbility(App->abilities->fire_ballR, App->particles->fire_ballR, position.x + 25, position.y + 25, COLLIDER_ATTACK, NULL, { 175 * dt,0 },10);
+	App->abilities->AddAbility(App->abilities->fire_ballR, App->particles->fire_ballR, position.x + 25, position.y + 25, COLLIDER_ATTACK, NULL, { 175 * dt,0 },cost_fire);
 }
 
 void j1Player::ShotL(float dt)
 {
-	App->abilities->AddAbility(App->abilities->fire_ballL, App->particles->fire_ballL, position.x - 25, position.y + 25, COLLIDER_ATTACK, NULL, { -175 * dt,0 },10);
+	App->abilities->AddAbility(App->abilities->fire_ballL, App->particles->fire_ballL, position.x - 25, position.y + 25, COLLIDER_ATTACK, NULL, { -175 * dt,0 }, cost_fire);
 }
 
 void j1Player::ThunderR()
 {
-	App->abilities->AddAbility(App->abilities->thunderR, App->particles->thunderR, position.x + 73, position.y + 40, COLLIDER_ATTACK, NULL, { 0,0 },10);
+	App->abilities->AddAbility(App->abilities->thunderR, App->particles->thunderR, position.x + 73, position.y + 40, COLLIDER_ATTACK, NULL, { 0,0 }, cost_thunder);
 }
 void j1Player::ThunderL()
 {
-	App->abilities->AddAbility(App->abilities->thunderL, App->particles->thunderL, position.x - 51, position.y + 40, COLLIDER_ATTACK, NULL, { 0,0 },10);
+	App->abilities->AddAbility(App->abilities->thunderL, App->particles->thunderL, position.x - 51, position.y + 40, COLLIDER_ATTACK, NULL, { 0,0 }, cost_thunder);
 }
 void j1Player::Ice()
 {
-	App->abilities->AddAbility(App->abilities->iceR, App->particles->iceR, position.x + 45, position.y + 25, COLLIDER_ATTACK, NULL, { 0,0 },10);
-	App->abilities->AddAbility(App->abilities->iceL, App->particles->iceL, position.x - 41, position.y + 25, COLLIDER_ATTACK, NULL, { 0,0 },10);
+	App->abilities->AddAbility(App->abilities->iceR, App->particles->iceR, position.x + 45, position.y + 25, COLLIDER_ATTACK, NULL, { 0,0 }, cost_ice/2);
+	App->abilities->AddAbility(App->abilities->iceL, App->particles->iceL, position.x - 41, position.y + 25, COLLIDER_ATTACK, NULL, { 0,0 }, cost_ice/2);
 }
 
 bool j1Player::Save(pugi::xml_node& save) const

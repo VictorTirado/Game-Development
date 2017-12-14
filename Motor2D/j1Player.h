@@ -37,6 +37,9 @@ public:
 	iPoint startPos = { 0, 1000 };
 	iPoint position = { 0,0 };
 	
+	int cost_fire = 10;
+	int cost_thunder = 10;
+	int cost_ice = 20;
 	bool dead= false;
 	uint lifes = 3;
 	int mana2 = 100;
