@@ -7,15 +7,26 @@
 	<map />
 	<scene />
 	<player>
-		<pos x="5904" y="768" />
-		<map z="0" />
+		<pos x="674" y="576" />
+		<map z="1" />
+		<mana m="100" />
+		<lifes l="2" />
+		<score s="0" />
 	</player>
 	<:anonymous />
 	<:anonymous />
 	<:anonymous />
-	<:anonymous />
 	<pathfinding />
+	<:anonymous />
+	<fonts />
+	<gui />
+	<settings />
+	<credits />
+	<Win />
+	<Lose />
+	<intro />
+	<:anonymous />
 	<renderer>
-		<camera x="-5392" y="-456" />
+		<camera x="-162" y="-192" />
 	</renderer>
 </game_state>

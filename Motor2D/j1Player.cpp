@@ -461,15 +461,21 @@ void j1Player::Ice()
 bool j1Player::Save(pugi::xml_node& save) const
 {
 	bool ret = false;
-	if (save.child("pos") == NULL || save.child("map") == NULL) {
+	if (save.child("pos") == NULL || save.child("map") == NULL || save.child("mana") == NULL) {
 		save.append_child("pos").append_attribute("x") = position.x;
 		save.child("pos").append_attribute("y") = position.y;
 		save.append_child("map").append_attribute("z") = App->scene->map;
+		save.append_child("mana").append_attribute("m") = mana2;
+		save.append_child("lifes").append_attribute("l") = lifes;
+		save.append_child("score").append_attribute("s") = score;
 	}
 	else {
 		save.child("pos").attribute("x") = position.x;
 		save.child("pos").attribute("y") = position.y;
 		save.child("map").attribute("z") = App->scene->map;
+		save.child("mana").attribute("m") = mana2;
+		save.child("lifes").attribute("l") = lifes;
+		save.child("score").attribute("s") = score;
 	}
 
 	ret = true;
@@ -483,6 +489,9 @@ bool j1Player::Load(pugi::xml_node& save)
 	if (save.child("pos") != NULL || save.child("map") != NULL) {
 		position.x = save.child("pos").attribute("x").as_float();
 		position.y = save.child("pos").attribute("y").as_float();
+		mana2 = save.child("mana").attribute("m").as_int();
+		lifes = save.child("lifes").attribute("l").as_uint();
+		score = save.child("score").attribute("s").as_uint();
 		App->scene->map = save.child("map").attribute("z").as_int();
 		if (App->scene->map == 1)
 		{

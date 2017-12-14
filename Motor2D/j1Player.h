@@ -36,9 +36,11 @@ public:
 
 	iPoint startPos = { 0, 1000 };
 	iPoint position = { 0,0 };
+	
 	bool dead= false;
 	uint lifes = 3;
 	int mana2 = 100;
+	uint score = 0;
 	int speed;
 	int cont = 0;
 	int cont2 = 0;
