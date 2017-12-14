@@ -43,12 +43,18 @@ private:
 	SDL_Texture* debug_tex;
 	
 public:
-	GUI* label7 = NULL;
-	GUI* text_music;
-	GUI* text_settings;
-	GUI* text_fx;
-	GUI* return_intro;
-	GUI* background;
+	GUI* music_up = NULL;
+	GUI* music_down = NULL;
+	GUI* slider_music = NULL;
+	GUI* fx_up = NULL;
+	GUI* fx_down = NULL;
+	GUI* slider_fx = NULL;
+	GUI* label = NULL;
+	GUI* text_music = NULL;
+	GUI* text_settings = NULL;
+	GUI* text_fx = NULL;
+	GUI* return_intro = NULL;
+	GUI* background = NULL;
 
 	bool first_update = true;
 	bool close = false;

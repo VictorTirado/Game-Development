@@ -54,7 +54,14 @@ bool j1Settings::Update(float dt)
 	{
 		
 		background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
-		label7 = App->gui->AddLabel(300, 45, { 362, 336, 367, 89 }, NULL, this);
+		label = App->gui->AddLabel(300, 45, { 362, 336, 367, 89 }, NULL, this);
+		music_up = App->gui->AddButton(550, 270, { 0,4,182,56 },"             +", { 255,255,255 }, App->font->default, NULL, this);
+		music_down = App->gui->AddButton(450, 270, { 0,4,182,56 },"-             ", { 255,255,255 }, App->font->default, NULL, this);
+		slider_music = App->gui->AddLabel(500, 270, { 0,65,182,56 }, NULL, this);
+		fx_up = App->gui->AddButton(550, 370, { 0,4,182,56 }, "             +", { 255,255,255 }, App->font->default, NULL, this);
+		fx_down = App->gui->AddButton(450, 370, { 0,4,182,56 }, "-             ", { 255,255,255 }, App->font->default, NULL, this);
+		slider_fx  = App->gui->AddLabel(500, 370, { 0,65,182,56 }, NULL, this);
+
 		text_settings = App->gui->AddText(400, 70, "SETTINGS", { 255,255,255 }, App->font->default, NULL, this);
 		text_music = App->gui->AddText(250, 270, "Fx volume:", { 255,255,255 }, App->font->default, NULL, this);
 		text_fx = App->gui->AddText(250, 370, "Music volume:", { 255,255,255 }, App->font->default, NULL, this);
@@ -103,10 +110,32 @@ void j1Settings::GUIInteract(GUI* g)
 		this->active = false;
 		first_update = true;
 		App->gui->destroyElement(background);
-		App->gui->destroyElement(label7);
+		App->gui->destroyElement(music_down);
+		App->gui->destroyElement(music_up);
+		App->gui->destroyElement(slider_music);
+		App->gui->destroyElement(fx_down);
+		App->gui->destroyElement(fx_up);
+		App->gui->destroyElement(slider_fx);
+		App->gui->destroyElement(label);
 		App->gui->destroyElement(text_settings);
 		App->gui->destroyElement(text_music);
 		App->gui->destroyElement(text_fx);
 		App->gui->destroyElement(return_intro);
+	}
+	if (g == music_up)
+	{
+
+	}
+	if (g == music_down)
+	{
+
+	}
+	if (g == fx_up)
+	{
+
+	}
+	if (g == fx_down)
+	{
+
 	}
 }
