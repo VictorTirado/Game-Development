@@ -109,6 +109,9 @@
     <ClCompile Include="j1Lose.cpp">
       <Filter>Desenvolupament  ========\Modules</Filter>
     </ClCompile>
+    <ClCompile Include="coin.cpp">
+      <Filter>Desenvolupament  ========\Modules\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="j1Window.h">
@@ -239,6 +242,9 @@
     </ClInclude>
     <ClInclude Include="j1Lose.h">
       <Filter>Desenvolupament  ========\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="coin.h">
+      <Filter>Desenvolupament  ========\Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

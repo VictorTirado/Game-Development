@@ -592,6 +592,10 @@ void j1Player::OnCollision(Collider* c1, Collider* c2) {
 			mana2 = 100;
 			firstUpdate = true;
 		}
+		if (c2->type == COLLIDER_COIN)
+		{
+
+		}
 	}
 }
 

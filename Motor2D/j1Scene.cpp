@@ -53,7 +53,7 @@ bool j1Scene::PreUpdate()
 bool j1Scene::Update(float dt)
 {
 	
-	
+	App->enemies->AddEnemy(Coin,650,450);
 
 	if (first_update == true) {
 		if (App->player->lifes == 3) {

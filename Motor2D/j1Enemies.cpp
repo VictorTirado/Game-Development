@@ -9,6 +9,7 @@
 #include "enemy_gargoyle.h"
 #include "enemy_boss.h"
 #include "enemy_knight.h"
+#include "coin.h"
 #include "ModuleCollision.h"
 #include "j1Player.h"
 #include "p2Log.h"
@@ -209,6 +210,9 @@ void j1Enemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 		case ENEMY_TYPES::Final_Boss:
 			enemies[i] = new Enemy_Boss(info.x, info.y);
+			break;
+		case ENEMY_TYPES::Coin:
+			enemies[i] = new entity_coin(info.x, info.y);
 			break;
 		}
 	}
