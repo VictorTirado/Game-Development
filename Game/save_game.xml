@@ -7,9 +7,9 @@
 	<map />
 	<scene />
 	<player>
-		<pos x="674" y="576" />
+		<pos x="783" y="576" />
 		<map z="1" />
-		<mana m="100" />
+		<mana m="0" />
 		<lifes l="2" />
 		<score s="0" />
 	</player>
@@ -27,6 +27,6 @@
 	<intro />
 	<:anonymous />
 	<renderer>
-		<camera x="-162" y="-192" />
+		<camera x="-271" y="-192" />
 	</renderer>
 </game_state>

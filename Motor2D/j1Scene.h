@@ -4,6 +4,9 @@
 #include "j1Module.h"
 
 struct SDL_Texture;
+class GuiImage;
+class GuiText;
+class GUI;
 
 class j1Scene : public j1Module
 {
@@ -33,8 +36,11 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
+	void j1Scene::GUIInteract(GUI* g);
+
 	int map = 0;
 	int buttonClicked = 0;
+	bool first_update = true;
 private:
 	//int map=0;
 };

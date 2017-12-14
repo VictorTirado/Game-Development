@@ -280,6 +280,7 @@ bool j1Player::Update(float dt)
 					if (GodMode == false) {
 						lifes--;
 					}
+					mana2 = 100;
 					firstUpdate = true;
 				}
 			}
@@ -366,6 +367,7 @@ bool j1Player::Update(float dt)
 			if (GodMode == false) {
 				lifes--;
 			}
+			mana2 = 100;
 			firstUpdate = true;
 		}
 	}
@@ -376,6 +378,7 @@ bool j1Player::Update(float dt)
 		if (GodMode == false) {
 			lifes--;
 		}
+		mana2 = 100;
 		firstUpdate = true;
 	}
 
@@ -515,6 +518,7 @@ void j1Player::OnCollision(Collider* c1, Collider* c2) {
 			dead = true;
 			App->collision->EraseCollider(collider);
 			lifes--;
+			mana2 = 100;
 			firstUpdate = true;
 		}
 	}

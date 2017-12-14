@@ -39,7 +39,6 @@ bool j1Scene::Start()
 		App->map->Load("Map1.tmx"); //Map1
 		map = 1;
 		App->audio->PlayMusic("audio/music/Song.ogg");
-
 	return true;
 }
 
@@ -53,6 +52,10 @@ bool j1Scene::PreUpdate()
 // Called each loop iteration
 bool j1Scene::Update(float dt)
 {
+	if (first_update == true) {
+		
+		first_update = false;
+	}
 	BROFILER_CATEGORY("j1SceneUpdate", Profiler::Color::SaddleBrown);
 	if (App->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN) {
 		App->LoadGame();
@@ -141,4 +144,9 @@ bool j1Scene::CleanUp()
 	LOG("Freeing scene");
 
 	return true;
+}
+
+void j1Scene::GUIInteract(GUI* g)
+{
+	LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
 }

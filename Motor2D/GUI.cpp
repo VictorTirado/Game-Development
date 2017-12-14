@@ -14,5 +14,5 @@ GUI::~GUI()
 
 void GUI::Draw(SDL_Texture* sprites)
 {
-	App->render->Blit(sprites, position.x, position.y, &(animation->GetCurrentFrame()));
+	App->render->Blit(sprites, position.x, position.y, &(animation->GetCurrentFrame()),0);
 }

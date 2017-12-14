@@ -63,9 +63,9 @@ bool j1Intro::Update(float dt)
 		label3 = App->gui->AddLabel(310, 23, { 362, 336, 367, 89 }, NULL, this);
 		label4 = App->gui->AddLabel(700, 400, { 408, 484, 201, 236 }, NULL, this);
 		text_menu = App->gui->AddText(440, 45, "MENU", { 255,255,255 }, App->font->default, NULL, this);
-		text_history = App->gui->AddText(50, 230, "       This is the", { 255,255,255 }, App->font->default, NULL, this);
-		text_history2 = App->gui->AddText(50, 270, "  beginning of a", { 255,255,255 }, App->font->default, NULL, this);
-		text_history3 = App->gui->AddText(50, 310, "great adventure", { 255,255,255 }, App->font->default, NULL, this);
+		text_history = App->gui->AddText(50, 230, "       This is the", { 85,56,22 }, App->font->default, NULL, this);
+		text_history2 = App->gui->AddText(50, 270, "  beginning of a", { 85,56,22 }, App->font->default, NULL, this);
+		text_history3 = App->gui->AddText(50, 310, "great adventure", { 85,56,22 }, App->font->default, NULL, this);
 
 		button_start = App->gui->AddButton(400, 150, { 0,4,182,56 }, "Play", { 255,255,255 }, App->font->default, NULL, this);
 		button_continue = App->gui->AddButton(400, 220, { 0,0,182,56 }, "Continue", { 255,255,255 }, App->font->default, NULL, this);

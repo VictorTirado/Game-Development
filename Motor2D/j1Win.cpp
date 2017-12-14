@@ -107,6 +107,7 @@ void j1Win::GUIInteract(GUI* g)
 		App->scene->active = true;
 		App->player->active = true;
 		App->player->lifes = 3;
+		App->player->mana2 = 100;
 		first_update = true;
 		App->gui->destroyElement(background);
 		App->gui->destroyElement(text_win);
