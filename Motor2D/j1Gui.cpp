@@ -350,3 +350,14 @@ void j1Gui::destroyElement(GUI* element) {
 		}
 	}
 }
+
+void j1Gui::moveElement(GUI* element, int x, int y) {
+	for (uint i = 0; i < MAX_UI_ELEMENTS; ++i) {
+		if (GUI_Elements[i] == element) {
+			GUI_Elements[i]->position.x = x;
+			GUI_Elements[i]->position.y = y;
+			queue[i].x = x;
+			queue[i].y = y;
+		}
+	}
+}
