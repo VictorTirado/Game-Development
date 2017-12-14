@@ -17,6 +17,8 @@
 #include "j1Abilities.h"
 #include "j1Lose.h"
 #include "j1Win.h"
+#include "j1Gui.h"
+
 
 
 j1Player::j1Player() : j1Module()
@@ -176,7 +178,7 @@ bool j1Player::PreUpdate()
 
 bool j1Player::Update(float dt)
 {
-
+	
 	BROFILER_CATEGORY("j1PlayerUpdate", Profiler::Color::DodgerBlue);
 	startPos.x = App->map->spawn.x;
 	startPos.y = App->map->spawn.y;
@@ -279,6 +281,15 @@ bool j1Player::Update(float dt)
 					App->collision->EraseCollider(collider);
 					if (GodMode == false) {
 						lifes--;
+						App->gui->destroyElement(App->scene->health);
+						if (lifes == 2)
+						{
+							App->scene->health = App->gui->AddLabel(10, 10, { 596, 1054, 67, 67 }, NULL, App->scene);
+						}
+						if (lifes == 1)
+						{
+							App->scene->health = App->gui->AddLabel(10, 10, { 595, 1131, 67, 67 }, NULL, App->scene);
+						}
 					}
 					mana2 = 100;
 					firstUpdate = true;
@@ -366,6 +377,15 @@ bool j1Player::Update(float dt)
 			App->collision->EraseCollider(collider);
 			if (GodMode == false) {
 				lifes--;
+				App->gui->destroyElement(App->scene->health);
+				if (lifes == 2)
+				{
+					App->scene->health = App->gui->AddLabel(10, 10, { 596, 1054, 67, 67 }, NULL, App->scene);
+				}
+				if (lifes == 1)
+				{
+					App->scene->health = App->gui->AddLabel(10, 10, { 595, 1131, 67, 67 }, NULL, App->scene);
+				}
 			}
 			mana2 = 100;
 			firstUpdate = true;
@@ -377,6 +397,15 @@ bool j1Player::Update(float dt)
 		App->collision->EraseCollider(collider);
 		if (GodMode == false) {
 			lifes--;
+			App->gui->destroyElement(App->scene->health);
+			if (lifes == 2)
+			{
+				App->scene->health = App->gui->AddLabel(10, 10, { 596, 1054, 67, 67 }, NULL, App->scene);
+			}
+			if (lifes == 1)
+			{
+				App->scene->health = App->gui->AddLabel(10, 10, { 595, 1131, 67, 67 }, NULL, App->scene);
+			}
 		}
 		mana2 = 100;
 		firstUpdate = true;
@@ -518,6 +547,15 @@ void j1Player::OnCollision(Collider* c1, Collider* c2) {
 			dead = true;
 			App->collision->EraseCollider(collider);
 			lifes--;
+			App->gui->destroyElement(App->scene->health);
+			if (lifes == 2)
+			{
+				App->scene->health = App->gui->AddLabel(10, 10, { 596, 1054, 67, 67 }, NULL, App->scene);
+			}
+			if (lifes == 1)
+			{
+				App->scene->health = App->gui->AddLabel(10, 10, { 595, 1131, 67, 67 }, NULL, App->scene);
+			}
 			mana2 = 100;
 			firstUpdate = true;
 		}

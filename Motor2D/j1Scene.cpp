@@ -52,10 +52,24 @@ bool j1Scene::PreUpdate()
 // Called each loop iteration
 bool j1Scene::Update(float dt)
 {
+	
+	
 	if (first_update == true) {
-		
+		if (App->player->lifes == 3) {
+			health = App->gui->AddLabel(10, 10, { 596, 984, 67, 67 }, NULL, this);	
+		}
+		if (App->player->lifes == 2)
+		{
+			App->scene->health = App->gui->AddLabel(10, 10, { 596, 1054, 67, 67 }, NULL, App->scene);
+		}
+		if (App->player->lifes == 1)
+		{
+			App->scene->health = App->gui->AddLabel(10, 10, { 595, 1131, 67, 67 }, NULL, App->scene);
+		}
+	
 		first_update = false;
 	}
+	
 	BROFILER_CATEGORY("j1SceneUpdate", Profiler::Color::SaddleBrown);
 	if (App->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN) {
 		App->LoadGame();

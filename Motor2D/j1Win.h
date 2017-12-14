@@ -43,6 +43,7 @@ private:
 	SDL_Texture* debug_tex = NULL;
 
 public:
+	GUI* label = NULL;
 	GUI* text_win = NULL;
 	GUI* text_highscore = NULL;
 	GUI* text_points = NULL;

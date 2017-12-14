@@ -38,6 +38,7 @@ public:
 
 	void j1Scene::GUIInteract(GUI* g);
 
+	GUI* health = NULL;
 	int map = 0;
 	int buttonClicked = 0;
 	bool first_update = true;

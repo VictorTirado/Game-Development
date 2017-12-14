@@ -50,14 +50,15 @@ bool j1Lose::PreUpdate()
 // Called each loop iteration
 bool j1Lose::Update(float dt)
 {
-	App->render->camera.x = 0;
-	App->render->camera.y = 0;
+
 	if (first_update == true)
 	{
+		
 		background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
+		label = App->gui->AddLabel(310, 45, { 366, 336, 363, 88 }, NULL, this);
 		text_lose = App->gui->AddText(400, 70, "YOU LOSE", { 255,255,255 }, App->font->default, NULL, this);
-		text_highscore2 = App->gui->AddText(300, 150, "HIGHSCORE:", { 255,255,255 }, App->font->default, NULL, this);
-		text_points = App->gui->AddText(550, 150, "", { 255,255,255 }, App->font->default, NULL, this);
+		text_highscore2 = App->gui->AddText(300, 250, "HIGHSCORE:", { 255,255,255 }, App->font->default, NULL, this);
+		text_points = App->gui->AddText(550, 250, "", { 255,255,255 }, App->font->default, NULL, this);
 
 		return_intro2 = App->gui->AddButton(700, 650, { 0,4,182,56 }, "Play again", { 255,255,255 }, App->font->default, NULL, this);
 		return_exit2 = App->gui->AddButton(500, 650, { 0,4,182,56 }, "Exit", { 255,255,255 }, App->font->default, NULL, this);
@@ -103,6 +104,7 @@ void j1Lose::GUIInteract(GUI* g)
 
 	if (g == return_intro2)
 	{
+		App->scene->first_update = true;
 		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
 		this->active = false;
 		App->scene->active = true;
@@ -111,6 +113,7 @@ void j1Lose::GUIInteract(GUI* g)
 		App->player->mana2 = 100;
 		first_update = true;
 		App->gui->destroyElement(background);
+		App->gui->destroyElement(label);
 		App->gui->destroyElement(text_lose);
 		App->gui->destroyElement(text_highscore2);
 		App->gui->destroyElement(text_points);

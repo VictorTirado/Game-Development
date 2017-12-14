@@ -52,7 +52,9 @@ bool j1Settings::Update(float dt)
 {
 	if (first_update == true)
 	{
+		
 		background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
+		label7 = App->gui->AddLabel(300, 45, { 362, 336, 367, 89 }, NULL, this);
 		text_settings = App->gui->AddText(400, 70, "SETTINGS", { 255,255,255 }, App->font->default, NULL, this);
 		text_music = App->gui->AddText(250, 270, "Fx volume:", { 255,255,255 }, App->font->default, NULL, this);
 		text_fx = App->gui->AddText(250, 370, "Music volume:", { 255,255,255 }, App->font->default, NULL, this);
@@ -101,6 +103,7 @@ void j1Settings::GUIInteract(GUI* g)
 		this->active = false;
 		first_update = true;
 		App->gui->destroyElement(background);
+		App->gui->destroyElement(label7);
 		App->gui->destroyElement(text_settings);
 		App->gui->destroyElement(text_music);
 		App->gui->destroyElement(text_fx);

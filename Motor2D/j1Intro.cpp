@@ -60,7 +60,7 @@ bool j1Intro::Update(float dt)
 	{
 		label1 = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
 		label2 = App->gui->AddLabel(40, 30, { 52, 387, 150, 150 }, NULL, this);
-		label3 = App->gui->AddLabel(310, 23, { 362, 336, 367, 89 }, NULL, this);
+		label3 = App->gui->AddLabel(310, 23, { 366, 336, 363, 88 }, NULL, this);
 		label4 = App->gui->AddLabel(700, 400, { 408, 484, 201, 236 }, NULL, this);
 		text_menu = App->gui->AddText(440, 45, "MENU", { 255,255,255 }, App->font->default, NULL, this);
 		text_history = App->gui->AddText(50, 230, "       This is the", { 85,56,22 }, App->font->default, NULL, this);

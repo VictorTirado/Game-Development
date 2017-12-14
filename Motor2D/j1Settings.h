@@ -43,6 +43,7 @@ private:
 	SDL_Texture* debug_tex;
 	
 public:
+	GUI* label7 = NULL;
 	GUI* text_music;
 	GUI* text_settings;
 	GUI* text_fx;
