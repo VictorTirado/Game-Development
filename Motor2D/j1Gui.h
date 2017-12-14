@@ -70,6 +70,8 @@ public:
 
 	void destroyElement(GUI* element);
 
+	void moveElement(GUI* element, int x, int y);
+
 	const SDL_Texture* GetAtlas() const;
 
 private:
