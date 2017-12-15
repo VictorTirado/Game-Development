@@ -61,6 +61,8 @@ bool j1Scene::Update(float dt)
 	 sprintf_s(playerCoins, "%d", App->player->coins_achieved);
 	char playerScore[(((sizeof App->player->score) * CHAR_BIT) + 2) / 3 + 2];
 	  sprintf_s(playerScore, "%d", App->player->score);
+	char playerTime[(((sizeof App->player->time) * CHAR_BIT) + 2) / 3 + 2];
+	  sprintf_s(playerTime, "%.2f", App->player->time);
 
 	if (first_update == true) {
 		books = App->gui->AddLabel(500, 10, { 27, 197, 69, 74 }, NULL, this);
@@ -68,6 +70,7 @@ bool j1Scene::Update(float dt)
 		coins = App->gui->AddText(610, 25, playerCoins, { 255,255,255 }, App->font->default, NULL, this);
 		score_text = App->gui->AddText(760, 25, "Score:", { 255,255,255 }, App->font->default, NULL, this);
 		score_num = App->gui->AddText(880, 25, playerScore, { 255,255,255 }, App->font->default, NULL, this);
+		total_time = App->gui->AddText(760, 250, playerTime, { 255,255,255 }, App->font->default, NULL, this);
 		if (App->player->lifes == 3) {
 			health = App->gui->AddLabel(10, 10, { 596, 984, 67, 67 }, NULL, this);	
 		}
@@ -89,8 +92,10 @@ bool j1Scene::Update(float dt)
 
 	App->gui->destroyElement(coins);
 	App->gui->destroyElement(score_num);
+	App->gui->destroyElement(total_time);
 	coins = App->gui->AddText(610, 25, playerCoins, { 255,255,255 }, App->font->default, NULL, this);
 	score_num = App->gui->AddText(880, 25, playerScore, { 255,255,255 }, App->font->default, NULL, this);
+	total_time = App->gui->AddText(760, 250, playerTime, { 255,255,255 }, App->font->default, NULL, this);
 	
 	if (App->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN) {
 		App->LoadGame();

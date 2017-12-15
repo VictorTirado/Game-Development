@@ -184,12 +184,13 @@ bool j1Player::Update(float dt)
 		
 	
 	BROFILER_CATEGORY("j1PlayerUpdate", Profiler::Color::DodgerBlue);
+
+	float time_since_start = time_playing.ReadSec();
+	time= time_since_start - time_before_start + time_saved;
 	if (continue_pressed == true)
 	{
 		startPos.x = position.x;
 		startPos.y = position.y;
-		
-		
 	}
 	else
 	{
@@ -203,6 +204,7 @@ bool j1Player::Update(float dt)
 		App->defeat->active = true;
 	}
 	if (firstUpdate == true) {
+		time_before_start = time_since_start;
 		position = startPos;
 		if (continue_pressed == false)
 		{
@@ -556,6 +558,7 @@ bool j1Player::Save(pugi::xml_node& save) const
 		save.append_child("lifes").append_attribute("l") = lifes;
 		save.append_child("score").append_attribute("s") = score;
 		save.append_child("books").append_attribute("b") = coins_achieved;
+		save.append_child("time").append_attribute("t") = time;
 	}
 	else {
 		save.child("pos").attribute("x") = position.x;
@@ -565,6 +568,7 @@ bool j1Player::Save(pugi::xml_node& save) const
 		save.child("lifes").attribute("l") = lifes;
 		save.child("score").attribute("s") = score;
 		save.child("books").attribute("b") = coins_achieved;
+		save.child("time").attribute("t") = time;
 	}
 
 	ret = true;
@@ -582,6 +586,7 @@ bool j1Player::Load(pugi::xml_node& save)
 		lifes = save.child("lifes").attribute("l").as_uint();
 		score = save.child("score").attribute("s").as_int();
 		coins_achieved = save.child("books").attribute("b").as_uint();
+		time_saved = save.child("time").attribute("t").as_float();
 		App->scene->map = save.child("map").attribute("z").as_int();
 		if (App->scene->map == 1)
 		{

@@ -75,6 +75,10 @@ public:
 	bool shooting = false;
 	uint gid;
 	SDL_RendererFlip flip;
+	j1Timer time_playing;
+	float time = 0.0f;
+	float time_before_start = 0.0f;
+	float time_saved = 0.0f;
 	bool firstUpdate = true;
 	bool spawnEnemies = true;
 	SDL_Rect levitate_last_frame;

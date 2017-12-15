@@ -48,6 +48,7 @@ public:
 	GUI* multiplicator = NULL;
 	GUI* score_text = NULL;
 	GUI* score_num = NULL;
+	GUI* total_time = NULL;
 
 	int map = 0;
 	int buttonClicked = 0;
