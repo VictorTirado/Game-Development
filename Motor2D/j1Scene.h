@@ -43,6 +43,7 @@ public:
 	GUI* thunder = NULL;
 	GUI* ice = NULL;
 	GUI* health = NULL;
+	GUI* coins = NULL;
 	int map = 0;
 	int buttonClicked = 0;
 	bool first_update = true;

@@ -53,24 +53,28 @@ bool j1Scene::PreUpdate()
 // Called each loop iteration
 bool j1Scene::Update(float dt)
 {
+	BROFILER_CATEGORY("j1SceneUpdate", Profiler::Color::SaddleBrown);
 	
-	
+	//playerCoins = static_cast<std::ostringstream*>(&(std::ostringstream() << App->player->coins_achieved))->str();
+
+	char playerCoins[(((sizeof App->player->coins_achieved) * CHAR_BIT) + 2) / 3 + 2];
+	sprintf(playerCoins, "%d", App->player->coins_achieved);
 
 	if (first_update == true) {
 		App->gui->AddLabel(500, 10, { 27, 197, 69, 74 }, NULL, this);
 		App->gui->AddLabel(570, 32, { 108, 221, 30, 24 }, NULL, this);
-		App->gui->AddText(610, 25,"1", { 255,255,255 }, App->font->default, NULL, this);
+		coins = App->gui->AddText(610, 25, playerCoins, { 255,255,255 }, App->font->default, NULL, this);
 	
 		if (App->player->lifes == 3) {
 			health = App->gui->AddLabel(10, 10, { 596, 984, 67, 67 }, NULL, this);	
 		}
 		if (App->player->lifes == 2)
 		{
-			App->scene->health = App->gui->AddLabel(10, 10, { 596, 1054, 67, 67 }, NULL, App->scene);
+			health = App->gui->AddLabel(10, 10, { 596, 1054, 67, 67 }, NULL, App->scene);
 		}
 		if (App->player->lifes == 1)
 		{
-			App->scene->health = App->gui->AddLabel(10, 10, { 595, 1131, 67, 67 }, NULL, App->scene);
+			health = App->gui->AddLabel(10, 10, { 595, 1131, 67, 67 }, NULL, App->scene);
 		}
 		
 		fire = App->gui->AddLabel(150, 10, { 621,35,46,45 }, NULL, App->scene);
@@ -79,8 +83,10 @@ bool j1Scene::Update(float dt)
 
 		first_update = false;
 	}
+
+	App->gui->destroyElement(coins);
+	coins = App->gui->AddText(610, 25, playerCoins, { 255,255,255 }, App->font->default, NULL, this);
 	
-	BROFILER_CATEGORY("j1SceneUpdate", Profiler::Color::SaddleBrown);
 	if (App->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN) {
 		App->LoadGame();
 		App->player->spawnEnemies = true;
@@ -120,13 +126,11 @@ bool j1Scene::Update(float dt)
 		}
 		else
 		{
-
 			map = 0;
 			App->player->firstUpdate = true;
 			App->player->collider->to_delete = true;
 			App->player->spawnEnemies = true;
 			App->player->dead = true;
-			
 		}
 		
 	}
@@ -138,6 +142,41 @@ bool j1Scene::Update(float dt)
 	}
 	if (App->input->GetKey(SDL_SCANCODE_F10) == KEY_DOWN) {
 		App->player->GodMode = !App->player->GodMode;
+	}
+
+	if (App->player->mana2 < App->player->cost_fire && App->player->coins_achieved >= 1)
+	{
+		//App->gui->changeTexture(App->scene->fire, {413,153,50,50});
+		App->gui->destroyElement(fire);
+		fire = App->gui->AddLabel(150, 10, { 413,153,50,50 }, NULL, this);
+	}
+	else if (App->player->mana2 >= App->player->cost_fire && App->player->coins_achieved >= 1) {
+		//App->gui->changeTexture(App->scene->fire, { 413, 99, 50, 50 });
+		App->gui->destroyElement(fire);
+		fire = App->gui->AddLabel(150, 10, { 413,99,50,50 }, NULL, this);
+	}
+	if (App->player->mana2 < App->player->cost_thunder)
+	{
+		//App->gui->changeTexture(App->scene->thunder, { 486,153,50,50 });
+		App->gui->destroyElement(thunder);
+		thunder = App->gui->AddLabel(100, 10, { 486,153,50,50 }, NULL, this);
+	}
+	else if (App->player->mana2 >= App->player->cost_thunder) {
+		//App->gui->changeTexture(App->scene->thunder, { 480, 99, 50, 50 });
+		App->gui->destroyElement(thunder);
+		thunder = App->gui->AddLabel(100, 10, { 480,99,50,50 }, NULL, this);
+	}
+
+	if (App->player->mana2 < App->player->cost_ice && App->player->coins_achieved >= 1)
+	{
+		//App->gui->changeTexture(App->scene->ice, { 550,153,50,50 });
+		App->gui->destroyElement(ice);
+		ice = App->gui->AddLabel(200, 10, { 550,153,50,50 }, NULL, this);
+	}
+	else if (App->player->mana2 >= App->player->cost_ice && App->player->coins_achieved >= 1) {
+		//App->gui->changeTexture(App->scene->ice, { 546, 97, 50, 50 });
+		App->gui->destroyElement(ice);
+		ice = App->gui->AddLabel(200, 10, { 546,97,50,50 }, NULL, this);
 	}
 	
 	App->map->Draw();
