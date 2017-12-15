@@ -44,6 +44,11 @@ public:
 	GUI* ice = NULL;
 	GUI* health = NULL;
 	GUI* coins = NULL;
+	GUI* books = NULL;
+	GUI* multiplicator = NULL;
+	GUI* score_text = NULL;
+	GUI* score_num = NULL;
+
 	int map = 0;
 	int buttonClicked = 0;
 	bool first_update = true;

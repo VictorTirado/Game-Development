@@ -562,7 +562,7 @@ bool j1Player::Load(pugi::xml_node& save)
 		position.y = save.child("pos").attribute("y").as_float();
 		mana2 = save.child("mana").attribute("m").as_int();
 		lifes = save.child("lifes").attribute("l").as_uint();
-		score = save.child("score").attribute("s").as_uint();
+		score = save.child("score").attribute("s").as_int();
 		App->scene->map = save.child("map").attribute("z").as_int();
 		if (App->scene->map == 1)
 		{

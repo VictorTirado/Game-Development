@@ -43,7 +43,7 @@ public:
 	bool dead= false;
 	int lifes = 3;
 	int mana2 = 100;
-	uint score = 0;
+	int score = 0;
 	uint coins_achieved = 0;
 	int speed;
 	int cont = 0;
