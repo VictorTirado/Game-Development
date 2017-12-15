@@ -12,16 +12,17 @@
 
 entity_coin::entity_coin(int x, int y) : j1Enemy(x, y)
 {
-	idle.PushBack({ 2174,26,30,30 });
-	idle.PushBack({ 2211,26,30,30 });
-	idle.PushBack({ 2248,26,30,30 });
-	idle.PushBack({ 2286,26,30,30 });
+	idle.PushBack({ 2339,20,38,40 });
+	
+	idle.PushBack({ 2398,18,38,40 });
+	idle.PushBack({ 2445,18,38,40 });
+	//idle.PushBack({ 2286,26,30,30 });
 
 	idle.speed = 0.2f;
 
 	animation = &idle;
 	
-	collider = App->collision->AddCollider({ position.x, position.y, 30, 30 }, COLLIDER_TYPE::COLLIDER_COIN, (j1Module*)App->enemies);
+	collider = App->collision->AddCollider({ position.x, position.y, 36, 40 }, COLLIDER_TYPE::COLLIDER_COIN, (j1Module*)App->enemies);
 }
 
 
