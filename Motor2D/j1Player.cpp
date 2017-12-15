@@ -186,7 +186,7 @@ bool j1Player::Update(float dt)
 	BROFILER_CATEGORY("j1PlayerUpdate", Profiler::Color::DodgerBlue);
 	startPos.x = App->map->spawn.x;
 	startPos.y = App->map->spawn.y;
-	if (lifes == 0) {
+	if (lifes < 1) {
 		this->active = false;
 		App->scene->active = false;
 		App->defeat->active = true;

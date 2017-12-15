@@ -41,7 +41,7 @@ public:
 	int cost_thunder = 10;
 	int cost_ice = 20;
 	bool dead= false;
-	uint lifes = 3;
+	int lifes = 3;
 	int mana2 = 100;
 	uint score = 0;
 	uint coins_achieved = 0;
