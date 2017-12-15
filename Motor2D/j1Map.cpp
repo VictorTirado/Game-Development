@@ -7,6 +7,7 @@
 #include <math.h>
 #include "j1Player.h"
 #include "Brofiler\Brofiler.h"
+#include "j1Scene.h"
 
 
 j1Map::j1Map() : j1Module(), map_loaded(false)
@@ -64,7 +65,13 @@ void j1Map::Draw()
 							
 						}
 						if (App->map->data.maplayers.end->data->data[gid] == 1039) {//drakespawn
-							drakeSpawn.add(xy);
+							if (App->scene->map == 1) {
+								xy.y = xy.y + 100000000;
+								drakeSpawn.add(xy);
+							}
+							else {
+								drakeSpawn.add(xy);
+							}
 						}
 						if (layer_list->data->name == "Background") {
 							App->render->Blit(tileset_list->data->texture, xy.x, xy.y, &tile, 0.5f);
