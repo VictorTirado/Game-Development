@@ -185,6 +185,7 @@ void j1Intro::GUIInteract(GUI* g)
 		this->active = false;
 		first_update = true;
 		App->LoadGame();
+		App->player->continue_pressed = true;
 		App->player->spawnEnemies = true;
 		App->player->dead = true;
 		App->gui->destroyElement(label1);

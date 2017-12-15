@@ -46,7 +46,9 @@ public:
 	GUI* label = NULL;
 	GUI* text_win = NULL;
 	GUI* text_highscore = NULL;
+	GUI* text_coins_score = NULL;
 	GUI* text_points = NULL;
+	GUI* text_coins = NULL;
 	GUI* return_intro = NULL;
 	GUI* return_exit = NULL;
 	GUI* background = NULL;

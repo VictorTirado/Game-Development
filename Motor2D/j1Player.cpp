@@ -184,8 +184,19 @@ bool j1Player::Update(float dt)
 		
 	
 	BROFILER_CATEGORY("j1PlayerUpdate", Profiler::Color::DodgerBlue);
-	startPos.x = App->map->spawn.x;
-	startPos.y = App->map->spawn.y;
+	if (continue_pressed == true)
+	{
+		startPos.x = position.x;
+		startPos.y = position.y;
+		
+		
+	}
+	else
+	{
+		startPos.x = App->map->spawn.x;
+		startPos.y = App->map->spawn.y;
+	}
+
 	if (lifes < 1) {
 		this->active = false;
 		App->scene->active = false;
@@ -193,13 +204,18 @@ bool j1Player::Update(float dt)
 	}
 	if (firstUpdate == true) {
 		position = startPos;
-		App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
-		App->render->camera.y = position.y - (App->win->screen_surface->h);
+		if (continue_pressed == false)
+		{
+			App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
+			App->render->camera.y = position.y - (App->win->screen_surface->h);
+		}
+		continue_pressed = false;
 		collider = App->collision->AddCollider({ position.x, position.y, 46, 69 }, COLLIDER_PLAYER, this);
 		App->enemies->bossHP = 60;
 		spawnEnemies = true;
 		firstUpdate = false;
 	}
+
 	gid=App->map->Get_gid(position.x, position.y);
 	bool ret = true;
 	current_animation = &idle;
@@ -539,6 +555,7 @@ bool j1Player::Save(pugi::xml_node& save) const
 		save.append_child("mana").append_attribute("m") = mana2;
 		save.append_child("lifes").append_attribute("l") = lifes;
 		save.append_child("score").append_attribute("s") = score;
+		save.append_child("books").append_attribute("b") = coins_achieved;
 	}
 	else {
 		save.child("pos").attribute("x") = position.x;
@@ -547,6 +564,7 @@ bool j1Player::Save(pugi::xml_node& save) const
 		save.child("mana").attribute("m") = mana2;
 		save.child("lifes").attribute("l") = lifes;
 		save.child("score").attribute("s") = score;
+		save.child("books").attribute("b") = coins_achieved;
 	}
 
 	ret = true;
@@ -563,6 +581,7 @@ bool j1Player::Load(pugi::xml_node& save)
 		mana2 = save.child("mana").attribute("m").as_int();
 		lifes = save.child("lifes").attribute("l").as_uint();
 		score = save.child("score").attribute("s").as_int();
+		coins_achieved = save.child("books").attribute("b").as_uint();
 		App->scene->map = save.child("map").attribute("z").as_int();
 		if (App->scene->map == 1)
 		{

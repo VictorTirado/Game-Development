@@ -224,19 +224,23 @@ void j1Enemies::OnCollision(Collider* c1, Collider* c2)
 		if (enemies[i] != nullptr) {
 			if (enemies[i]->GetCollider() == c1) {
 				if (c2->type == COLLIDER_ATTACK && c1->type != COLLIDER_DRAKE) {
+					App->player->score += 23;
 					delete enemies[i];
 					enemies[i] = nullptr;
 				}
 				else if (c2->type == COLLIDER_ATTACK && c1->type == COLLIDER_DRAKE) {
+					App->player->score += 30;
 					bossHP--;
 					c2->to_delete = true;
 					if (bossHP <= 0) {
+						App->player->score += 50;
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
 					LOG("BOSS");
 				}
 				else if (c2->type == COLLIDER_PLAYER && c1->type == COLLIDER_BOOKS) {
+					App->player->score += 15;
 					App->player->coins_achieved++;
 					delete enemies[i];
 					enemies[i] = nullptr;

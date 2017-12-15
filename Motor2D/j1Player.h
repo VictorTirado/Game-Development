@@ -44,6 +44,8 @@ public:
 	int lifes = 3;
 	int mana2 = 100;
 	int score = 0;
+	bool continue_pressed = false;
+	
 	uint coins_achieved = 0;
 	int speed;
 	int cont = 0;

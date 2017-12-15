@@ -58,9 +58,9 @@ bool j1Scene::Update(float dt)
 	//playerCoins = static_cast<std::ostringstream*>(&(std::ostringstream() << App->player->coins_achieved))->str();
 
 	char playerCoins[(((sizeof App->player->coins_achieved) * CHAR_BIT) + 2) / 3 + 2];
-	sprintf_s(playerCoins, "%d", App->player->coins_achieved);
+	 sprintf_s(playerCoins, "%d", App->player->coins_achieved);
 	char playerScore[(((sizeof App->player->score) * CHAR_BIT) + 2) / 3 + 2];
-	sprintf_s(playerScore, "%d", App->player->score);
+	  sprintf_s(playerScore, "%d", App->player->score);
 
 	if (first_update == true) {
 		books = App->gui->AddLabel(500, 10, { 27, 197, 69, 74 }, NULL, this);

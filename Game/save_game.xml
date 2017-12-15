@@ -7,11 +7,12 @@
 	<map />
 	<scene />
 	<player>
-		<pos x="2310" y="482" />
-		<map z="0" />
+		<pos x="269" y="388" />
+		<map z="1" />
 		<mana m="100" />
-		<lifes l="2" />
+		<lifes l="3" />
 		<score s="0" />
+		<books b="0" />
 	</player>
 	<:anonymous />
 	<:anonymous />
@@ -27,6 +28,6 @@
 	<intro />
 	<:anonymous />
 	<renderer>
-		<camera x="-1798" y="-113" />
+		<camera x="243" y="-6" />
 	</renderer>
 </game_state>

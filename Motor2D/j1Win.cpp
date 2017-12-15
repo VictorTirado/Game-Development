@@ -50,15 +50,20 @@ bool j1Win::PreUpdate()
 // Called each loop iteration
 bool j1Win::Update(float dt)
 {
-	
+	char playerCoins[(((sizeof App->player->coins_achieved) * CHAR_BIT) + 2) / 3 + 2];
+	sprintf_s(playerCoins, "%d", App->player->coins_achieved);
+	char playerScore[(((sizeof App->player->score) * CHAR_BIT) + 2) / 3 + 2];
+	sprintf_s(playerScore, "%d", App->player->score);
 	if (first_update == true)
 	{
 		
 		background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
-		label = App->gui->AddLabel(310, 23, { 362, 336, 367, 89 }, NULL, this);
-		text_win = App->gui->AddText(400, 70, "YOU WIN!", { 255,255,255 }, App->font->default, NULL, this);
-		text_highscore = App->gui->AddText(300, 150, "HIGHSCORE:", { 255,255,255 }, App->font->default, NULL, this);
-		text_points = App->gui->AddText(550, 150, "", { 255,255,255 }, App->font->default, NULL, this);
+		label = App->gui->AddLabel(310, 45, { 362, 336, 367, 89 }, NULL, this);
+		text_win = App->gui->AddText(400, 70, "YOU WIN!", { 0,0,0 }, App->font->default, NULL, this);
+		text_highscore = App->gui->AddText(300, 150, "HIGHSCORE:", { 0,0,0 }, App->font->default, NULL, this);
+		text_coins_score = App->gui->AddText(300, 250, "BOOKS ACHIEVED:", { 0,0,0 }, App->font->default, NULL, this);
+		text_points = App->gui->AddText(550, 150, playerScore, { 0,0,0 }, App->font->default, NULL, this);
+		text_coins = App->gui->AddText(650, 250, playerCoins, { 0,0,0 }, App->font->default, NULL, this);
 		return_intro = App->gui->AddButton(700, 650, { 0,4,182,56 }, "Play again", { 255,255,255 }, App->font->default, NULL, this);
 		return_exit = App->gui->AddButton(500, 650, { 0,4,182,56 }, "Exit", { 255,255,255 }, App->font->default, NULL, this);
 		first_update = false;
@@ -113,7 +118,9 @@ void j1Win::GUIInteract(GUI* g)
 		first_update = true;
 		App->gui->destroyElement(background);
 		App->gui->destroyElement(label);
+		App->gui->destroyElement(text_coins_score);
 		App->gui->destroyElement(text_win);
+		App->gui->destroyElement(text_coins);
 		App->gui->destroyElement(text_highscore);
 		App->gui->destroyElement(text_points);
 		App->gui->destroyElement(return_intro);

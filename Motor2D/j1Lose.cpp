@@ -50,15 +50,21 @@ bool j1Lose::PreUpdate()
 // Called each loop iteration
 bool j1Lose::Update(float dt)
 {
+	char playerCoins[(((sizeof App->player->coins_achieved) * CHAR_BIT) + 2) / 3 + 2];
+	sprintf_s(playerCoins, "%d", App->player->coins_achieved);
+	char playerScore[(((sizeof App->player->score) * CHAR_BIT) + 2) / 3 + 2];
+	sprintf_s(playerScore, "%d", App->player->score);
 
 	if (first_update == true)
 	{
-		
+	
 		background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
 		label = App->gui->AddLabel(310, 45, { 366, 336, 363, 88 }, NULL, this);
-		text_lose = App->gui->AddText(400, 70, "YOU LOSE", { 255,255,255 }, App->font->default, NULL, this);
-		text_highscore2 = App->gui->AddText(300, 250, "HIGHSCORE:", { 255,255,255 }, App->font->default, NULL, this);
-		text_points = App->gui->AddText(550, 250, "", { 255,255,255 }, App->font->default, NULL, this);
+		text_lose = App->gui->AddText(400, 70, "YOU LOSE", { 0,0,0 }, App->font->default, NULL, this);
+		text_highscore2 = App->gui->AddText(300, 150, "HIGHSCORE:", { 0,0,0 }, App->font->default, NULL, this);
+		text_points = App->gui->AddText(550, 150, playerScore, { 0,0,0 }, App->font->default, NULL, this);
+		text_coins_score = App->gui->AddText(300, 250, "BOOKS ACHIEVED:", { 0,0,0 }, App->font->default, NULL, this);
+		text_coins = App->gui->AddText(650, 250, playerCoins, { 0,0,0 }, App->font->default, NULL, this);
 
 		return_intro2 = App->gui->AddButton(700, 650, { 0,4,182,56 }, "Play again", { 255,255,255 }, App->font->default, NULL, this);
 		return_exit2 = App->gui->AddButton(500, 650, { 0,4,182,56 }, "Exit", { 255,255,255 }, App->font->default, NULL, this);
