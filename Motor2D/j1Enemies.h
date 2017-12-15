@@ -14,7 +14,7 @@ enum ENEMY_TYPES
 	Gargoile,
 	Knight,
 	Final_Boss,
-	Coin,
+	Books,
 };
 
 class j1Enemy;

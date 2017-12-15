@@ -446,35 +446,37 @@ bool j1Player::Update(float dt)
 			this->active = false;
 		}
 	}
-	if (mana2 < cost_fire)
+	
+	if (mana2 < cost_fire && coins_achieved>=1)
 	{
 		//App->gui->changeTexture(App->scene->fire, {413,153,50,50});
 		App->gui->destroyElement(App->scene->fire);
-		App->scene->fire = App->gui->AddLabel(100, 10, { 413,153,50,50 }, NULL, App->scene);
+		App->scene->fire = App->gui->AddLabel(150, 10, { 413,153,50,50 }, NULL, App->scene);
 	}
-	else if(mana2 >= cost_fire){
+	else if(mana2 >= cost_fire && coins_achieved>=1){
 		//App->gui->changeTexture(App->scene->fire, { 413, 99, 50, 50 });
 		App->gui->destroyElement(App->scene->fire);
-		App->scene->fire = App->gui->AddLabel(100, 10, { 413,99,50,50 }, NULL, App->scene);
+		App->scene->fire = App->gui->AddLabel(150, 10, { 413,99,50,50 }, NULL, App->scene);
 	}
 	if (mana2 < cost_thunder)
 	{
 		//App->gui->changeTexture(App->scene->thunder, { 486,153,50,50 });
 		App->gui->destroyElement(App->scene->thunder);
-		App->scene->thunder = App->gui->AddLabel(150, 10, { 486,153,50,50 }, NULL, App->scene);
+		App->scene->thunder = App->gui->AddLabel(100, 10, { 486,153,50,50 }, NULL, App->scene);
 	}
 	else if (mana2 >= cost_thunder) {
 		//App->gui->changeTexture(App->scene->thunder, { 480, 99, 50, 50 });
 		App->gui->destroyElement(App->scene->thunder);
-		App->scene->thunder = App->gui->AddLabel(150, 10, { 480,99,50,50 }, NULL, App->scene);
+		App->scene->thunder = App->gui->AddLabel(100, 10, { 480,99,50,50 }, NULL, App->scene);
 	}
-	if (mana2 < cost_ice)
+	
+	if (mana2 < cost_ice && coins_achieved>=1)
 	{
 		//App->gui->changeTexture(App->scene->ice, { 550,153,50,50 });
 		App->gui->destroyElement(App->scene->ice);
 		App->scene->ice = App->gui->AddLabel(200, 10, { 550,153,50,50 }, NULL, App->scene);
 	}
-	else if (mana2 >= cost_ice) {
+	else if (mana2 >= cost_ice && coins_achieved >= 1) {
 		//App->gui->changeTexture(App->scene->ice, { 546, 97, 50, 50 });
 		App->gui->destroyElement(App->scene->ice);
 		App->scene->ice = App->gui->AddLabel(200, 10, { 546,97,50,50 }, NULL, App->scene);
@@ -596,7 +598,7 @@ void j1Player::OnCollision(Collider* c1, Collider* c2) {
 			mana2 = 100;
 			firstUpdate = true;
 		}
-		if (c2->type == COLLIDER_COIN)
+		if (c2->type == COLLIDER_BOOKS)
 		{
 
 		}

@@ -25,9 +25,9 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_ENEMY][COLLIDER_ATTACK] = true;
 	matrix[COLLIDER_ENEMY][COLLIDER_ENEMY] = false;
 
-	matrix[COLLIDER_COIN][COLLIDER_PLAYER] = true;
-	matrix[COLLIDER_COIN][COLLIDER_ATTACK] = false;
-	matrix[COLLIDER_COIN][COLLIDER_ENEMY] = false;
+	matrix[COLLIDER_BOOKS][COLLIDER_PLAYER] = true;
+	matrix[COLLIDER_BOOKS][COLLIDER_ATTACK] = false;
+	matrix[COLLIDER_BOOKS][COLLIDER_ENEMY] = false;
 
 
 }
@@ -132,7 +132,7 @@ void ModuleCollision::DebugDraw()
 		case COLLIDER_DRAKE:
 			App->render->DrawQuad(colliders[i]->rect, 155, 255, 255, alpha);
 			break;
-		case COLLIDER_COIN:
+		case COLLIDER_BOOKS:
 			App->render->DrawQuad(colliders[i]->rect, 155, 0, 255, alpha);
 			break;
 

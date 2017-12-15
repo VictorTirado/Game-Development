@@ -211,8 +211,8 @@ void j1Enemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::Final_Boss:
 			enemies[i] = new Enemy_Boss(info.x, info.y);
 			break;
-		case ENEMY_TYPES::Coin:
-			enemies[i] = new entity_coin(info.x, info.y);
+		case ENEMY_TYPES::Books:
+			enemies[i] = new Book(info.x, info.y);
 			break;
 		}
 	}
@@ -236,7 +236,7 @@ void j1Enemies::OnCollision(Collider* c1, Collider* c2)
 					}
 					LOG("BOSS");
 				}
-				else if (c2->type == COLLIDER_PLAYER && c1->type == COLLIDER_COIN) {
+				else if (c2->type == COLLIDER_PLAYER && c1->type == COLLIDER_BOOKS) {
 					App->player->coins_achieved++;
 					delete enemies[i];
 					enemies[i] = nullptr;

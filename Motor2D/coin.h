@@ -3,13 +3,13 @@
 
 #include "j1Enemy.h"
 
-class entity_coin : public j1Enemy
+class Book : public j1Enemy
 {
 private:
 	Animation idle;
 
 public:
-	entity_coin(int x, int y);
+	Book(int x, int y);
 	void OnCollision(Collider* collider);
 
 };
