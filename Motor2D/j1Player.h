@@ -44,6 +44,7 @@ public:
 	uint lifes = 3;
 	int mana2 = 100;
 	uint score = 0;
+	uint coins_achieved = 0;
 	int speed;
 	int cont = 0;
 	int cont2 = 0;
@@ -86,7 +87,6 @@ public:
 
 	SDL_Rect attack_last_frame;
 	SDL_Rect attack_frame;
-
 	bool GodMode = false;
 	Collider* collider;
 

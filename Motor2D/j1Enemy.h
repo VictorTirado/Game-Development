@@ -23,7 +23,6 @@ public:
 	Collider* collider = nullptr;
 	iPoint position;
 	int type;
-	int score;
 	int id;
 
 public:

@@ -36,6 +36,7 @@ bool j1Scene::Awake()
 // Called before the first frame
 bool j1Scene::Start()
 {
+		App->enemies->AddEnemy(Coin, 650, 450);
 		App->map->Load("Map1.tmx"); //Map1
 		map = 1;
 		App->audio->PlayMusic("audio/music/Song.ogg");
@@ -53,7 +54,7 @@ bool j1Scene::PreUpdate()
 bool j1Scene::Update(float dt)
 {
 	
-	App->enemies->AddEnemy(Coin,650,450);
+	
 
 	if (first_update == true) {
 		if (App->player->lifes == 3) {

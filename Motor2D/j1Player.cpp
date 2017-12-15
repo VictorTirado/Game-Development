@@ -18,6 +18,8 @@
 #include "j1Lose.h"
 #include "j1Win.h"
 #include "j1Gui.h"
+#include "j1Timer.h"
+#include "j1PerfTimer.h"
 
 
 
@@ -178,6 +180,8 @@ bool j1Player::PreUpdate()
 
 bool j1Player::Update(float dt)
 {
+
+		
 	
 	BROFILER_CATEGORY("j1PlayerUpdate", Profiler::Color::DodgerBlue);
 	startPos.x = App->map->spawn.x;
@@ -202,7 +206,7 @@ bool j1Player::Update(float dt)
 	flip = SDL_FLIP_NONE;
 	
 	
-	if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN && jumping == false && current_animation == &idle && Iceattack==false)
+	if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN && jumping == false && current_animation == &idle && Iceattack==false && coins_achieved>=1)
 	{
 		Iceattack = true;
 	}
@@ -215,7 +219,7 @@ bool j1Player::Update(float dt)
 		}
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_Y) == KEY_REPEAT && current_animation != &shotR)
+	if (App->input->GetKey(SDL_SCANCODE_Y) == KEY_REPEAT && current_animation != &shotR && coins_achieved>=1)
 	{
 		shooting = true;
 		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {

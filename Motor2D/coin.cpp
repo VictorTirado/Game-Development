@@ -17,7 +17,7 @@ entity_coin::entity_coin(int x, int y) : j1Enemy(x, y)
 	idle.PushBack({ 2248,26,30,30 });
 	idle.PushBack({ 2286,26,30,30 });
 
-	idle.speed = 0.3f;
+	idle.speed = 0.2f;
 
 	animation = &idle;
 	

@@ -5,9 +5,7 @@
 #include "j1Module.h"
 #include "ModuleCollision.h"
 
-//#include "Enemy_BasicEnemy.h"
-
-#define MAX_ENEMIES 25
+#define MAX_ENEMIES 50
 
 
 enum ENEMY_TYPES

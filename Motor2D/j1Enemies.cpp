@@ -236,7 +236,15 @@ void j1Enemies::OnCollision(Collider* c1, Collider* c2)
 					}
 					LOG("BOSS");
 				}
+				else if (c2->type == COLLIDER_PLAYER && c1->type == COLLIDER_COIN) {
+					App->player->coins_achieved++;
+					delete enemies[i];
+					enemies[i] = nullptr;
+
+				}
 			}
 		}
+
+
 	}
 }
