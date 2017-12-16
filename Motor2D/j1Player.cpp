@@ -254,6 +254,17 @@ bool j1Player::Update(float dt)
 		}
 		flip = SDL_FLIP_HORIZONTAL;
 	}
+
+	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT && GodMode==true)
+	{
+		position.y -= 150 * dt;
+		App->render->camera.y = App->render->camera.y + dt * 150;
+	}
+	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT && GodMode == true)
+	{
+		position.y += 150 * dt;
+		App->render->camera.y = App->render->camera.y - dt * 150;
+	}
 	
 	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && Iceattack == false && attackingMelee == false && shooting == false)
 	{
@@ -391,7 +402,7 @@ bool j1Player::Update(float dt)
 		shotR.Reset();
 		shotL.Reset();
 	}
-	if (App->map->data.maplayers.end->data->data[gid + 150] != 1132 && jumping == false) {
+	if (App->map->data.maplayers.end->data->data[gid + 150] != 1132 && jumping == false && GodMode == false) {
 		current_animation = &jumpR;
 		position.y = position.y + dt*100;
 		App->render->camera.y = App->render->camera.y - dt * 100;
