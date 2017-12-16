@@ -180,6 +180,7 @@ bool j1App::Start()
 	}
 	PERF_PEEK(ptimer);
 	Mix_VolumeMusic(App->settings->musicVolume);
+	App->audio->LoadFx("audio/fx/click.wav");
 	return ret;
 }
 

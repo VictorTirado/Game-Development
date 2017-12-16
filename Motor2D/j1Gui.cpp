@@ -12,6 +12,7 @@
 #include "GUIBUTTON.h"
 #include "j1Scene.h"
 #include "Brofiler\Brofiler.h"
+#include "j1Audio.h"
 
 
 j1Gui::j1Gui() : j1Module()
@@ -134,6 +135,7 @@ bool j1Gui::Update(float dt)
 	for (uint i = 0; i < MAX_UI_ELEMENTS; ++i) {
 		if (GUI_Elements[i] != nullptr) {
 			if (queue[i].state == 1 && queue[i].prevState == 2) {
+				App->audio->PlayFx(1);
 				queue[i].callback->GUIInteract(GUI_Elements[i]);
 				queue[i].state = 0;
 				queue[i].prevState = 0;
