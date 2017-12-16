@@ -52,6 +52,9 @@ public:
 	GUI* score_num = NULL;
 	GUI* total_time = NULL;
 	GUI* sand_clock = NULL;
+	GUI* maxMana_text = NULL;
+	GUI* currentMana = NULL;
+	GUI* slash = NULL;
 
 	int map = 0;
 	int buttonClicked = 0;

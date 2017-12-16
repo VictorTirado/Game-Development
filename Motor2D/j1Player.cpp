@@ -491,6 +491,13 @@ bool j1Player::Update(float dt)
 		}
 	}
 	
+	if (coins_achieved == 3 && maxMana == 100) {
+		maxMana += 10;
+	}
+	if (coins_achieved == 6 && maxMana == 110) {
+		maxMana += 10;
+	}
+
 	//if (mana2 < cost_fire && coins_achieved>=1)
 	//{
 	//	//App->gui->changeTexture(App->scene->fire, {413,153,50,50});

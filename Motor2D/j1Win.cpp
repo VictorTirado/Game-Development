@@ -69,6 +69,9 @@ bool j1Win::Update(float dt)
 		App->gui->destroyElement(App->scene->score_num);
 		App->gui->destroyElement(App->scene->total_time);
 		App->gui->destroyElement(App->scene->sand_clock);
+		App->gui->destroyElement(App->scene->maxMana_text);
+		App->gui->destroyElement(App->scene->currentMana);
+		App->gui->destroyElement(App->scene->slash);
 		background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
 		label = App->gui->AddLabel(310, 45, { 362, 336, 367, 89 }, NULL, this);
 		text_win = App->gui->AddText(400, 70, "YOU WIN!", { 0,0,0 }, App->font->default, NULL, this);

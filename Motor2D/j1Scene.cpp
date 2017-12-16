@@ -62,11 +62,15 @@ bool j1Scene::Update(float dt)
 	 sprintf_s(playerCoins, "%d", App->player->coins_achieved);
 	char playerScore[(((sizeof App->player->score) * CHAR_BIT) + 2) / 3 + 2];
 	sprintf_s(playerScore, "%d", App->player->score);
+	char playerMaxMana[(((sizeof App->player->maxMana) * CHAR_BIT) + 2) / 3 + 2];
+	sprintf_s(playerMaxMana, "%d", App->player->maxMana);
+	char playerCurrentMana[(((sizeof App->player->mana2) * CHAR_BIT) + 2) / 3 + 2];
+	sprintf_s(playerCurrentMana, "%d", App->player->mana2);
 	char playerTime[(((sizeof App->player->time) * CHAR_BIT) + 2) / 3 + 2];
 	sprintf_s(playerTime, "%.2f", App->player->time);
 
 	int manaBar_max_length = 274;
-	int manaBar_length = (manaBar_max_length*App->player->mana2) / 100;
+	int manaBar_length = (manaBar_max_length*App->player->mana2) / App->player->maxMana;
 
 	if (first_update == true) {
 		
@@ -79,6 +83,9 @@ bool j1Scene::Update(float dt)
 		score_num = App->gui->AddText(760, 25, playerScore, { 255,255,255 }, App->font->default, NULL, this);
 		sand_clock = App->gui->AddLabel(840, 20, { 201, 983, 41, 55 }, NULL, this);
 		total_time = App->gui->AddText(890, 20, playerTime, { 255,255,255 }, App->font->default, NULL, this);
+		maxMana_text = App->gui->AddText(210, 20, playerMaxMana, { 255,255,255 }, App->font->default, NULL, this);
+		currentMana = App->gui->AddText(150, 20, playerCurrentMana, { 255,255,255 }, App->font->default, NULL, this);
+		slash = App->gui->AddText(200, 20, "/", { 255,255,255 }, App->font->default, NULL, this);
 		if (App->player->lifes == 3) {
 			health = App->gui->AddLabel(10, 10, { 596, 984, 67, 67 }, NULL, this);	
 		}
@@ -102,10 +109,14 @@ bool j1Scene::Update(float dt)
 	App->gui->destroyElement(coins);
 	App->gui->destroyElement(score_num);
 	App->gui->destroyElement(total_time);
+	App->gui->destroyElement(maxMana_text);
+	App->gui->destroyElement(currentMana);
 	mana_Bar = App->gui->AddLabel(80, 15, { 264, 986, manaBar_length, 50 }, NULL, this);
 	coins = App->gui->AddText(630, 25, playerCoins, { 255,255,255 }, App->font->default, NULL, this);
 	score_num = App->gui->AddText(760, 25, playerScore, { 255,255,255 }, App->font->default, NULL, this);
 	total_time = App->gui->AddText(890, 30, playerTime, { 255,255,255 }, App->font->default, NULL, this);
+	maxMana_text = App->gui->AddText(210, 20, playerMaxMana, { 255,255,255 }, App->font->default, NULL, this);
+	currentMana = App->gui->AddText(150, 20, playerCurrentMana, { 255,255,255 }, App->font->default, NULL, this);
 	
 		
 	
