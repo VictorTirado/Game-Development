@@ -123,26 +123,6 @@ void j1Win::GUIInteract(GUI* g)
 		App->scene->first_update = true;
 		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
 		this->active = false;
-		if (App->scene->map == 0)
-		{
-			App->scene->dragonSpawn = false;
-			App->map->CleanUp();
-			App->fade->FadeToBlack(1);
-			App->map->Load("Map1.tmx"); //Map1
-			App->player->firstUpdate = true;
-			App->scene->map = 1;
-			App->player->collider->to_delete = true;
-			App->player->spawnEnemies = true;
-			App->player->dead = true;
-		}
-		else
-		{
-			App->scene->map = 0;
-			App->player->firstUpdate = true;
-			App->player->collider->to_delete = true;
-			App->player->spawnEnemies = true;
-			App->player->dead = true;
-		}
 		App->scene->active = true;
 		App->player->active = true;
 		App->player->lifes = 3;
