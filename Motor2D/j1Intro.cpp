@@ -71,9 +71,10 @@ bool j1Intro::Update(float dt)
 		button_start = App->gui->AddButton(400, 150, { 0,4,182,56 }, "Play", { 255,255,255 }, App->font->default, NULL, this);
 		button_continue = App->gui->AddButton(400, 220, { 0,0,182,56 }, "Continue", { 255,255,255 }, App->font->default, NULL, this);
 		button_settings = App->gui->AddButton(400, 290, { 0,0,182,56 }, "Settings", { 255,255,255 }, App->font->default, NULL, this);
-		button_credits = App->gui->AddButton(400, 360, { 0,0,182,56 }, "Credits", { 255,255,255 }, App->font->default, NULL, this);
-		button_exit = App->gui->AddButton(400, 430, { 0,0,182,56 }, "Exit", { 255,255,255 }, App->font->default, NULL, this);
-		button_controls = App->gui->AddButton(400, 500, { 0,0,182,56 }, "Credits", { 255,255,255 }, App->font->default, NULL, this);
+		button_controls = App->gui->AddButton(400, 360, { 0,0,182,56 }, "Controls", { 255,255,255 }, App->font->default, NULL, this);
+		button_credits = App->gui->AddButton(400, 430, { 0,0,182,56 }, "Credits", { 255,255,255 }, App->font->default, NULL, this);
+		button_exit = App->gui->AddButton(400, 500, { 0,0,182,56 }, "Exit", { 255,255,255 }, App->font->default, NULL, this);
+		
 		first_update = false;
 	}
 	bool ret = true;

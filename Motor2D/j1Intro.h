@@ -44,20 +44,20 @@ private:
 	GuiImage* banner;
 	GuiText* text;
 public:
-	GUI* text_menu;
-	GUI* text_history;
-	GUI* text_history2;
-	GUI* text_history3;
-	GUI* button_start;
-	GUI* button_continue;
-	GUI* button_settings;
-	GUI* button_controls;
-	GUI* button_credits;
-	GUI* button_exit;
-	GUI* label1;
-	GUI* label2;
-	GUI* label3;
-	GUI* label4;
+	GUI* text_menu = NULL;
+	GUI* text_history = NULL;
+	GUI* text_history2 = NULL;
+	GUI* text_history3 = NULL;
+	GUI* button_start = NULL;
+	GUI* button_continue = NULL;
+	GUI* button_settings = NULL;
+	GUI* button_controls = NULL;
+	GUI* button_credits = NULL;
+	GUI* button_exit = NULL;
+	GUI* label1 = NULL;
+	GUI* label2 = NULL;
+	GUI* label3 = NULL;
+	GUI* label4 = NULL;
 
 	bool first_update = true;
 	bool close = false;

@@ -44,17 +44,28 @@ private:
 
 public:
 	GUI* button_menu = NULL;
-	GUI* text_A = NULL;
+	GUI* image_controls = NULL;
+	GUI* text_controls = NULL;
 	GUI* letter_Q = NULL;
 	GUI* letter_E = NULL;
 	GUI* letter_R = NULL;
-	GUI* letter_W = NULL;
 	GUI* letter_A = NULL;
-	GUI* letter_S = NULL;
+	GUI* letter_SPACE = NULL;
 	GUI* letter_D = NULL;
-	GUI* text_E = NULL;
-	GUI* text_R = NULL;
+	GUI* letter_W = NULL;
+	GUI* letter_S = NULL;
+
+	GUI* debug_F1 = NULL;
+	GUI* debug_F2 = NULL;
+	GUI* debug_F5 = NULL;
+	GUI* debug_F6 = NULL;
+	GUI* debug_F8 = NULL;
+	GUI* debug_F9 = NULL;
+	GUI* debug_F10 = NULL;
+	GUI* debug_F11 = NULL;
+
 	GUI* background = NULL;
+	GUI* return_intro = NULL;
 
 	bool first_update = true;
 	bool close = false;
