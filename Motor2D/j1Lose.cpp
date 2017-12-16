@@ -57,7 +57,19 @@ bool j1Lose::Update(float dt)
 
 	if (first_update == true)
 	{
-	
+		App->gui->destroyElement(App->scene->fire);
+		App->gui->destroyElement(App->scene->thunder);
+		App->gui->destroyElement(App->scene->ice);
+		App->gui->destroyElement(App->scene->health);
+		App->gui->destroyElement(App->scene->coins);
+		App->gui->destroyElement(App->scene->mana_emptyBar);
+		App->gui->destroyElement(App->scene->mana_Bar);
+		App->gui->destroyElement(App->scene->books);
+		App->gui->destroyElement(App->scene->multiplicator);
+		App->gui->destroyElement(App->scene->score_text);
+		App->gui->destroyElement(App->scene->score_num);
+		App->gui->destroyElement(App->scene->total_time);
+		App->gui->destroyElement(App->scene->sand_clock);
 		background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
 		label = App->gui->AddLabel(310, 45, { 366, 336, 363, 88 }, NULL, this);
 		text_lose = App->gui->AddText(400, 70, "YOU LOSE", { 0,0,0 }, App->font->default, NULL, this);
@@ -145,5 +157,8 @@ void j1Lose::GUIInteract(GUI* g)
 		App->gui->destroyElement(text_points);
 		App->gui->destroyElement(return_intro2);
 		App->gui->destroyElement(return_exit2);
+		App->gui->destroyElement(text_coins_score);
+		App->gui->destroyElement(text_coins);
+
 	}
 }

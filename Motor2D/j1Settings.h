@@ -57,6 +57,7 @@ public:
 	GUI* background = NULL;
 
 	bool first_update = true;
+	int musicVolume = 64;
 	bool close = false;
 };
 

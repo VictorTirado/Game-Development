@@ -94,9 +94,6 @@
     <ClCompile Include="GUIBUTTON.cpp">
       <Filter>Desenvolupament  ========\Modules\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="j1Settings.cpp">
-      <Filter>Desenvolupament  ========\Modules</Filter>
-    </ClCompile>
     <ClCompile Include="coin.cpp">
       <Filter>Desenvolupament  ========\Modules\Enemies</Filter>
     </ClCompile>
@@ -110,6 +107,9 @@
       <Filter>Desenvolupament  ========\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="j1Credits.cpp">
+      <Filter>Desenvolupament  ========\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="j1Settings.cpp">
       <Filter>Desenvolupament  ========\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -228,9 +228,6 @@
     <ClInclude Include="GUIBUTTON.h">
       <Filter>Desenvolupament  ========\Modules\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="j1Settings.h">
-      <Filter>Desenvolupament  ========\Modules</Filter>
-    </ClInclude>
     <ClInclude Include="coin.h">
       <Filter>Desenvolupament  ========\Modules\Enemies</Filter>
     </ClInclude>
@@ -244,6 +241,9 @@
       <Filter>Desenvolupament  ========\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="j1Credits.h">
+      <Filter>Desenvolupament  ========\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="j1Settings.h">
       <Filter>Desenvolupament  ========\Scenes</Filter>
     </ClInclude>
   </ItemGroup>

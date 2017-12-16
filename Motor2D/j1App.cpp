@@ -171,6 +171,7 @@ bool j1App::Start()
 		item = item->next;
 	}
 	PERF_PEEK(ptimer);
+	Mix_VolumeMusic(App->settings->musicVolume);
 	return ret;
 }
 

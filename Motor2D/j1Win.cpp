@@ -56,7 +56,19 @@ bool j1Win::Update(float dt)
 	sprintf_s(playerScore, "%d", App->player->score);
 	if (first_update == true)
 	{
-		
+		App->gui->destroyElement(App->scene->fire);
+		App->gui->destroyElement(App->scene->thunder);
+		App->gui->destroyElement(App->scene->ice);
+		App->gui->destroyElement(App->scene->health);
+		App->gui->destroyElement(App->scene->coins);
+		App->gui->destroyElement(App->scene->mana_emptyBar);
+		App->gui->destroyElement(App->scene->mana_Bar);
+		App->gui->destroyElement(App->scene->books);
+		App->gui->destroyElement(App->scene->multiplicator);
+		App->gui->destroyElement(App->scene->score_text);
+		App->gui->destroyElement(App->scene->score_num);
+		App->gui->destroyElement(App->scene->total_time);
+		App->gui->destroyElement(App->scene->sand_clock);
 		background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
 		label = App->gui->AddLabel(310, 45, { 362, 336, 367, 89 }, NULL, this);
 		text_win = App->gui->AddText(400, 70, "YOU WIN!", { 0,0,0 }, App->font->default, NULL, this);

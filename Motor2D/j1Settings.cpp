@@ -63,8 +63,8 @@ bool j1Settings::Update(float dt)
 		slider_fx  = App->gui->AddLabel(500, 370, { 0,65,182,56 }, NULL, this);
 
 		text_settings = App->gui->AddText(400, 70, "SETTINGS", { 255,255,255 }, App->font->default, NULL, this);
-		text_music = App->gui->AddText(250, 270, "Fx volume:", { 255,255,255 }, App->font->default, NULL, this);
-		text_fx = App->gui->AddText(250, 370, "Music volume:", { 255,255,255 }, App->font->default, NULL, this);
+		text_music = App->gui->AddText(250, 370, "Fx volume:", { 255,255,255 }, App->font->default, NULL, this);
+		text_fx = App->gui->AddText(250, 270, "Music volume:", { 255,255,255 }, App->font->default, NULL, this);
 		return_intro = App->gui->AddButton(700, 650, { 0,4,182,56 }, "Return", { 255,255,255 }, App->font->default, NULL, this);
 		first_update = false;
 	}
@@ -124,12 +124,19 @@ void j1Settings::GUIInteract(GUI* g)
 	}
 	if (g == music_up)
 	{
-
+		if (App->audio->active == true) {
+			musicVolume += 8;
+			Mix_VolumeMusic(musicVolume);
+		}
 	}
 	if (g == music_down)
 	{
-
+		if (musicVolume > 0) {
+			musicVolume -= 8;
+		}
+		Mix_VolumeMusic(musicVolume);
 	}
+
 	if (g == fx_up)
 	{
 
