@@ -143,10 +143,16 @@ void j1Settings::GUIInteract(GUI* g)
 
 	if (g == fx_up)
 	{
-
+		if (App->audio->active == true) {
+			fxVolume += 8;
+			Mix_VolumeChunk(Mix_GetChunk(1), fxVolume);
+		}
 	}
 	if (g == fx_down)
 	{
-
+		if (fxVolume > 0) {
+			fxVolume -= 8;
+		}
+		Mix_VolumeChunk(Mix_GetChunk(1) , fxVolume);
 	}
 }

@@ -58,6 +58,7 @@ public:
 
 	bool first_update = true;
 	int musicVolume = 64;
+	int fxVolume = 64;
 	bool close = false;
 };
 
