@@ -61,6 +61,7 @@ public:
 
 	bool first_update = true;
 	bool close = false;
+	bool game_saved = true;
 };
 
 #endif // __j1INTRO_H__

@@ -183,29 +183,31 @@ void j1Intro::GUIInteract(GUI* g)
 	}
 	if (g == button_continue)
 	{
-		App->fade->FadeToBlack(2.0f);
-		App->scene->active = true;
-		App->player->active = true;
-		this->active = false;
-		first_update = true;
-		App->LoadGame();
-		App->player->continue_pressed = true;
-		App->player->spawnEnemies = true;
-		App->player->dead = true;
-		App->gui->destroyElement(label1);
-		App->gui->destroyElement(label2);
-		App->gui->destroyElement(label3);
-		App->gui->destroyElement(label4);
-		App->gui->destroyElement(text_menu);
-		App->gui->destroyElement(text_history);
-		App->gui->destroyElement(text_history2);
-		App->gui->destroyElement(text_history3);
-		App->gui->destroyElement(button_start);
-		App->gui->destroyElement(button_continue);
-		App->gui->destroyElement(button_settings);
-		App->gui->destroyElement(button_credits);
-		App->gui->destroyElement(button_exit);
-		App->gui->destroyElement(button_controls);
+		if (game_saved == true) {
+			App->fade->FadeToBlack(2.0f);
+			App->scene->active = true;
+			App->player->active = true;
+			this->active = false;
+			first_update = true;
+			App->LoadGame();
+			App->player->continue_pressed = true;
+			App->player->spawnEnemies = true;
+			App->player->dead = true;
+			App->gui->destroyElement(label1);
+			App->gui->destroyElement(label2);
+			App->gui->destroyElement(label3);
+			App->gui->destroyElement(label4);
+			App->gui->destroyElement(text_menu);
+			App->gui->destroyElement(text_history);
+			App->gui->destroyElement(text_history2);
+			App->gui->destroyElement(text_history3);
+			App->gui->destroyElement(button_start);
+			App->gui->destroyElement(button_continue);
+			App->gui->destroyElement(button_settings);
+			App->gui->destroyElement(button_credits);
+			App->gui->destroyElement(button_exit);
+			App->gui->destroyElement(button_controls);
+		}
 	}
 	if (g == button_settings)
 	{

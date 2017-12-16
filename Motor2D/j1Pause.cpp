@@ -94,41 +94,23 @@ bool j1Pause::CleanUp()
 
 void j1Pause::GUIInteract(GUI* g)
 {
-	LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-
-
 	if (g == button_save)
 	{
-		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-		App->fade->FadeToBlack(2.0f);
-		App->intro->active = true;
-		this->active = false;
-		first_update = true;
-		//App->gui->destroyElement(background);
-		//App->gui->destroyElement(license);
-		//App->gui->destroyElement(return_intro);
+		App->SaveGame();
 	}
 	if (g == button_load)
 	{
-		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-		App->fade->FadeToBlack(2.0f);
-		App->intro->active = true;
-		this->active = false;
-		first_update = true;
-		//App->gui->destroyElement(background);
-		//App->gui->destroyElement(license);
-		//App->gui->destroyElement(return_intro);
+		App->LoadGame();
 	}
 	if (g == button_continue)
 	{
-		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-		App->fade->FadeToBlack(2.0f);
-		App->intro->active = true;
 		this->active = false;
+		App->gui->destroyElement(bg);
+		App->gui->destroyElement(button_load);
+		App->gui->destroyElement(button_save);
+		App->gui->destroyElement(button_continue);
+		App->gui->destroyElement(button_exit);
 		first_update = true;
-		//App->gui->destroyElement(background);
-		//App->gui->destroyElement(license);
-		//App->gui->destroyElement(return_intro);
 	}
 	if (g == button_exit)
 	{
