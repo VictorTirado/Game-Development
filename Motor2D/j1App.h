@@ -32,6 +32,7 @@ class j1Credits;
 class j1Win;
 class j1Lose;
 class j1Controls;
+class j1Pause;
 
 
 class j1App
@@ -119,6 +120,7 @@ public:
 	j1Win*				victory = NULL;
 	j1Lose*				defeat = NULL;
 	j1Controls*			control = NULL;
+	j1Pause*			pause = NULL;
 
 private:
 

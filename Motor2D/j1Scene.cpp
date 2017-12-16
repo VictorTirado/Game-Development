@@ -14,6 +14,7 @@
 #include "Brofiler\Brofiler.h"
 #include "j1Gui.h"
 #include "j1Fonts.h"
+#include "j1Pause.h"
 
 j1Scene::j1Scene() : j1Module()
 {
@@ -214,7 +215,10 @@ bool j1Scene::PostUpdate()
 	bool ret = true;
 
 	if(App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
-		ret = false;
+	{
+		App->pause->active = true;
+	}
+		
 
 	return ret;
 }

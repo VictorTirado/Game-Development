@@ -27,6 +27,7 @@
 #include "j1Win.h"
 #include "j1Lose.h"
 #include "j1Controls.h"
+#include "j1Pause.h"
 
 
 
@@ -59,6 +60,7 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	victory = new j1Win();
 	defeat = new j1Lose();
 	control = new j1Controls();
+	pause = new j1Pause();
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -83,6 +85,7 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(defeat);
 	AddModule(intro);
 	AddModule(control);
+	AddModule(pause);
 	AddModule(fade);
 
 	
@@ -168,6 +171,7 @@ bool j1App::Start()
 	victory->active = false;
 	defeat->active = false;
 	control->active = false;
+	pause->active = false;
 
 	while(item != NULL && ret == true)
 	{
