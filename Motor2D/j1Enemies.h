@@ -44,6 +44,7 @@ public:
 
 	iPoint playerMapPos;
 	int bossHP = 60;
+	SDL_Texture* tile_x = nullptr;
 
 private:
 

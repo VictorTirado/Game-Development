@@ -40,6 +40,9 @@ bool j1Enemies::Start()
 	if (sprites != nullptr) {
 		LOG("Cargado");
 	}
+
+	tile_x = App->tex->Load("maps/x.png");
+
 	return true;
 }
 
