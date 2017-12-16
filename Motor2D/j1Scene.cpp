@@ -58,24 +58,25 @@ bool j1Scene::Update(float dt)
 	//playerCoins = static_cast<std::ostringstream*>(&(std::ostringstream() << App->player->coins_achieved))->str();
 
 	char playerCoins[(((sizeof App->player->coins_achieved) * CHAR_BIT) + 2) / 3 + 2];
-	 sprintf(playerCoins, "%d", App->player->coins_achieved);
+	 sprintf_s(playerCoins, "%d", App->player->coins_achieved);
 	char playerScore[(((sizeof App->player->score) * CHAR_BIT) + 2) / 3 + 2];
-	  sprintf(playerScore, "%d", App->player->score);
+	sprintf_s(playerScore, "%d", App->player->score);
 	char playerTime[(((sizeof App->player->time) * CHAR_BIT) + 2) / 3 + 2];
-	  sprintf(playerTime, "%.2f", App->player->time);
+	sprintf_s(playerTime, "%.2f", App->player->time);
 
 	int manaBar_max_length = 274;
 	int manaBar_length = (manaBar_max_length*App->player->mana2) / 100;
 
 	if (first_update == true) {
-		books = App->gui->AddLabel(500, 10, { 27, 197, 69, 74 }, NULL, this);
-		mana_emptyBar = App->gui->AddLabel(500, 40, { 264, 1054, 274, 50 }, NULL, this);
+		mana_emptyBar = App->gui->AddLabel(80, 15, { 264, 1054, 274, 50 }, NULL, this);
 		mana_Bar = App->gui->AddLabel(500, 40, { 264, 986, 274, 50 }, NULL, this);
-		multiplicator = App->gui->AddLabel(570, 32, { 108, 221, 30, 24 }, NULL, this);
-		coins = App->gui->AddText(610, 25, playerCoins, { 255,255,255 }, App->font->default, NULL, this);
-		score_text = App->gui->AddText(760, 25, "Score:", { 255,255,255 }, App->font->default, NULL, this);
-		score_num = App->gui->AddText(880, 25, playerScore, { 255,255,255 }, App->font->default, NULL, this);
-		total_time = App->gui->AddText(760, 250, playerTime, { 255,255,255 }, App->font->default, NULL, this);
+		books = App->gui->AddLabel(520, 10, { 27, 197, 69, 74 }, NULL, this);
+		multiplicator = App->gui->AddLabel(590, 32, { 108, 221, 30, 24 }, NULL, this);
+		coins = App->gui->AddText(630, 25, playerCoins, { 255,255,255 }, App->font->default, NULL, this);
+		score_text = App->gui->AddText(670, 25, "Score:", { 255,255,255 }, App->font->default, NULL, this);
+		score_num = App->gui->AddText(760, 25, playerScore, { 255,255,255 }, App->font->default, NULL, this);
+		sand_clock = App->gui->AddLabel(840, 20, { 201, 983, 41, 55 }, NULL, this);
+		total_time = App->gui->AddText(890, 20, playerTime, { 255,255,255 }, App->font->default, NULL, this);
 		if (App->player->lifes == 3) {
 			health = App->gui->AddLabel(10, 10, { 596, 984, 67, 67 }, NULL, this);	
 		}
@@ -88,9 +89,9 @@ bool j1Scene::Update(float dt)
 			health = App->gui->AddLabel(10, 10, { 595, 1131, 67, 67 }, NULL, App->scene);
 		}
 		
-		fire = App->gui->AddLabel(150, 10, { 621,35,46,45 }, NULL, App->scene);
-		thunder = App->gui->AddLabel(100, 10, { 480, 99, 50, 50 }, NULL, App->scene);
-		ice = App->gui->AddLabel(200, 10, { 676,36,46,45 }, NULL, App->scene);
+		fire = App->gui->AddLabel(410, 10, { 621,35,46,45 }, NULL, App->scene);
+		thunder = App->gui->AddLabel(360, 10, { 480, 99, 50, 50 }, NULL, App->scene);
+		ice = App->gui->AddLabel(460, 10, { 676,36,46,45 }, NULL, App->scene);
 
 		first_update = false;
 	}
@@ -99,10 +100,10 @@ bool j1Scene::Update(float dt)
 	App->gui->destroyElement(coins);
 	App->gui->destroyElement(score_num);
 	App->gui->destroyElement(total_time);
-	mana_Bar = App->gui->AddLabel(500, 40, { 264, 986, manaBar_length, 50 }, NULL, this);
-	coins = App->gui->AddText(610, 25, playerCoins, { 255,255,255 }, App->font->default, NULL, this);
-	score_num = App->gui->AddText(880, 25, playerScore, { 255,255,255 }, App->font->default, NULL, this);
-	total_time = App->gui->AddText(760, 250, playerTime, { 255,255,255 }, App->font->default, NULL, this);
+	mana_Bar = App->gui->AddLabel(80, 15, { 264, 986, manaBar_length, 50 }, NULL, this);
+	coins = App->gui->AddText(630, 25, playerCoins, { 255,255,255 }, App->font->default, NULL, this);
+	score_num = App->gui->AddText(760, 25, playerScore, { 255,255,255 }, App->font->default, NULL, this);
+	total_time = App->gui->AddText(890, 30, playerTime, { 255,255,255 }, App->font->default, NULL, this);
 	
 	if (App->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN) {
 		App->LoadGame();
@@ -165,35 +166,35 @@ bool j1Scene::Update(float dt)
 	{
 		//App->gui->changeTexture(App->scene->fire, {413,153,50,50});
 		App->gui->destroyElement(fire);
-		fire = App->gui->AddLabel(150, 10, { 413,153,50,50 }, NULL, this);
+		fire = App->gui->AddLabel(410, 10, { 413,153,50,50 }, NULL, this);
 	}
 	else if (App->player->mana2 >= App->player->cost_fire && App->player->coins_achieved >= 1) {
 		//App->gui->changeTexture(App->scene->fire, { 413, 99, 50, 50 });
 		App->gui->destroyElement(fire);
-		fire = App->gui->AddLabel(150, 10, { 413,99,50,50 }, NULL, this);
+		fire = App->gui->AddLabel(410, 10, { 413,99,50,50 }, NULL, this);
 	}
 	if (App->player->mana2 < App->player->cost_thunder)
 	{
 		//App->gui->changeTexture(App->scene->thunder, { 486,153,50,50 });
 		App->gui->destroyElement(thunder);
-		thunder = App->gui->AddLabel(100, 10, { 486,153,50,50 }, NULL, this);
+		thunder = App->gui->AddLabel(360, 10, { 486,153,50,50 }, NULL, this);
 	}
 	else if (App->player->mana2 >= App->player->cost_thunder) {
 		//App->gui->changeTexture(App->scene->thunder, { 480, 99, 50, 50 });
 		App->gui->destroyElement(thunder);
-		thunder = App->gui->AddLabel(100, 10, { 480,99,50,50 }, NULL, this);
+		thunder = App->gui->AddLabel(360, 10, { 480,99,50,50 }, NULL, this);
 	}
 
 	if (App->player->mana2 < App->player->cost_ice && App->player->coins_achieved >= 1)
 	{
 		//App->gui->changeTexture(App->scene->ice, { 550,153,50,50 });
 		App->gui->destroyElement(ice);
-		ice = App->gui->AddLabel(200, 10, { 550,153,50,50 }, NULL, this);
+		ice = App->gui->AddLabel(460, 10, { 550,153,50,50 }, NULL, this);
 	}
 	else if (App->player->mana2 >= App->player->cost_ice && App->player->coins_achieved >= 1) {
 		//App->gui->changeTexture(App->scene->ice, { 546, 97, 50, 50 });
 		App->gui->destroyElement(ice);
-		ice = App->gui->AddLabel(200, 10, { 546,97,50,50 }, NULL, this);
+		ice = App->gui->AddLabel(460, 10, { 546,97,50,50 }, NULL, this);
 	}
 	
 	App->map->Draw();

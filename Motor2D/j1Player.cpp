@@ -229,7 +229,7 @@ bool j1Player::Update(float dt)
 		Iceattack = true;
 	}
 	
-	if (App->input->GetKey(SDL_SCANCODE_T) == KEY_REPEAT && current_animation != &meleeR)
+	if (App->input->GetKey(SDL_SCANCODE_E) == KEY_REPEAT && current_animation != &meleeR)
 	{
 		attackingMelee = true;
 		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {
@@ -237,7 +237,7 @@ bool j1Player::Update(float dt)
 		}
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_Y) == KEY_REPEAT && current_animation != &shotR && coins_achieved>=1)
+	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_REPEAT && current_animation != &shotR && coins_achieved>=1)
 	{
 		shooting = true;
 		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {
