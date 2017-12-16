@@ -40,12 +40,7 @@ bool j1Intro::Awake()
 // Called before the first frame
 bool j1Intro::Start()
 {
-
-	
-
-
-	
-
+	App->audio->PlayMusic("audio/music/IntroSong.ogg");
 	return true;
 }
 

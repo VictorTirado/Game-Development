@@ -59,6 +59,7 @@ bool j1Win::Update(float dt)
 	sprintf_s(playerScore, "%d", App->player->score);
 	if (first_update == true)
 	{
+		App->audio->PlayMusic("audio/music/IntroSong.ogg");
 		App->gui->destroyElement(App->scene->fire);
 		App->gui->destroyElement(App->scene->thunder);
 		App->gui->destroyElement(App->scene->ice);

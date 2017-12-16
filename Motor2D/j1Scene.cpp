@@ -40,7 +40,6 @@ bool j1Scene::Start()
 		
 		App->map->Load("Map1.tmx"); //Map1
 		map = 1;
-		App->audio->PlayMusic("audio/music/Song.ogg");
 	return true;
 }
 
@@ -73,7 +72,7 @@ bool j1Scene::Update(float dt)
 	int manaBar_length = (manaBar_max_length*App->player->mana2) / App->player->maxMana;
 
 	if (first_update == true) {
-		
+		App->audio->PlayMusic("audio/music/Song.ogg");
 		mana_emptyBar = App->gui->AddLabel(80, 15, { 264, 1054, 274, 50 }, NULL, this);
 		mana_Bar = App->gui->AddLabel(500, 40, { 264, 986, 274, 50 }, NULL, this);
 		books = App->gui->AddLabel(520, 10, { 27, 197, 69, 74 }, NULL, this);

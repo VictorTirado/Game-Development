@@ -60,6 +60,7 @@ bool j1Lose::Update(float dt)
 
 	if (first_update == true)
 	{
+		App->audio->PlayMusic("audio/music/IntroSong.ogg");
 		App->gui->destroyElement(App->scene->fire);
 		App->gui->destroyElement(App->scene->thunder);
 		App->gui->destroyElement(App->scene->ice);
