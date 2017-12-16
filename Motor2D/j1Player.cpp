@@ -204,6 +204,21 @@ bool j1Player::Update(float dt)
 		App->defeat->active = true;
 	}
 	if (firstUpdate == true) {
+		if (App->scene->map == 1)
+		{
+			App->enemies->AddEnemy(Books, 1536, 576);
+			App->enemies->AddEnemy(Books, 3328, 640);
+			App->enemies->AddEnemy(Books, 5312, 768);
+		}
+		else if (App->scene->map == 0)
+		{
+			App->enemies->AddEnemy(Books, 1216, 640);
+			App->enemies->AddEnemy(Books, 3072, 704);
+			App->enemies->AddEnemy(Books, 4480, 768);
+
+		}
+		
+	
 		time_before_start = time_since_start;
 		position = startPos;
 		if (continue_pressed == false)
@@ -224,7 +239,7 @@ bool j1Player::Update(float dt)
 	flip = SDL_FLIP_NONE;
 	
 	
-	if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN && jumping == false && current_animation == &idle && Iceattack==false && coins_achieved>=1)
+	if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN && jumping == false && current_animation == &idle && Iceattack==false && coins_achieved>=4)
 	{
 		Iceattack = true;
 	}
@@ -237,7 +252,7 @@ bool j1Player::Update(float dt)
 		}
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_REPEAT && current_animation != &shotR && coins_achieved>=1)
+	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_REPEAT && current_animation != &shotR && coins_achieved>=2)
 	{
 		shooting = true;
 		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {

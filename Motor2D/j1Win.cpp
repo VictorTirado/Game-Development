@@ -120,6 +120,7 @@ void j1Win::GUIInteract(GUI* g)
 	}
 	if (g == return_intro)
 	{
+
 		App->scene->first_update = true;
 		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
 		this->active = false;

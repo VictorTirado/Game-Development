@@ -37,7 +37,7 @@ bool j1Scene::Awake()
 // Called before the first frame
 bool j1Scene::Start()
 {
-		App->enemies->AddEnemy(Books, 650, 450);
+		
 		App->map->Load("Map1.tmx"); //Map1
 		map = 1;
 		App->audio->PlayMusic("audio/music/Song.ogg");
@@ -69,6 +69,7 @@ bool j1Scene::Update(float dt)
 	int manaBar_length = (manaBar_max_length*App->player->mana2) / 100;
 
 	if (first_update == true) {
+		
 		mana_emptyBar = App->gui->AddLabel(80, 15, { 264, 1054, 274, 50 }, NULL, this);
 		mana_Bar = App->gui->AddLabel(500, 40, { 264, 986, 274, 50 }, NULL, this);
 		books = App->gui->AddLabel(520, 10, { 27, 197, 69, 74 }, NULL, this);
@@ -105,6 +106,10 @@ bool j1Scene::Update(float dt)
 	coins = App->gui->AddText(630, 25, playerCoins, { 255,255,255 }, App->font->default, NULL, this);
 	score_num = App->gui->AddText(760, 25, playerScore, { 255,255,255 }, App->font->default, NULL, this);
 	total_time = App->gui->AddText(890, 30, playerTime, { 255,255,255 }, App->font->default, NULL, this);
+	
+		
+	
+	
 	
 	if (App->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN) {
 		App->LoadGame();
@@ -163,13 +168,13 @@ bool j1Scene::Update(float dt)
 		App->player->GodMode = !App->player->GodMode;
 	}
 
-	if (App->player->mana2 < App->player->cost_fire && App->player->coins_achieved >= 1)
+	if (App->player->mana2 < App->player->cost_fire && App->player->coins_achieved >= 2)
 	{
 		//App->gui->changeTexture(App->scene->fire, {413,153,50,50});
 		App->gui->destroyElement(fire);
 		fire = App->gui->AddLabel(410, 10, { 413,153,50,50 }, NULL, this);
 	}
-	else if (App->player->mana2 >= App->player->cost_fire && App->player->coins_achieved >= 1) {
+	else if (App->player->mana2 >= App->player->cost_fire && App->player->coins_achieved >= 2) {
 		//App->gui->changeTexture(App->scene->fire, { 413, 99, 50, 50 });
 		App->gui->destroyElement(fire);
 		fire = App->gui->AddLabel(410, 10, { 413,99,50,50 }, NULL, this);
@@ -186,13 +191,13 @@ bool j1Scene::Update(float dt)
 		thunder = App->gui->AddLabel(360, 10, { 480,99,50,50 }, NULL, this);
 	}
 
-	if (App->player->mana2 < App->player->cost_ice && App->player->coins_achieved >= 1)
+	if (App->player->mana2 < App->player->cost_ice && App->player->coins_achieved >= 4)
 	{
 		//App->gui->changeTexture(App->scene->ice, { 550,153,50,50 });
 		App->gui->destroyElement(ice);
 		ice = App->gui->AddLabel(460, 10, { 550,153,50,50 }, NULL, this);
 	}
-	else if (App->player->mana2 >= App->player->cost_ice && App->player->coins_achieved >= 1) {
+	else if (App->player->mana2 >= App->player->cost_ice && App->player->coins_achieved >= 4) {
 		//App->gui->changeTexture(App->scene->ice, { 546, 97, 50, 50 });
 		App->gui->destroyElement(ice);
 		ice = App->gui->AddLabel(460, 10, { 546,97,50,50 }, NULL, this);
