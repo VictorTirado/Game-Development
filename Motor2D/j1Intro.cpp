@@ -16,6 +16,7 @@
 #include "j1FadeToBlack.h"
 #include "j1Settings.h"
 #include "j1Credits.h"
+#include "j1Controls.h"
 
 j1Intro::j1Intro() : j1Module()
 {
@@ -72,6 +73,7 @@ bool j1Intro::Update(float dt)
 		button_settings = App->gui->AddButton(400, 290, { 0,0,182,56 }, "Settings", { 255,255,255 }, App->font->default, NULL, this);
 		button_credits = App->gui->AddButton(400, 360, { 0,0,182,56 }, "Credits", { 255,255,255 }, App->font->default, NULL, this);
 		button_exit = App->gui->AddButton(400, 430, { 0,0,182,56 }, "Exit", { 255,255,255 }, App->font->default, NULL, this);
+		button_controls = App->gui->AddButton(400, 500, { 0,0,182,56 }, "Credits", { 255,255,255 }, App->font->default, NULL, this);
 		first_update = false;
 	}
 	bool ret = true;
@@ -176,6 +178,7 @@ void j1Intro::GUIInteract(GUI* g)
 		App->gui->destroyElement(button_settings);
 		App->gui->destroyElement(button_credits);
 		App->gui->destroyElement(button_exit);
+		App->gui->destroyElement(button_controls);
 	}
 	if (g == button_continue)
 	{
@@ -201,6 +204,7 @@ void j1Intro::GUIInteract(GUI* g)
 		App->gui->destroyElement(button_settings);
 		App->gui->destroyElement(button_credits);
 		App->gui->destroyElement(button_exit);
+		App->gui->destroyElement(button_controls);
 	}
 	if (g == button_settings)
 	{
@@ -221,6 +225,7 @@ void j1Intro::GUIInteract(GUI* g)
 		App->gui->destroyElement(button_settings);
 		App->gui->destroyElement(button_credits);
 		App->gui->destroyElement(button_exit);
+		App->gui->destroyElement(button_controls);
 	}
 	if (g == button_credits)
 	{
@@ -241,6 +246,28 @@ void j1Intro::GUIInteract(GUI* g)
 		App->gui->destroyElement(button_settings);
 		App->gui->destroyElement(button_credits);
 		App->gui->destroyElement(button_exit);
+		App->gui->destroyElement(button_controls);
+	}
+	if (g == button_controls)
+	{
+		App->fade->FadeToBlack(2.0f);
+		App->control->active = true;
+		this->active = false;
+		first_update = true;
+		App->gui->destroyElement(label1);
+		App->gui->destroyElement(label2);
+		App->gui->destroyElement(label3);
+		App->gui->destroyElement(label4);
+		App->gui->destroyElement(text_menu);
+		App->gui->destroyElement(text_history);
+		App->gui->destroyElement(text_history2);
+		App->gui->destroyElement(text_history3);
+		App->gui->destroyElement(button_start);
+		App->gui->destroyElement(button_continue);
+		App->gui->destroyElement(button_settings);
+		App->gui->destroyElement(button_credits);
+		App->gui->destroyElement(button_exit);
+		App->gui->destroyElement(button_controls);
 	}
 	if (g == button_exit)
 	{

@@ -85,6 +85,7 @@
     <ClCompile Include="GUILABEL.cpp" />
     <ClCompile Include="GUITEXT.cpp" />
     <ClCompile Include="j1Abilities.cpp" />
+    <ClCompile Include="j1Controls.cpp" />
     <ClCompile Include="j1Credits.cpp" />
     <ClCompile Include="j1Enemies.cpp" />
     <ClCompile Include="j1Enemy.cpp" />
@@ -125,6 +126,7 @@
     <ClInclude Include="GUILABEL.h" />
     <ClInclude Include="GUITEXT.h" />
     <ClInclude Include="j1Abilities.h" />
+    <ClInclude Include="j1Controls.h" />
     <ClInclude Include="j1Credits.h" />
     <ClInclude Include="j1Enemies.h" />
     <ClInclude Include="j1Enemy.h" />

@@ -1,5 +1,5 @@
-#ifndef __j1INTRO_H__
-#define __j1INTRO_H__
+#ifndef __j1CONTROLS_H__
+#define __j1CONTROLS_H__
 
 #include "j1Module.h"
 
@@ -8,14 +8,14 @@ class GuiImage;
 class GuiText;
 class GUI;
 
-class j1Intro : public j1Module
+class j1Controls : public j1Module
 {
 public:
 
-	j1Intro();
+	j1Controls();
 
 	// Destructor
-	virtual ~j1Intro();
+	virtual ~j1Controls();
 
 	// Called before render is available
 	bool Awake();
@@ -35,32 +35,29 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
-	void j1Intro::GUIInteract(GUI* g);
+	void j1Controls::GUIInteract(GUI* g);
 
 	int buttonClicked = 0;
 
 private:
-	SDL_Texture* debug_tex;
-	GuiImage* banner;
-	GuiText* text;
+	SDL_Texture* debug_tex = NULL;
+
 public:
-	GUI* text_menu;
-	GUI* text_history;
-	GUI* text_history2;
-	GUI* text_history3;
-	GUI* button_start;
-	GUI* button_continue;
-	GUI* button_settings;
-	GUI* button_controls;
-	GUI* button_credits;
-	GUI* button_exit;
-	GUI* label1;
-	GUI* label2;
-	GUI* label3;
-	GUI* label4;
+	GUI* button_menu = NULL;
+	GUI* text_A = NULL;
+	GUI* letter_Q = NULL;
+	GUI* letter_E = NULL;
+	GUI* letter_R = NULL;
+	GUI* letter_W = NULL;
+	GUI* letter_A = NULL;
+	GUI* letter_S = NULL;
+	GUI* letter_D = NULL;
+	GUI* text_E = NULL;
+	GUI* text_R = NULL;
+	GUI* background = NULL;
 
 	bool first_update = true;
 	bool close = false;
 };
 
-#endif // __j1INTRO_H__
+#endif // __j1CONTROLS_H__
