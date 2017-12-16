@@ -43,6 +43,7 @@ public:
 	bool dead= false;
 	int lifes = 3;
 	int mana2 = 100;
+	int maxMana = 100;
 	int score = 0;
 	bool continue_pressed = false;
 	

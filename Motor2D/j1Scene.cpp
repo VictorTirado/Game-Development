@@ -58,14 +58,19 @@ bool j1Scene::Update(float dt)
 	//playerCoins = static_cast<std::ostringstream*>(&(std::ostringstream() << App->player->coins_achieved))->str();
 
 	char playerCoins[(((sizeof App->player->coins_achieved) * CHAR_BIT) + 2) / 3 + 2];
-	 sprintf_s(playerCoins, "%d", App->player->coins_achieved);
+	 sprintf(playerCoins, "%d", App->player->coins_achieved);
 	char playerScore[(((sizeof App->player->score) * CHAR_BIT) + 2) / 3 + 2];
-	  sprintf_s(playerScore, "%d", App->player->score);
+	  sprintf(playerScore, "%d", App->player->score);
 	char playerTime[(((sizeof App->player->time) * CHAR_BIT) + 2) / 3 + 2];
-	  sprintf_s(playerTime, "%.2f", App->player->time);
+	  sprintf(playerTime, "%.2f", App->player->time);
+
+	int manaBar_max_length = 274;
+	int manaBar_length = (manaBar_max_length*App->player->mana2) / 100;
 
 	if (first_update == true) {
 		books = App->gui->AddLabel(500, 10, { 27, 197, 69, 74 }, NULL, this);
+		mana_emptyBar = App->gui->AddLabel(500, 40, { 264, 1054, 274, 50 }, NULL, this);
+		mana_Bar = App->gui->AddLabel(500, 40, { 264, 986, 274, 50 }, NULL, this);
 		multiplicator = App->gui->AddLabel(570, 32, { 108, 221, 30, 24 }, NULL, this);
 		coins = App->gui->AddText(610, 25, playerCoins, { 255,255,255 }, App->font->default, NULL, this);
 		score_text = App->gui->AddText(760, 25, "Score:", { 255,255,255 }, App->font->default, NULL, this);
@@ -90,9 +95,11 @@ bool j1Scene::Update(float dt)
 		first_update = false;
 	}
 
+	App->gui->destroyElement(mana_Bar);
 	App->gui->destroyElement(coins);
 	App->gui->destroyElement(score_num);
 	App->gui->destroyElement(total_time);
+	mana_Bar = App->gui->AddLabel(500, 40, { 264, 986, manaBar_length, 50 }, NULL, this);
 	coins = App->gui->AddText(610, 25, playerCoins, { 255,255,255 }, App->font->default, NULL, this);
 	score_num = App->gui->AddText(880, 25, playerScore, { 255,255,255 }, App->font->default, NULL, this);
 	total_time = App->gui->AddText(760, 250, playerTime, { 255,255,255 }, App->font->default, NULL, this);

@@ -44,6 +44,8 @@ public:
 	GUI* ice = NULL;
 	GUI* health = NULL;
 	GUI* coins = NULL;
+	GUI* mana_emptyBar = NULL;
+	GUI* mana_Bar = NULL;
 	GUI* books = NULL;
 	GUI* multiplicator = NULL;
 	GUI* score_text = NULL;

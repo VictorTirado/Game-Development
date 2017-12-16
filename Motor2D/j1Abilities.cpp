@@ -64,7 +64,7 @@ bool j1Abilities::Update(float dt)
 	timer = secondsPased.ReadSec();
 	if (timer >= time + 8.0f) {
 		time = timer;
-		if (App->player->mana2 < 100) {
+		if (App->player->mana2 < App->player->maxMana) {
 			App->player->mana2 += 10;
 		}
 	}
