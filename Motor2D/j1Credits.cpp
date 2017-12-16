@@ -15,6 +15,7 @@
 #include "j1Player.h"
 #include "j1FadeToBlack.h"
 #include "j1Intro.h"
+#include "Brofiler\Brofiler.h"
 
 j1Credits::j1Credits() : j1Module()
 {
@@ -45,12 +46,14 @@ bool j1Credits::Start()
 // Called each loop iteration
 bool j1Credits::PreUpdate()
 {
+	BROFILER_CATEGORY("j1CreditsPreUpdate", Profiler::Color::RosyBrown);
 	return true;
 }
 
 // Called each loop iteration
 bool j1Credits::Update(float dt)
 {
+	BROFILER_CATEGORY("j1CreditsUpdate", Profiler::Color::RosyBrown);
 	if (first_update == true) {
 		background = App->gui->AddLabel(0, 0, { 799, 23, 1024, 768 }, NULL, this);
 
@@ -74,6 +77,7 @@ bool j1Credits::Update(float dt)
 // Called each loop iteration
 bool j1Credits::PostUpdate()
 {
+	BROFILER_CATEGORY("j1CreditsPostUpdate", Profiler::Color::RosyBrown);
 	bool ret = true;
 
 	/*if (App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)

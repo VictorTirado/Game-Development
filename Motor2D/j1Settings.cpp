@@ -15,6 +15,7 @@
 #include "j1Player.h"
 #include "j1FadeToBlack.h"
 #include "j1Intro.h"
+#include "Brofiler\Brofiler.h"
 
 j1Settings::j1Settings() : j1Module()
 {
@@ -44,12 +45,14 @@ bool j1Settings::Start()
 // Called each loop iteration
 bool j1Settings::PreUpdate()
 {
+	BROFILER_CATEGORY("j1SettingsPreUpdate", Profiler::Color::PapayaWhip);
 	return true;
 }
 
 // Called each loop iteration
 bool j1Settings::Update(float dt)
 {
+	BROFILER_CATEGORY("j1SettingsUpdate", Profiler::Color::PapayaWhip);
 	if (first_update == true)
 	{
 		
@@ -81,6 +84,7 @@ bool j1Settings::Update(float dt)
 // Called each loop iteration
 bool j1Settings::PostUpdate()
 {
+	BROFILER_CATEGORY("j1SettingsPostUpdate", Profiler::Color::PapayaWhip);
 	bool ret = true;
 
 	/*if (App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)

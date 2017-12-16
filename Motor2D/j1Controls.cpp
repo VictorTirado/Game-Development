@@ -15,6 +15,7 @@
 #include "j1Player.h"
 #include "j1FadeToBlack.h"
 #include "j1Intro.h"
+#include "Brofiler\Brofiler.h"
 
 j1Controls::j1Controls() : j1Module()
 {
@@ -45,13 +46,14 @@ bool j1Controls::Start()
 // Called each loop iteration
 bool j1Controls::PreUpdate()
 {
+	BROFILER_CATEGORY("j1ControlsPreUpdate", Profiler::Color::Gold);
 	return true;
 }
 
 // Called each loop iteration
 bool j1Controls::Update(float dt)
 {
-	
+	BROFILER_CATEGORY("j1ControlsUpdate", Profiler::Color::Gold);
 
 	if (first_update == true)
 	{
@@ -93,6 +95,7 @@ bool j1Controls::Update(float dt)
 // Called each loop iteration
 bool j1Controls::PostUpdate()
 {
+	BROFILER_CATEGORY("j1ControlsPostUpdate", Profiler::Color::Gold);
 	bool ret = true;
 
 	/*if (App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)

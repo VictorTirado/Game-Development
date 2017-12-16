@@ -14,6 +14,7 @@
 #include "j1Scene.h"
 #include "j1Player.h"
 #include "j1FadeToBlack.h"
+#include "Brofiler\Brofiler.h"
 
 j1Lose::j1Lose() : j1Module()
 {
@@ -44,12 +45,14 @@ bool j1Lose::Start()
 // Called each loop iteration
 bool j1Lose::PreUpdate()
 {
+	BROFILER_CATEGORY("j1LosePreUpdate", Profiler::Color::LemonChiffon);
 	return true;
 }
 
 // Called each loop iteration
 bool j1Lose::Update(float dt)
 {
+	BROFILER_CATEGORY("j1LoseUpdate", Profiler::Color::LemonChiffon);
 	char playerCoins[(((sizeof App->player->coins_achieved) * CHAR_BIT) + 2) / 3 + 2];
 	sprintf_s(playerCoins, "%d", App->player->coins_achieved);
 	char playerScore[(((sizeof App->player->score) * CHAR_BIT) + 2) / 3 + 2];
@@ -99,6 +102,7 @@ bool j1Lose::Update(float dt)
 // Called each loop iteration
 bool j1Lose::PostUpdate()
 {
+	BROFILER_CATEGORY("j1LosePostUpdate", Profiler::Color::LemonChiffon);
 	bool ret = true;
 
 	/*if (App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)

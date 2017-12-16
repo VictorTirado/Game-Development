@@ -15,6 +15,7 @@
 #include "j1Player.h"
 #include "j1FadeToBlack.h"
 #include "j1Intro.h"
+#include "Brofiler\Brofiler.h"
 
 j1Pause::j1Pause() : j1Module()
 {
@@ -45,12 +46,14 @@ bool j1Pause::Start()
 // Called each loop iteration
 bool j1Pause::PreUpdate()
 {
+	BROFILER_CATEGORY("j1PausePreUpdate", Profiler::Color::Tan);
 	return true;
 }
 
 // Called each loop iteration
 bool j1Pause::Update(float dt)
 {
+	BROFILER_CATEGORY("j1PauseUpdate", Profiler::Color::Tan);
 	if (first_update == true) {
 		bg = App->gui->AddLabel(365, 178, { 71, 577, 262, 282 }, NULL, this);
 		button_load = App->gui->AddButton(400, 200, { 0,4,182,56 }, "Load", { 255,255,255 }, App->font->default, NULL, this);
@@ -76,6 +79,7 @@ bool j1Pause::Update(float dt)
 // Called each loop iteration
 bool j1Pause::PostUpdate()
 {
+	BROFILER_CATEGORY("j1PausePostUpdate", Profiler::Color::Tan);
 	bool ret = true;
 
 	/*if (App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)

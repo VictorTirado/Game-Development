@@ -11,7 +11,7 @@
 #include "GUITEXT.h"
 #include "GUIBUTTON.h"
 #include "j1Scene.h"
-
+#include "Brofiler\Brofiler.h"
 
 
 j1Gui::j1Gui() : j1Module()
@@ -45,6 +45,7 @@ bool j1Gui::Start()
 // Update all guis
 bool j1Gui::PreUpdate()
 {
+	BROFILER_CATEGORY("j1GuiPreUpdate", Profiler::Color::BlanchedAlmond);
 	//for (uint i = 0; i < MAX_UI_ELEMENTS; ++i)
 	//{
 	//	if (queue[i].type != GUI_Types::NO_TYPE)
@@ -65,6 +66,7 @@ bool j1Gui::PreUpdate()
 
 bool j1Gui::Update(float dt)
 {
+	BROFILER_CATEGORY("j1GuiUpdate", Profiler::Color::BlanchedAlmond);
 	App->input->GetMousePosition(mousePosition.x, mousePosition.y);
 
 	for (uint i = 0; i < MAX_UI_ELEMENTS; ++i) {
@@ -146,6 +148,7 @@ bool j1Gui::Update(float dt)
 // Called after all Updates
 bool j1Gui::PostUpdate()
 {
+	BROFILER_CATEGORY("j1GuiPostUpdate", Profiler::Color::BlanchedAlmond);
 	return true;
 }
 
@@ -193,7 +196,7 @@ GUI* j1Gui::CreateGUI(const GUIinfo& info) {
 			return GUI_Elements[i] = new GUI_Text(info.x, info.y, info.anim);
 			break;
 		case GUI_Types::CHECKBOX:
-			//GUI_Elements[i] = new Enemy_Boss(info.x, info.y);
+			
 			break;
 		}
 	}

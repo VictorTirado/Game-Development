@@ -14,6 +14,7 @@
 #include "j1Scene.h"
 #include "j1Player.h"
 #include "j1FadeToBlack.h"
+#include "Brofiler\Brofiler.h"
 
 j1Win::j1Win() : j1Module()
 {
@@ -44,12 +45,14 @@ bool j1Win::Start()
 // Called each loop iteration
 bool j1Win::PreUpdate()
 {
+	BROFILER_CATEGORY("j1WinPreUpdate", Profiler::Color::Navy);
 	return true;
 }
 
 // Called each loop iteration
 bool j1Win::Update(float dt)
 {
+	BROFILER_CATEGORY("j1WinUpdate", Profiler::Color::Navy);
 	char playerCoins[(((sizeof App->player->coins_achieved) * CHAR_BIT) + 2) / 3 + 2];
 	sprintf_s(playerCoins, "%d", App->player->coins_achieved);
 	char playerScore[(((sizeof App->player->score) * CHAR_BIT) + 2) / 3 + 2];
@@ -97,6 +100,7 @@ bool j1Win::Update(float dt)
 // Called each loop iteration
 bool j1Win::PostUpdate()
 {
+	BROFILER_CATEGORY("j1WinPostUpdate", Profiler::Color::Navy);
 	bool ret = true;
 
 	/*if (App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
