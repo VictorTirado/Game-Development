@@ -11,10 +11,10 @@ Good luck!
 ![Group](group_photo.jpeg)
 
 The boy on the right(Manel Mourelo):
-  - 
+  - Manager, programmer and designer
 
 The boy on the left(Víctor Tirado):
-  - 
+  - Artist, programmer and designer
 
 ## Evolution
 We started the project learning how to use Tiled an pugi, thanks to this we could do a simple platformer game loading from Tiled the map and the option to save and load the position of the player.
