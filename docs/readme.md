@@ -23,7 +23,8 @@ And finally we implemented the user interface and HUD in the game.
 Out of the core requirements we implemented a module that controls all the abilities, a mana system and  an in game menu.
 
 ## Download
-You can download the last version [here]
+
+You can download the last version [here](https://github.com/VictorTirado/Game-Development/releases)!
 
 ## Gameplay
 Here you can see a short gameplay: 
@@ -49,6 +50,7 @@ Debug Keys:
 * F9 ➲ View colliders and pathfinding
 * F10 ➲ God Mode
 * F11 ➲ Enable/disable FPS
+
 ## License
 MIT License
 
