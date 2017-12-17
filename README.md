@@ -33,3 +33,5 @@ You can move the camera with the arrows keys (this aren't controls for playing, 
 
 
 Music from https://soundcloud.com/pascalbelisle
+
+If you download the code and want to execute it you must put $(SolutionDir)Game\ in the work directory and PATH=%PATH%;$(SolutionDir)Build\ in the enviroment
