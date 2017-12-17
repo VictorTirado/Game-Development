@@ -45,7 +45,7 @@ public:
 	
 public:
 	bool vsync;
-	SDL_Renderer*	renderer;
+	SDL_Renderer*	renderer = NULL;
 	SDL_Rect		camera;
 	SDL_Rect		viewport;
 	SDL_Color		background;

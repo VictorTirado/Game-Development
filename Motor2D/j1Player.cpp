@@ -210,7 +210,7 @@ bool j1Player::Update(float dt)
 			App->enemies->AddEnemy(Books, 3328, 640);
 			App->enemies->AddEnemy(Books, 5312, 768);
 		}
-		else if (App->scene->map == 0)
+		 if (App->scene->map == 0)
 		{
 			App->enemies->AddEnemy(Books, 1216, 640);
 			App->enemies->AddEnemy(Books, 3072, 704);

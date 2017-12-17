@@ -7,7 +7,7 @@
 #define CURSOR_WIDTH 2
 #define MAX_UI_ELEMENTS 100
 
-// TODO 1: Create your structure of classes
+
 enum GUI_Types {
 	NON_TYPE,
 	BUTTON,
@@ -26,13 +26,13 @@ struct GUIinfo {
 	GUI_Types type = GUI_Types::NON_TYPE;
 	int x, y, h, w, xInFather, yInFather;
 	SDL_Rect anim;
-	SDL_Texture* texture;
+	SDL_Texture* texture = NULL;
 	int state;
 	int prevState;
 	int num;
-	GUI* father;
-	GUI* same;
-	j1Module* callback;
+	GUI* father = NULL;
+	GUI* same = NULL;
+	j1Module* callback = NULL;
 };
 // ---------------------------------------------------
 class j1Gui : public j1Module
@@ -60,13 +60,11 @@ public:
 
 	// Called before quitting
 	bool CleanUp();
-
-	// TODO 2: Create the factory methods
 	// Gui creation functions
 	GUI* AddLabel(int x, int y, SDL_Rect anim, GUI* father, j1Module* callback);
 	GUI* AddText(int x, int y, p2SString text, SDL_Color color, _TTF_Font* font, GUI* father, j1Module* callback);
 	GUI* AddButton(int x, int y, SDL_Rect anim, p2SString text, SDL_Color color, _TTF_Font* font, GUI* father, j1Module* callback);
-	GUI* AddcheckBox();
+	
 
 	void destroyElement(GUI* element);
 
@@ -78,12 +76,12 @@ public:
 
 private:
 
-	SDL_Texture* atlas;
+	SDL_Texture* atlas = NULL;
 	p2SString atlas_file_name;
 	GUIinfo queue[MAX_UI_ELEMENTS];
 	int buttons[MAX_UI_ELEMENTS];
 	GUI* GUI_Elements[MAX_UI_ELEMENTS];
-	SDL_Texture* texture_text;
+	SDL_Texture* texture_text = NULL;
 	iPoint mousePosition;
 	int numButtons = 0;
 	int numLabels = 0;

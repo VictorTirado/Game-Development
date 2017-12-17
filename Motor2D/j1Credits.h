@@ -40,7 +40,7 @@ public:
 	int buttonClicked = 0;
 
 private:
-	SDL_Texture* debug_tex;
+	SDL_Texture* debug_tex = NULL;
 
 public:
 	GUI* return_intro = NULL;

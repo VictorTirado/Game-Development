@@ -76,7 +76,7 @@ bool j1Settings::Update(float dt)
 	{
 		ret = false;
 	}
-	// Gui ---
+	
 
 	return ret;
 }
@@ -87,8 +87,7 @@ bool j1Settings::PostUpdate()
 	BROFILER_CATEGORY("j1SettingsPostUpdate", Profiler::Color::PapayaWhip);
 	bool ret = true;
 
-	/*if (App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
-		ret = false;*/
+	
 
 	return ret;
 }
@@ -103,12 +102,11 @@ bool j1Settings::CleanUp()
 
 void j1Settings::GUIInteract(GUI* g)
 {
-	LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
 
 	
 	if (g == return_intro)
 	{
-		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+		
 		App->fade->FadeToBlack(2.0f);
 		App->intro->active = true;
 		this->active = false;

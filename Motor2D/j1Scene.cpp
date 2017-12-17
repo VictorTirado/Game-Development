@@ -55,7 +55,7 @@ bool j1Scene::Update(float dt)
 {
 	BROFILER_CATEGORY("j1SceneUpdate", Profiler::Color::SaddleBrown);
 	
-	//playerCoins = static_cast<std::ostringstream*>(&(std::ostringstream() << App->player->coins_achieved))->str();
+	
 
 	char playerCoins[(((sizeof App->player->coins_achieved) * CHAR_BIT) + 2) / 3 + 2];
 	 sprintf_s(playerCoins, "%d", App->player->coins_achieved);
@@ -122,6 +122,7 @@ bool j1Scene::Update(float dt)
 	
 	
 	if (App->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN) {
+		App->player->firstUpdate = true;
 		App->LoadGame();
 		App->player->spawnEnemies = true;
 		App->player->dead = true;
@@ -180,35 +181,35 @@ bool j1Scene::Update(float dt)
 
 	if (App->player->mana2 < App->player->cost_fire && App->player->coins_achieved >= 2)
 	{
-		//App->gui->changeTexture(App->scene->fire, {413,153,50,50});
+		
 		App->gui->destroyElement(fire);
 		fire = App->gui->AddLabel(410, 10, { 413,153,50,50 }, NULL, this);
 	}
 	else if (App->player->mana2 >= App->player->cost_fire && App->player->coins_achieved >= 2) {
-		//App->gui->changeTexture(App->scene->fire, { 413, 99, 50, 50 });
+		
 		App->gui->destroyElement(fire);
 		fire = App->gui->AddLabel(410, 10, { 413,99,50,50 }, NULL, this);
 	}
 	if (App->player->mana2 < App->player->cost_thunder)
 	{
-		//App->gui->changeTexture(App->scene->thunder, { 486,153,50,50 });
+		
 		App->gui->destroyElement(thunder);
 		thunder = App->gui->AddLabel(360, 10, { 486,153,50,50 }, NULL, this);
 	}
 	else if (App->player->mana2 >= App->player->cost_thunder) {
-		//App->gui->changeTexture(App->scene->thunder, { 480, 99, 50, 50 });
+	
 		App->gui->destroyElement(thunder);
 		thunder = App->gui->AddLabel(360, 10, { 480,99,50,50 }, NULL, this);
 	}
 
 	if (App->player->mana2 < App->player->cost_ice && App->player->coins_achieved >= 4)
 	{
-		//App->gui->changeTexture(App->scene->ice, { 550,153,50,50 });
+		
 		App->gui->destroyElement(ice);
 		ice = App->gui->AddLabel(460, 10, { 550,153,50,50 }, NULL, this);
 	}
 	else if (App->player->mana2 >= App->player->cost_ice && App->player->coins_achieved >= 4) {
-		//App->gui->changeTexture(App->scene->ice, { 546, 97, 50, 50 });
+		
 		App->gui->destroyElement(ice);
 		ice = App->gui->AddLabel(460, 10, { 546,97,50,50 }, NULL, this);
 	}
@@ -248,5 +249,5 @@ bool j1Scene::CleanUp()
 
 void j1Scene::GUIInteract(GUI* g)
 {
-	LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+
 }

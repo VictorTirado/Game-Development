@@ -80,8 +80,6 @@ bool j1Credits::PostUpdate()
 	BROFILER_CATEGORY("j1CreditsPostUpdate", Profiler::Color::RosyBrown);
 	bool ret = true;
 
-	/*if (App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
-		ret = false;*/
 
 	return ret;
 }

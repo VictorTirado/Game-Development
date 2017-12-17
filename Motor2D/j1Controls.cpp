@@ -87,20 +87,18 @@ bool j1Controls::Update(float dt)
 	{
 		ret = false;
 	}
-	// Gui ---
+	
 
 	return ret;
 }
 
-// Called each loop iteration
+
 bool j1Controls::PostUpdate()
 {
 	BROFILER_CATEGORY("j1ControlsPostUpdate", Profiler::Color::Gold);
 	bool ret = true;
 
-	/*if (App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
-		ret = false;
-*/
+
 	return ret;
 }
 

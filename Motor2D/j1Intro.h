@@ -40,9 +40,9 @@ public:
 	int buttonClicked = 0;
 
 private:
-	SDL_Texture* debug_tex;
-	GuiImage* banner;
-	GuiText* text;
+	SDL_Texture* debug_tex = NULL;
+	GuiImage* banner = NULL;
+	GuiText* text = NULL;
 public:
 	GUI* text_menu = NULL;
 	GUI* text_history = NULL;

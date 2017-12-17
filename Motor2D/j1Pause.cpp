@@ -71,7 +71,6 @@ bool j1Pause::Update(float dt)
 	{
 		ret = false;
 	}
-	// Gui ---
 
 	return ret;
 }
@@ -82,8 +81,7 @@ bool j1Pause::PostUpdate()
 	BROFILER_CATEGORY("j1PausePostUpdate", Profiler::Color::Tan);
 	bool ret = true;
 
-	/*if (App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
-		ret = false;*/
+	
 
 	return ret;
 }

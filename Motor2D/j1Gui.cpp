@@ -47,15 +47,6 @@ bool j1Gui::Start()
 bool j1Gui::PreUpdate()
 {
 	BROFILER_CATEGORY("j1GuiPreUpdate", Profiler::Color::BlanchedAlmond);
-	//for (uint i = 0; i < MAX_UI_ELEMENTS; ++i)
-	//{
-	//	if (queue[i].type != GUI_Types::NO_TYPE)
-	//	{
-	//		CreateGUI(queue[i]);
-	//		queue[i].type = GUI_Types::NO_TYPE;
-	//	}
-	//}
-
 	for (uint i = 0; i < MAX_UI_ELEMENTS; ++i) {
 		if (GUI_Elements[i] != nullptr) {
 			GUI_Elements[i]->Interact(queue[i].state);
@@ -76,17 +67,6 @@ bool j1Gui::Update(float dt)
 		}
 	}
 
-	//for (uint i = 0; i < MAX_UI_ELEMENTS; ++i) {
-	//	if (GUI_Elements[i] != nullptr) {
-	//		if (queue[i].father != NULL) {
-	//			queue[i].father->position.x++;
-	//			queue[i].father->position.y++;
-	//			queue[i - 1].x++;
-	//			queue[i - 1].y++;
-	//		}
-	//	}
-	//}
-
 	for (uint i = 0; i < MAX_UI_ELEMENTS; ++i) {
 		if (GUI_Elements[i] != nullptr) {
 			if (queue[i].father != NULL) {
@@ -98,21 +78,6 @@ bool j1Gui::Update(float dt)
 		}
 	}
 
-	//if (App->input->GetKey(SDL_SCANCODE_TAB) == KEY_DOWN) {
-	//	if (buttonsIterator == 0) {
-	//		queue[buttons[buttonsIterator]].state = 1;
-	//		buttonsIterator++;
-	//	}
-	//	else {
-	//		queue[buttons[buttonsIterator]].state = 0;
-	//		queue[buttons[buttonsIterator]].state = 1;
-	//		buttonsIterator++;
-	//		if (buttonsIterator == numButtons) {
-	//			buttonsIterator = 0;
-	//		}
-	//	}
-	//}
-
 	for (uint i = 0; i < MAX_UI_ELEMENTS; ++i) {
 		if (GUI_Elements[i] != nullptr) {
 			if (mousePosition.x>queue[i].x && mousePosition.x<queue[i].x + queue[i].w && mousePosition.y>queue[i].y && mousePosition.y<queue[i].y + queue[i].h) {
@@ -120,7 +85,6 @@ bool j1Gui::Update(float dt)
 				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT)) {
 					queue[i].state = 2;
 					queue[i].prevState = 2;
-					//queue[i].callback->GUIInteract(GUI_Elements[i]);
 				}
 				else {
 					queue[i].state = 1;
@@ -326,14 +290,6 @@ GUI* j1Gui::AddButton(int x, int y, SDL_Rect anim, p2SString text, SDL_Color col
 	}
 	return ret;
 }
-//GUI* j1Gui::AddcheckBox() {
-//	return true;
-//}
-
-//void j1Gui::buttonClicked(int button) {
-//	App->scene->buttonClicked = button + 1;
-//}
-
 void j1Gui::destroyElement(GUI* element) {
 	
 	for (uint i = 0; i < MAX_UI_ELEMENTS; ++i)

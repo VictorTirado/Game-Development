@@ -103,10 +103,6 @@ bool j1Win::PostUpdate()
 {
 	BROFILER_CATEGORY("j1WinPostUpdate", Profiler::Color::Navy);
 	bool ret = true;
-
-	/*if (App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
-		ret = false;*/
-
 	return ret;
 }
 
@@ -120,7 +116,7 @@ bool j1Win::CleanUp()
 
 void j1Win::GUIInteract(GUI* g)
 {
-	LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+	
 
 	if (g == return_exit)
 	{
@@ -128,9 +124,7 @@ void j1Win::GUIInteract(GUI* g)
 	}
 	if (g == return_intro)
 	{
-
 		App->scene->first_update = true;
-		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
 		this->active = false;
 		App->scene->active = true;
 		App->player->active = true;

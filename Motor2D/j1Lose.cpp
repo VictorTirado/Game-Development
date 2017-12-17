@@ -37,8 +37,6 @@ bool j1Lose::Awake()
 // Called before the first frame
 bool j1Lose::Start()
 {
-
-	
 	return true;
 }
 
@@ -106,8 +104,7 @@ bool j1Lose::PostUpdate()
 	BROFILER_CATEGORY("j1LosePostUpdate", Profiler::Color::LemonChiffon);
 	bool ret = true;
 
-	/*if (App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
-		ret = false;*/
+	
 
 	return ret;
 }
@@ -122,7 +119,7 @@ bool j1Lose::CleanUp()
 
 void j1Lose::GUIInteract(GUI* g)
 {
-	LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+	
 	if (g == return_exit2)
 	{
 		close = true;
@@ -130,9 +127,7 @@ void j1Lose::GUIInteract(GUI* g)
 
 	if (g == return_intro2)
 	{
-
 		App->scene->first_update = true;
-		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
 		this->active = false;
 		App->scene->active = true;
 		App->player->active = true;

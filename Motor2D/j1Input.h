@@ -70,7 +70,7 @@ public:
 
 private:
 	bool		windowEvents[WE_COUNT];
-	j1KeyState*	keyboard;
+	j1KeyState*	keyboard = NULL;
 	j1KeyState	mouse_buttons[NUM_MOUSE_BUTTONS];
 	int			mouse_motion_x;
 	int			mouse_motion_y;

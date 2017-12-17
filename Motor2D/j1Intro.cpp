@@ -90,9 +90,7 @@ bool j1Intro::PostUpdate()
 	BROFILER_CATEGORY("j1IntroPostUpdate", Profiler::Color::Khaki);
 	bool ret = true;
 
-	/*if (App->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
-		ret = false;
-*/
+
 	return ret;
 }
 
@@ -107,7 +105,7 @@ bool j1Intro::CleanUp()
 void j1Intro::GUIInteract(GUI* g)
 {
 
-	LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+	
 	if (g == button_start)
 	{
 		App->fade->FadeToBlack(2.0f);
@@ -223,7 +221,6 @@ void j1Intro::GUIInteract(GUI* g)
 	}
 	if (g == button_exit)
 	{
-		LOG("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
 		close = true;
 	}
 

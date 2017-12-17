@@ -54,8 +54,8 @@ private:
 
 	EnemyInfo queue[MAX_ENEMIES];
 	j1Enemy* enemies[MAX_ENEMIES];
-	SDL_Texture* sprites;
-	SDL_Texture* final_boss;
+	SDL_Texture* sprites = NULL;
+	SDL_Texture* final_boss = NULL;
 
 	float proj_speed = 5.0f;
 	float speed_x_mult, speed_y_mult, common_mult, a_mult;
