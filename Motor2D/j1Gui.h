@@ -89,8 +89,10 @@ private:
 	int numLabels = 0;
 	int numTexts = 0;
 	int buttonsIterator = 0;
+	bool debug = false;
 
 	GUI* CreateGUI(const GUIinfo& info);
+	void debugDraw();
 };
 
 #endif // __j1GUI_H__

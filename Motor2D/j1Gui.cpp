@@ -143,6 +143,7 @@ bool j1Gui::Update(float dt)
 		}
 	}
 
+	debugDraw();
 
 	return true;
 }
@@ -374,6 +375,21 @@ void j1Gui::changeTexture(GUI* element, SDL_Rect anim) {
 				AddLabel(queue[i].x,queue[i].y, anim, queue[i].father,queue[i].callback);
 				destroyElement(GUI_Elements[i]);
 			}
+		}
+	}
+}
+
+void j1Gui::debugDraw() {
+	if (App->input->GetKey(SDL_SCANCODE_F8) == KEY_DOWN)
+		debug = !debug;
+
+	if (debug == false)
+		return;
+
+	Uint8 alpha = 80;
+	for (uint i = 0; i < MAX_UI_ELEMENTS; ++i) {
+		if (GUI_Elements[i] != NULL) {
+			App->render->DrawQuad({queue[i].x, queue[i].y, queue[i].w, queue[i].h }, 255, 0, 0, alpha, false, false);
 		}
 	}
 }
