@@ -29,16 +29,7 @@ Debug Keys:
 * F10 ➲ God Mode
 * F11 ➲ Enable/disable FPS
 
-F1➲ Start from the very first level
-F2➲ Start from the beginning of the current level
-F5➲ Save the current state
-F6➲ Load the previous state
-F9➲ View Colliders
-F10➲ God Mode
-F11➲ Enable/Disable FPS cap to 30
-
 You can move the camera with the arrows keys (this aren't controls for playing, just for debugging purpose)
-
 
 
 Music from https://soundcloud.com/pascalbelisle
