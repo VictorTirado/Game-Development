@@ -32,6 +32,7 @@ Out of the core requirements we implemented a module that controls all the abili
 
 ## Gameplay
 Here you can see a short gameplay: 
+<iframe width="854" height="480" src="https://www.youtube.com/embed/iAVfr9ZQJWo" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
 ## Controls
 *  Q ➲ Ice attack
