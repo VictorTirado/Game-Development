@@ -23,8 +23,8 @@ And finally we implemented the user interface and HUD in the game.
 Out of the core requirements we implemented a module that controls all the abilities, a mana system and  an in game menu.
 
 ## Download
-
-You can download the last version [here](https://github.com/VictorTirado/Game-Development/releases)!
+* You can see our repositoy [here](https://github.com/VictorTirado/Game-Development).
+* You can download the last version [here](https://github.com/VictorTirado/Game-Development/releases/tag/2.0)!
 
 ## Gameplay
 Here you can see a short gameplay: 
