@@ -181,9 +181,18 @@ bool j1Scene::Update(float dt)
 		App->player->GodMode = !App->player->GodMode;
 	}
 
+	if (App->player->coins_achieved < 2) {
+		App->gui->destroyElement(fire);
+		fire = App->gui->AddLabel(410, 10, { 621,35,46,45 }, NULL, App->scene);
+	}
+
+	if (App->player->coins_achieved < 4) {
+		App->gui->destroyElement(ice);
+		ice = App->gui->AddLabel(460, 10, { 676,36,46,45 }, NULL, App->scene);
+	}
+
 	if (App->player->mana2 < App->player->cost_fire && App->player->coins_achieved >= 2)
 	{
-		
 		App->gui->destroyElement(fire);
 		fire = App->gui->AddLabel(410, 10, { 413,153,50,50 }, NULL, this);
 	}

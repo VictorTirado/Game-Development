@@ -7,13 +7,13 @@
 	<map />
 	<scene />
 	<player>
-		<pos x="892" y="591" />
-		<map z="0" />
+		<pos x="576" y="576" />
+		<map z="1" />
 		<mana m="100" />
 		<lifes l="3" />
 		<score s="0" />
 		<books b="0" />
-		<time t="7.42399979" />
+		<time t="1.28399992" />
 	</player>
 	<:anonymous />
 	<:anonymous />
@@ -31,6 +31,6 @@
 	<pause />
 	<:anonymous />
 	<renderer>
-		<camera x="-380" y="-207" />
+		<camera x="-64" y="-192" />
 	</renderer>
 </game_state>
