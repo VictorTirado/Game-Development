@@ -1,4 +1,4 @@
-## Wizard's power
+# Wizard's power
 
 
 ## Introduction
@@ -20,16 +20,35 @@ The boy on the left(Víctor Tirado):
 We started the project learning how to use Tiled an pugi, thanks to this we could do a simple platformer game loading from Tiled the map and the option to save and load the position of the player.
 Later we learned pathfinding, starting from BFS, dijkstra and finally A*. After that we started to control the framerate in the game, capping the FPS or using dt. Once we implemented that in the game we started to use Brofiler, a tool that can help us to know how efficent is our code.
 And finally we implemented the user interface and HUD in the game.
-Out of the core requirements we implemented a module that controls all the abilities and a mana system.
+Out of the core requirements we implemented a module that controls all the abilities, a mana system and  an in game menu.
 
 ## Download
 You can download the last version [here]
+
 ## Gameplay
 Here you can see a short gameplay: 
 
 ## Controls
+*  Q ➲ Ice attack
+*  E ➲ Melee attack (thunder)
+*  R ➲ Distance attack (fireball)
+*  A ➲ Move left
+*  D ➲ Move right
 *  SPACE ➲ Jump
+*  L-SHIFT (while jumping) ➲ Levitate
+*  W (if god mode) ➲ Fly
+*  S (if god mode) ➲ Descend
+* ESC (in game) ➲ Open menu
 
+Debug Keys:
+* F1 ➲ Start first level
+* F2 ➲ Start from the beginning of the current level
+* F5 ➲ Save the current state
+* F6 ➲ Load the previous state
+* F8 ➲ Debug UI
+* F9 ➲ View colliders and pathfinding
+* F10 ➲ God Mode
+* F11 ➲ Enable/disable FPS
 ## License
 MIT License
 
