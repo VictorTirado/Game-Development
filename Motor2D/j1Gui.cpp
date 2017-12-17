@@ -314,6 +314,7 @@ void j1Gui::destroyElement(GUI* element) {
 			}
 			if (queue[i].type == TEXT) {
 				numTexts--;
+				App->tex->UnLoad(queue[i].texture);
 				for (uint j = 0; j < MAX_UI_ELEMENTS; ++j) {
 					if (queue[j].type == TEXT && queue[j].num>queue[i].num) {
 						queue[j].num -= 1;
@@ -348,6 +349,7 @@ void j1Gui::destroyElement(GUI* element) {
 			}
 			if (queue[i].type == TEXT) {
 				numTexts--;
+				App->tex->UnLoad(queue[i].texture);
 				for (uint j = 0; j < MAX_UI_ELEMENTS; ++j) {
 					if (queue[j].type == TEXT && queue[j].num>queue[i].num) {
 						queue[j].num -= 1;
