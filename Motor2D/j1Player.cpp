@@ -203,6 +203,11 @@ bool j1Player::Update(float dt)
 		App->scene->active = false;
 		App->defeat->active = true;
 	}
+
+	if (mana2 > maxMana) {
+		mana2 = maxMana;
+	}
+
 	if (firstUpdate == true) {
 		if (App->scene->map == 1)
 		{
