@@ -124,12 +124,15 @@ void j1Win::GUIInteract(GUI* g)
 	}
 	if (g == return_intro)
 	{
+		App->player->prevlvl_coins_achieved = 0;
+		App->player->prevlvl_maxMana = 100;
+		App->player->prevlvl_score = 0;
 		App->scene->first_update = true;
 		this->active = false;
 		App->scene->active = true;
 		App->player->active = true;
 		App->player->lifes = 3;
-		App->player->mana2 = 100;
+		App->player->mana2 = App->player->prevlvl_maxMana;
 		first_update = true;
 		App->gui->destroyElement(background);
 		App->gui->destroyElement(label);

@@ -122,6 +122,8 @@ bool j1Scene::Update(float dt)
 	
 	
 	if (App->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN) {
+		App->enemies->FreeEnemies();
+		App->collision->EraseCollider(App->player->collider);
 		App->player->firstUpdate = true;
 		App->LoadGame();
 		App->player->spawnEnemies = true;

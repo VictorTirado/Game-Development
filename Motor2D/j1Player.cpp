@@ -218,7 +218,9 @@ bool j1Player::Update(float dt)
 
 		}
 		
-	
+		 maxMana = prevlvl_maxMana;
+		 coins_achieved = prevlvl_coins_achieved;
+		 score = prevlvl_score;
 		time_before_start = time_since_start;
 		position = startPos;
 		if (continue_pressed == false)
@@ -329,6 +331,7 @@ bool j1Player::Update(float dt)
 					App->collision->EraseCollider(collider);
 					if (GodMode == false) {
 						lifes--;
+						App->enemies->FreeEnemies();
 						App->gui->destroyElement(App->scene->health);
 						if (lifes == 2)
 						{
@@ -425,6 +428,7 @@ bool j1Player::Update(float dt)
 			App->collision->EraseCollider(collider);
 			if (GodMode == false) {
 				lifes--;
+				App->enemies->FreeEnemies();
 				App->gui->destroyElement(App->scene->health);
 				if (lifes == 2)
 				{
@@ -445,6 +449,7 @@ bool j1Player::Update(float dt)
 		App->collision->EraseCollider(collider);
 		if (GodMode == false) {
 			lifes--;
+			App->enemies->FreeEnemies();
 			App->gui->destroyElement(App->scene->health);
 			if (lifes == 2)
 			{
@@ -455,11 +460,14 @@ bool j1Player::Update(float dt)
 				App->scene->health = App->gui->AddLabel(10, 10, { 595, 1131, 67, 67 }, NULL, App->scene);
 			}
 		}
-		mana2 = 100;
+		mana2 = maxMana;
 		firstUpdate = true;
 	}
 
 	if (App->map->data.maplayers.end->data->data[gid + 1] == 1131) {
+		prevlvl_coins_achieved = coins_achieved;
+		prevlvl_maxMana = maxMana;
+		prevlvl_score = score;
 		if (App->scene->map == 1)
 		{
 			spawnEnemies = true;
@@ -643,6 +651,7 @@ void j1Player::OnCollision(Collider* c1, Collider* c2) {
 			dead = true;
 			App->collision->EraseCollider(collider);
 			lifes--;
+			App->enemies->FreeEnemies();
 			App->gui->destroyElement(App->scene->health);
 			if (lifes == 2)
 			{

@@ -45,6 +45,9 @@ public:
 	int mana2 = 100;
 	int maxMana = 100;
 	int score = 0;
+	int prevlvl_score = 0;
+	int prevlvl_coins_achieved = 0;
+	int prevlvl_maxMana = 100;
 	bool continue_pressed = false;
 	
 	uint coins_achieved = 0;
