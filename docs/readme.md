@@ -1,5 +1,5 @@
 # Wizard's power
-
+![Logo](logo.png)
 
 ## Introduction
 We are two students from CITM Terrassa, in second grade of game design. This project has been done for the subject of videogame development. Since we started the subject we have been applying what we were learning in class in this project.So here you can see our final result.
