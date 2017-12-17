@@ -340,6 +340,30 @@ void j1Gui::destroyElement(GUI* element) {
 	{
 		if (queue[i].father == element)
 		{
+			if (queue[i].type == BUTTON) {
+				numButtons--;
+				for (uint j = 0; j < MAX_UI_ELEMENTS; ++j) {
+					if (queue[j].type == BUTTON && queue[j].num>queue[i].num) {
+						queue[j].num -= 1;
+					}
+				}
+			}
+			if (queue[i].type == LABEL) {
+				numLabels--;
+				for (uint j = 0; j < MAX_UI_ELEMENTS; ++j) {
+					if (queue[j].type == LABEL && queue[j].num>queue[i].num) {
+						queue[j].num -= 1;
+					}
+				}
+			}
+			if (queue[i].type == TEXT) {
+				numTexts--;
+				for (uint j = 0; j < MAX_UI_ELEMENTS; ++j) {
+					if (queue[j].type == TEXT && queue[j].num>queue[i].num) {
+						queue[j].num -= 1;
+					}
+				}
+			}
 			delete GUI_Elements[i];
 			GUI_Elements[i] = nullptr;
 			queue[i].type = NON_TYPE;
@@ -350,6 +374,30 @@ void j1Gui::destroyElement(GUI* element) {
 	{
 		if (GUI_Elements[i] == element)
 		{
+			if (queue[i].type == BUTTON) {
+				numButtons--;
+				for (uint j = 0; j < MAX_UI_ELEMENTS; ++j) {
+					if (queue[j].type == BUTTON && queue[j].num>queue[i].num) {
+						queue[j].num -= 1;
+					}
+				}
+			}
+			if (queue[i].type == LABEL) {
+				numLabels--;
+				for (uint j = 0; j < MAX_UI_ELEMENTS; ++j) {
+					if (queue[j].type == LABEL && queue[j].num>queue[i].num) {
+						queue[j].num -= 1;
+					}
+				}
+			}
+			if (queue[i].type == TEXT) {
+				numTexts--;
+				for (uint j = 0; j < MAX_UI_ELEMENTS; ++j) {
+					if (queue[j].type == TEXT && queue[j].num>queue[i].num) {
+						queue[j].num -= 1;
+					}
+				}
+			}
 			delete GUI_Elements[i];
 			GUI_Elements[i] = nullptr;
 			queue[i].type = NON_TYPE;
