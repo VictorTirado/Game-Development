@@ -2,6 +2,8 @@
 This is a game for development subject. 
 The game was made by Víctor Tirado and Manel Mourelo.
 
+Web link: https://victortirado.github.io/Game-Development/
+
 Github repository: https://github.com/VictorTirado/Game-Development
 
 In the game you will take on the role of a magician who will have to get stronger knowing new spells, thanks to the magic books that are around the town. But it will not be so easy to get them because the town is full of enemies and a final boss waiting at the end of town.
@@ -30,6 +32,7 @@ Debug Keys:
 * F11 ➲ Enable/disable FPS
 
 You can move the camera with the arrows keys (this aren't controls for playing, just for debugging purpose)
+
 
 Music from https://soundcloud.com/pascalbelisle
 
